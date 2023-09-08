@@ -1,11 +1,20 @@
 #pragma once
+
+enum class FeatureType
+{
+	Concrete,
+	Metal
+};
+
 class Feature
 {
 private:
 	class Actor* actor;
 
 public:
-	Feature();
+	// @brief 지형지물 생성자
+	// @param type 지형지물 타입[ 0: Concrete, 1: Metal]
+	explicit Feature(int type = 0);
 	~Feature();
 	void Init();
 	void Update();

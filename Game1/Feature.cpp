@@ -1,10 +1,14 @@
 #include "stdafx.h"
 #include "Feature.h"\
 
-Feature::Feature()
+Feature::Feature(int type)
 {
 	actor = Actor::Create();
-	//actor->LoadFile("Feature.xml");
+
+	if (type == 0)
+		actor->LoadFile("Concrete.xml");
+	else if (type == 1)
+		actor->LoadFile("Metal.xml");
 }
 
 Feature::~Feature()
