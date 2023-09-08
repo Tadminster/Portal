@@ -13,7 +13,7 @@
         </Transform>
         <Children Size="1"/>
         <Child0 Name="BodyMesh" Visible="true" ObType="0">
-            <Mesh File="1.Cube.mesh"/>
+            <Mesh File="6.Cube.mesh"/>
             <Shader File="1.Cube.hlsl"/>
             <Collider ColliderType="2" Visible="true">
                 <Position X="0" Y="0" Z="0"/>
