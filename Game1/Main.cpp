@@ -23,6 +23,10 @@ Main::~Main()
     // JSG TEST
     // 테스트용
     //   test 
+    //   test 
+    //   test 
+    //   test 
+    //   test 
 }
 
 void Main::Init()
