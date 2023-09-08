@@ -4,7 +4,7 @@
 Player::Player()
 {
 	actor = Actor::Create();
-	//actor->LoadFile("Player.xml");
+	actor->LoadFile("Player.xml");
 }
 
 Player::~Player()
