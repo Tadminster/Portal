@@ -72,6 +72,8 @@ void Main::Update()
     ImGui::Begin("Hierarchy");
     grid->RenderHierarchy();
     cam1->RenderHierarchy();
+    player->GetActor()->RenderHierarchy();
+    wall->GetActor()->RenderHierarchy();
     ImGui::End();
 
     grid->Update();
