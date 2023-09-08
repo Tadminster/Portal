@@ -1,4 +1,4 @@
-<Root Name="Actor" Visible="true" ObType="1">
+<Root Name="Player" Visible="true" ObType="1">
     <Transform>
         <Position X="0" Y="0" Z="0"/>
         <Scale X="1" Y="1" Z="1"/>

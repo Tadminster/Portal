@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Feature.h"
 
-Feature::Feature(int type)
+Feature::Feature(int tileSize, int type)
 {
 	actor = Actor::Create();
 
@@ -9,6 +9,8 @@ Feature::Feature(int type)
 		actor->LoadFile("Concrete.xml");
 	else if (type == 1)
 		actor->LoadFile("Metal.xml");
+
+	actor->Find("BodyMesh")->scale = Vector3(tileSize, tileSize, tileSize);
 }
 
 Feature::~Feature()

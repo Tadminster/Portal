@@ -14,7 +14,7 @@ private:
 public:
 	// @brief 지형지물 생성자
 	// @param type 지형지물 타입[ 0: Concrete, 1: Metal]
-	explicit Feature(int type = 0);
+	Feature(int tileSize = 3,int type = 0);
 	~Feature();
 	void Init();
 	void Update();

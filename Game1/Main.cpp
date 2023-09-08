@@ -57,7 +57,7 @@ Main::~Main()
 
 void Main::Init()
 {
-	
+    wall->GetActor()->scale = Vector3(1, 1, 1);
 }
 
 void Main::Release()
