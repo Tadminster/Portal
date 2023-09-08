@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Feature.h"\
+#include "Feature.h"
 
 Feature::Feature(int type)
 {

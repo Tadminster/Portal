@@ -6,6 +6,7 @@ private:
 	// default
 	Camera* cam1;
 	Grid* grid;
+	
 
 	// ¸Ê
 	class Feature* wall;
