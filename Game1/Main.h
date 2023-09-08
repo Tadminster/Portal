@@ -6,6 +6,7 @@ private:
 
 	Camera* cam1;
 	Grid* grid;
+	
 
 public:
 	Main();

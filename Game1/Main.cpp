@@ -47,21 +47,7 @@ Main::Main()
 Main::~Main()
 {
 
-    // JSG TEST
-    // 테스트용
-    //   test 
-    //   test 
-    //   test 
-    //   test 
-    //   test 
-
-    // 개인작업 어쩌구
-    // 개인작업 어쩌구
-    // 개인작업 어쩌구
-    // 개인작업 어쩌구
-    // 개인작업 어쩌구
-    // 개인작업 어쩌구
-    // 개인작업 어쩌구
+    
 }
 
 void Main::Init()

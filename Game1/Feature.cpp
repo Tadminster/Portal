@@ -1,10 +1,10 @@
 #include "stdafx.h"
-#include "Feature.h"\
+#include "Feature.h"
 
 Feature::Feature()
 {
 	actor = Actor::Create();
-	//actor->LoadFile("Feature.xml");
+	actor->LoadFile("Feature.xml");
 }
 
 Feature::~Feature()
