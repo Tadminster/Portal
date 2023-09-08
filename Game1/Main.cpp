@@ -46,7 +46,7 @@ Main::Main()
     cam1->height = App.GetHeight();
 
     player = new Player();
-    wall = new Feature();
+    wall = new Feature(1, 5);
 }
 
 Main::~Main()
