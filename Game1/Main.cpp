@@ -21,7 +21,7 @@ Main::~Main()
 {
 
     // JSG TEST
-
+    // 테스트용
 
 }
 
