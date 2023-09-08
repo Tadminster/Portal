@@ -1,4 +1,6 @@
 #include "stdafx.h"
+#include "Player.h"
+#include "Feature.h"
 #include "Main.h"
 
 // [페치] 온라인에 있는 내용을 가져옴
@@ -34,20 +36,23 @@ Main::Main()
 
     cam1 = Camera::Create();
     cam1->LoadFile("Cam.xml");
-    Camera::main = cam1;
 
+    Camera::main = cam1;
     cam1->viewport.x = 0.0f;
     cam1->viewport.y = 0.0f;
     cam1->viewport.width = App.GetWidth();
     cam1->viewport.height = App.GetHeight();
     cam1->width = App.GetWidth();
     cam1->height = App.GetHeight();
+
+    player = new Player();
+    wall = new Feature();
 }
 
 Main::~Main()
 {
-
-    
+    player->~Player();
+    wall->~Feature();
 }
 
 void Main::Init()
@@ -67,10 +72,15 @@ void Main::Update()
     ImGui::Begin("Hierarchy");
     grid->RenderHierarchy();
     cam1->RenderHierarchy();
+    player->GetActor()->RenderHierarchy();
+    wall->GetActor()->RenderHierarchy();
     ImGui::End();
 
     grid->Update();
     Camera::main->Update();
+
+    player->Update();
+    wall->Update();
 }
 
 void Main::LateUpdate()
@@ -84,6 +94,8 @@ void Main::Render()
 {
     Camera::main->Set();
     grid->Render();
+    player->Render();
+    wall->Render();
 }
 
 void Main::ResizeScreen()

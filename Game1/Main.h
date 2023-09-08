@@ -3,10 +3,19 @@
 class Main : public Scene
 {
 private:
-
+	// default
 	Camera* cam1;
 	Grid* grid;
 	
+
+	// 맵
+	class Feature* wall;
+
+	// 오브젝트
+	
+	// 캐릭터
+	class Player* player;
+
 
 public:
 	Main();
