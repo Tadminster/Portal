@@ -364,4 +364,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # 개인 설정 파일은 제외
-*.ini
+window.ini
+imgui.ini
