@@ -1,0 +1,239 @@
+<Root Name="Actor" Visible="true" ObType="1">
+    <Transform>
+        <Position X="0" Y="10" Z="0"/>
+        <Scale X="1" Y="1" Z="1"/>
+        <Rotation X="0" Y="0" Z="0"/>
+    </Transform>
+    <Children Size="21"/>
+    <Child0 Name="BodyConnect" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/black.png"/>
+        <Transform>
+            <Position X="0" Y="0" Z="0"/>
+            <Scale X="0.0049999999" Y="0.15000001" Z="0.30000001"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child0>
+    <Child1 Name="BodyLeft" Visible="true" ObType="1">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/white.png"/>
+        <Transform>
+            <Position X="-0.105" Y="0" Z="0"/>
+            <Scale X="0.1" Y="0.15000001" Z="0.30000001"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child1>
+    <Child2 Name="BodyLight" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/blue.png"/>
+        <Transform>
+            <Position X="0" Y="0.059999999" Z="0.1"/>
+            <Scale X="0.039999999" Y="0.1" Z="0.039999999"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child2>
+    <Child3 Name="BodyRight" Visible="true" ObType="1">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/white.png"/>
+        <Transform>
+            <Position X="0.105" Y="0" Z="0"/>
+            <Scale X="0.1" Y="0.15000001" Z="0.30000001"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child3>
+    <Child4 Name="Bottom1" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/black.png"/>
+        <Transform>
+            <Position X="0" Y="-0.16" Z="0"/>
+            <Scale X="0.15000001" Y="0.1" Z="0.25"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child4>
+    <Child5 Name="Bottom2" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/white.png"/>
+        <Transform>
+            <Position X="0" Y="-0.13" Z="0"/>
+            <Scale X="0.17" Y="0.1" Z="0.15000001"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child5>
+    <Child6 Name="Head" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/black.png"/>
+        <Transform>
+            <Position X="0" Y="-0.050000001" Z="0.64999998"/>
+            <Scale X="0.16" Y="0.16" Z="0.13"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child6>
+    <Child7 Name="Head2" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/white.png"/>
+        <Transform>
+            <Position X="0" Y="-0.15000001" Z="0.64999998"/>
+            <Scale X="0.2" Y="0.07" Z="0.17"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child7>
+    <Child8 Name="Head3" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/black.png"/>
+        <Transform>
+            <Position X="0" Y="-0.050000001" Z="0.80000001"/>
+            <Scale X="0.1" Y="0.1" Z="0.1"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child8>
+    <Child9 Name="Hole" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/blue.png"/>
+        <Transform>
+            <Position X="0" Y="-0.050000001" Z="0.87"/>
+            <Scale X="0.050000001" Y="0.050000001" Z="0.050000001"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child9>
+    <Child10 Name="LegLeft1" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/black.png"/>
+        <Transform>
+            <Position X="-0.25" Y="-0.15000001" Z="0.64999998"/>
+            <Scale X="0.029999999" Y="0.029999999" Z="0.15000001"/>
+            <Rotation X="0" Y="-0.87266463" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child10>
+    <Child11 Name="LegLeft2" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/black.png"/>
+        <Transform>
+            <Position X="-0.33000001" Y="-0.15000001" Z="0.82999998"/>
+            <Scale X="0.029999999" Y="0.029999999" Z="0.12"/>
+            <Rotation X="0" Y="0.17453294" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child11>
+    <Child12 Name="LegLeft3" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/black.png"/>
+        <Transform>
+            <Position X="-0.30000001" Y="-0.15000001" Z="0.94999999"/>
+            <Scale X="0.029999999" Y="0.029999999" Z="0.059999999"/>
+            <Rotation X="0" Y="1.2217306" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child12>
+    <Child13 Name="LegRight1" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/black.png"/>
+        <Transform>
+            <Position X="0.25" Y="-0.15000001" Z="0.64999998"/>
+            <Scale X="0.029999999" Y="0.029999999" Z="0.15000001"/>
+            <Rotation X="0" Y="0.87266463" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child13>
+    <Child14 Name="LegRight2" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/black.png"/>
+        <Transform>
+            <Position X="0.33000001" Y="-0.15000001" Z="0.82999998"/>
+            <Scale X="0.029999999" Y="0.029999999" Z="0.12"/>
+            <Rotation X="0" Y="-0.17453294" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child14>
+    <Child15 Name="LegRight3" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/black.png"/>
+        <Transform>
+            <Position X="0.30000001" Y="-0.15000001" Z="0.94999999"/>
+            <Scale X="0.029999999" Y="0.029999999" Z="0.059999999"/>
+            <Rotation X="0" Y="-1.2217306" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child15>
+    <Child16 Name="LegUp1" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/black.png"/>
+        <Transform>
+            <Position X="0" Y="0.15000001" Z="0.64999998"/>
+            <Scale X="0.029999999" Y="0.15000001" Z="0.029999999"/>
+            <Rotation X="0.87266463" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child16>
+    <Child17 Name="LegUp2" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/black.png"/>
+        <Transform>
+            <Position X="0" Y="0.25" Z="0.85000002"/>
+            <Scale X="0.029999999" Y="0.1" Z="0.029999999"/>
+            <Rotation X="1.6231562" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child17>
+    <Child18 Name="LegUp3" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/black.png"/>
+        <Transform>
+            <Position X="0" Y="0.22" Z="0.94999999"/>
+            <Scale X="0.029999999" Y="0.059999999" Z="0.029999999"/>
+            <Rotation X="-0.64577186" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child18>
+    <Child19 Name="Pipe1" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/gray.png"/>
+        <Transform>
+            <Position X="0" Y="-0.050000001" Z="0.34999999"/>
+            <Scale X="0.1" Y="0.1" Z="0.2"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child19>
+    <Child20 Name="Pipe2" Visible="true" ObType="0">
+        <Mesh File="6.Cube.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Texture File="color/black.png"/>
+        <Transform>
+            <Position X="0" Y="-0.15000001" Z="0.34999999"/>
+            <Scale X="0.15000001" Y="0.050000001" Z="0.2"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child20>
+</Root>
