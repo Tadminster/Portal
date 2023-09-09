@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "ObProto.h"
 #include "Player.h"
 #include "Feature.h"
 #include "Main.h"
