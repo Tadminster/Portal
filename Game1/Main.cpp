@@ -48,7 +48,8 @@ Main::Main()
     player = new Player();
     wall = new Feature(1, 5);
 
-    
+
+   
 }
 
 Main::~Main()
@@ -76,7 +77,7 @@ void Main::Update()
     cam1->RenderHierarchy();
     player->GetActor()->RenderHierarchy();
     wall->GetActor()->RenderHierarchy();
-
+    
     
     ImGui::End();
 
@@ -85,6 +86,7 @@ void Main::Update()
 
     player->Update();
     wall->Update();
+    
 
     
 }
@@ -102,6 +104,7 @@ void Main::Render()
     grid->Render();
     player->Render();
     wall->Render();
+    
 }
 
 void Main::ResizeScreen()
