@@ -1,17 +1,29 @@
+enum class PlayerState
+{
+	IDLE,
+	RUN,
+	JUMP,
+	FIRE,
+	DEAD
+};
+
 #pragma once
-class Player
+class Player : public ObProto
 {
 private:
-	class Actor* actor;
+	PlayerState state	{ PlayerState::IDLE };
 
 public:
 	Player();
-	~Player();
-	void Init();
-	void Update();
-	void LateUpdate();
-	void Render();
+	~Player() override;
+	void Init() override;
+	void Update() override;
+	void LateUpdate() override;
+	void Render() override;
 
-	Actor* GetActor() { return actor; }
+	virtual void Control();
+	virtual void FireBluePortal();
+	virtual void FireYellowPortal();
+	virtual void Jump();
 };
 

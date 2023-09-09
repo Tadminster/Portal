@@ -9,7 +9,7 @@
     <ClInclude Include="Feature.h">
       <Filter>GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="Portal.h">
+    <ClInclude Include="ObProto.h">
       <Filter>GameObject</Filter>
     </ClInclude>
   </ItemGroup>

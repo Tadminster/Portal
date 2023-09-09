@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Feature.h" />
+    <ClInclude Include="ObProto.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Portal.h" />
