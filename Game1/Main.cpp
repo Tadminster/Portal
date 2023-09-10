@@ -1,6 +1,8 @@
 #include "stdafx.h"
+#include "ObProto.h"
 #include "Player.h"
 #include "Feature.h"
+#include "Portal.h"
 #include "Main.h"
 
 // [페치] 온라인에 있는 내용을 가져옴
@@ -46,7 +48,10 @@ Main::Main()
     cam1->height = App.GetHeight();
 
     player = new Player();
-    wall = new Feature();
+    wall = new Feature(1, 5);
+
+    portal = new Portal();
+   
 }
 
 Main::~Main()
@@ -57,7 +62,7 @@ Main::~Main()
 
 void Main::Init()
 {
-	
+    wall->GetActor()->scale = Vector3(1, 1, 1);
 }
 
 void Main::Release()
@@ -74,6 +79,8 @@ void Main::Update()
     cam1->RenderHierarchy();
     player->GetActor()->RenderHierarchy();
     wall->GetActor()->RenderHierarchy();
+    
+    
     ImGui::End();
 
     grid->Update();
@@ -81,10 +88,14 @@ void Main::Update()
 
     player->Update();
     wall->Update();
+    portal->Update();
+
+    
 }
 
 void Main::LateUpdate()
 {
+    portal->LateUpdate(player, wall);
 }
 void Main::PreRender()
 {
@@ -96,6 +107,7 @@ void Main::Render()
     grid->Render();
     player->Render();
     wall->Render();
+    portal->Render();
 }
 
 void Main::ResizeScreen()

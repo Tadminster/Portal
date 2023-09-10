@@ -9,6 +9,12 @@
     <ClInclude Include="Feature.h">
       <Filter>GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="ObProto.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Portal.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -16,6 +22,9 @@
       <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Feature.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Portal.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
   </ItemGroup>

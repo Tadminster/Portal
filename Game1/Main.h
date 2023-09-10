@@ -7,6 +7,7 @@ private:
 	Camera* cam1;
 	Grid* grid;
 	
+	
 
 	// ¸Ê
 	class Feature* wall;
@@ -16,6 +17,8 @@ private:
 	// Ä³¸¯ÅÍ
 	class Player* player;
 
+	//Æ÷Å»
+	class Portal* portal;
 
 public:
 	Main();
