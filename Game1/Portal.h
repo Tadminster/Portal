@@ -1,4 +1,6 @@
 #pragma once
+#define BlueP 0
+#define OrangeP 1
 
 
 
@@ -8,7 +10,7 @@ private:
 	class Actor* BluePortal;
 	class Actor* OrangePortal;
 
-
+	bool ActivateP[2];
 
 
 public:
@@ -16,9 +18,11 @@ public:
 	~Portal();
 	void Init();
 	void Update();
-	void LateUpdate();
+	void LateUpdate(Player* player, Feature* wall);
 	void Render();
 
-	void Portaling();
+	void Portaling(Player* player);
+	void PortalInstall(Feature* wall);
+	
 };
 
