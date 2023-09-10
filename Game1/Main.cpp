@@ -2,6 +2,7 @@
 #include "ObProto.h"
 #include "Player.h"
 #include "Feature.h"
+#include "Portal.h"
 #include "Main.h"
 
 // [페치] 온라인에 있는 내용을 가져옴
@@ -49,7 +50,7 @@ Main::Main()
     player = new Player();
     wall = new Feature(1, 5);
 
-
+    portal = new Portal();
    
 }
 
@@ -87,13 +88,14 @@ void Main::Update()
 
     player->Update();
     wall->Update();
-    
+    portal->Update();
 
     
 }
 
 void Main::LateUpdate()
 {
+    portal->LateUpdate(player, wall);
 }
 void Main::PreRender()
 {
@@ -105,7 +107,7 @@ void Main::Render()
     grid->Render();
     player->Render();
     wall->Render();
-    
+    portal->Render();
 }
 
 void Main::ResizeScreen()
