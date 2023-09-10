@@ -12,6 +12,9 @@
     <ClInclude Include="ObProto.h">
       <Filter>GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="Portal.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
