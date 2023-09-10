@@ -21,6 +21,9 @@ public:
 	void LateUpdate(Player* player, Feature* wall);
 	void Render();
 
+	Actor* GetBluePortal() { return BluePortal; };
+	Actor* GetOrangePortal() { return OrangePortal; };
+
 	void Portaling(Player* player);
 	void PortalInstall(Feature* wall);
 	
