@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "Feature.h"
 
-Feature::Feature(int type, int size)
+Feature::Feature(Material material, int size, StructureType type)
+	: material(material), type(type)
 {
 	actor = Actor::Create();	// actor 객체 생성
 
@@ -9,11 +10,11 @@ Feature::Feature(int type, int size)
 	string path;				// texture 경로
 	string file;				// texture 파일명
 
-	// type 예외처리
-	if (type < 1) type = 1;
-	else if (type > 2) type = 2;
+	// material 예외처리
+	if (material < 1) material = Concrete;
+	else if (material > 2) material = Metal;
 
-	if (type == 1)
+	if (material == Concrete)
 	{
 		// type에 따라 재질 설정
 		actor->LoadFile("Concrete.xml");
@@ -35,9 +36,9 @@ Feature::Feature(int type, int size)
 			case 7: file = "concrete_modular_16x16.png"; tileSize = Vector3(48, 1, 48); break;
 		}
 	}
-	else if (type == 2)
+	else if (material == Concrete)
 	{
-		// type에 따라 재질 설정
+		// material에 따라 재질 설정
 		actor->LoadFile("Metal.xml");
 
 		// size 예외처리
