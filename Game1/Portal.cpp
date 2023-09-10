@@ -1,7 +1,9 @@
 #include "stdafx.h"
+#include "ObProto.h"
 #include "Player.h"
 #include "Feature.h"
 #include "Portal.h"
+
 
 Portal::Portal()
 {
@@ -68,11 +70,11 @@ void Portal::Portaling(Player* player) //Æ÷Å» ÀÌµ¿
 {
 
 	//Æ÷Å»°ú Á¢ÃË½Ã ¹Ý´ëÆí Æ÷Å»·Î ÀÌµ¿
-	if (player->GetActor()->Find("BodyMesh")->Intersect(BluePortal))
+	if (player->GetActor()->Find("Body")->Intersect(BluePortal))
 	{
 		player->GetActor()->SetLocalPos(OrangePortal->GetWorldPos());
 	}
-	else if (player->GetActor()->Find("BodyMesh")->Intersect(OrangePortal))
+	else if (player->GetActor()->Find("Body")->Intersect(OrangePortal))
 	{
 		player->GetActor()->SetLocalPos(BluePortal->GetWorldPos());
 	}

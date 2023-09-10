@@ -18,8 +18,8 @@ public:
 	// @param [1: Concrete], [2: Metal]
 	// @param
 	// @param size 지형지물 크기 
-	// @param if (type==1) [1: 1x1], [2: 2x1], [3: 2x2], [4: 4x1], [5: 4x4]
-	// @param if (type==2) [1: 1x1], [2: 2x2], [3: 4x4]
+	// @param if (type==1) [1: 1x1], [2: 2x1], [3: 2x2], [4: 4x1], [5: 4x4], [6: 8x8], [7: 16x16]
+	// @param if (type==2) [1: 1x1], [2: 2x2], [3: 4x4], [4: 8x8], [5: 16x16]
 	// @param
 	// @exception size가 최소보다 작으면 1, 최대보다 크면 가능한 최대 사이즈로 초기화
 	Feature(int type = 1, int size = 1);
