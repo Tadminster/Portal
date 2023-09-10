@@ -18,14 +18,14 @@ public:
 	~Portal();
 	void Init();
 	void Update();
-	void LateUpdate(Player* player, Feature* wall);
+	void LateUpdate();
 	void Render();
 
 	Actor* GetBluePortal() { return BluePortal; };
 	Actor* GetOrangePortal() { return OrangePortal; };
 
-	void Portaling(Player* player);
-	void PortalInstall(Feature* wall);
+	void Portaling();
+	void PortalInstall();
 	
 };
 

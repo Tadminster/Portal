@@ -21,8 +21,9 @@ void Player::Init()
 
 void Player::Update()
 {
-	// 플레이어 조작
-	//Control();
+	// 플레이어 조작 (디버그 모드가 아닐때만)
+	if (!GM->debugMode) Control();
+	else dir = Vector3();
 
 	if (state == PlayerState::IDLE)
 	{
@@ -35,13 +36,20 @@ void Player::Update()
 	else if (state == PlayerState::JUMP)
 	{
 		actor->MoveWorldPos(dir * moveSpeed * DELTA);
-		//actor->MoveWorldPos(actor->GetUp() * gravity * DELTA);
 	}
 	else if (state == PlayerState::FIRE)
 	{
 		actor->MoveWorldPos(dir * moveSpeed * 0.7f * DELTA);
-		//actor->MoveWorldPos(actor->GetUp() * gravity * DELTA);
 	}
+
+	// 중력가속도 (최대 200)
+	//if (actor->Find("Body")->Intersect())
+	//{
+	//	gravity = min(200.0f, gravity - 30.0f * DELTA);
+	//}
+
+	// 중력
+	actor->MoveWorldPos(actor->GetUp() * gravity * DELTA);
 
 	actor->Update();
 }

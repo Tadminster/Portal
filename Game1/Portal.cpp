@@ -2,6 +2,7 @@
 #include "ObProto.h"
 #include "Player.h"
 #include "Feature.h"
+#include "ObjectManager.h"
 #include "Portal.h"
 
 
@@ -40,24 +41,20 @@ void Portal::Update()
 	{
 		BluePortal->Find("Close")->visible = true;
 		OrangePortal->Find("Close")->visible = true;
-		
 	}
 
 	BluePortal->Update();
 	OrangePortal->Update();
 }
 
-void Portal::LateUpdate(Player* player, Feature* wall)
+void Portal::LateUpdate()
 {
-	PortalInstall(wall);
+	PortalInstall();
 
 	if (ActivateP[BlueP] == true and ActivateP[OrangeP] == true)
 	{
-		Portaling(player);
+		Portaling();
 	}
-	
-
-
 }
 
 void Portal::Render()
@@ -66,24 +63,22 @@ void Portal::Render()
 	OrangePortal->Render();
 }
 
-void Portal::Portaling(Player* player) //Æ÷Å» ÀÌµ¿
+void Portal::Portaling() //Æ÷Å» ÀÌµ¿
 {
 
 	//Æ÷Å»°ú Á¢ÃË½Ã ¹Ý´ëÆí Æ÷Å»·Î ÀÌµ¿
-	if (player->GetActor()->Find("Body")->Intersect(BluePortal))
+	if (PLAYER->GetActor()->Find("Body")->Intersect(BluePortal))
 	{
-		player->GetActor()->SetLocalPos(OrangePortal->GetWorldPos());
+		PLAYER->GetActor()->SetLocalPos(OrangePortal->GetWorldPos());
 	}
-	else if (player->GetActor()->Find("Body")->Intersect(OrangePortal))
+	else if (PLAYER->GetActor()->Find("Body")->Intersect(OrangePortal))
 	{
-		player->GetActor()->SetLocalPos(BluePortal->GetWorldPos());
+		PLAYER->GetActor()->SetLocalPos(BluePortal->GetWorldPos());
 	}
-
-
 
 }
 
-void Portal::PortalInstall(Feature* wall) //Æ÷Å» ¼³Ä¡
+void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 {
 	Ray Up;
 	Up = Utility::MouseToRay();
@@ -92,25 +87,26 @@ void Portal::PortalInstall(Feature* wall) //Æ÷Å» ¼³Ä¡
 	//ÁÂÅ¬¸¯ ºí·çÆ÷Å» »ý¼º
 	if (INPUT->KeyDown(VK_LBUTTON))
 	{
-		
-		if (wall->GetActor()->Find("Mesh")->Intersect(Up, Hit))
+		for (auto& feature : OBJECT->GetFeatures())
 		{
-			BluePortal->SetLocalPos(Hit);
-			ActivateP[BlueP] = true;
-			
+			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit))
+			{
+				BluePortal->SetLocalPos(Hit);
+				ActivateP[BlueP] = true;
+			}
 		}
 	}
 
 	//¿ìÅ¬¸¯ ¿À·»ÁöÆ÷Å» »ý¼º
 	if (INPUT->KeyDown(VK_RBUTTON))
 	{
-		if (wall->GetActor()->Find("Mesh")->Intersect(Up, Hit))
+		for (auto& feature : OBJECT->GetFeatures())
 		{
-			OrangePortal->SetLocalPos(Hit);
-			ActivateP[OrangeP] = true;
-			
+			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit))
+			{
+				OrangePortal->SetLocalPos(Hit);
+				ActivateP[OrangeP] = true;
+			}
 		}
 	}
-
-	
 }

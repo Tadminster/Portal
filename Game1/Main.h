@@ -13,9 +13,6 @@ private:
 	class Feature* wall;
 
 	// 오브젝트
-	
-	// 캐릭터
-	class Player* player;
 
 	//포탈
 	class Portal* portal;

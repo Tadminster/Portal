@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Feature.h"
 #include "Portal.h"
+#include "ObjectManager.h"
 #include "Main.h"
 
 // [페치] 온라인에 있는 내용을 가져옴
@@ -49,8 +50,12 @@ Main::Main()
     cam1->width = App.GetWidth();
     cam1->height = App.GetHeight();
 
-    player = new Player();
-    wall = new Feature(1, 7);
+    PLAYER = new Player();
+    OBJECT = new ObjectManager();
+
+
+    OBJECT->AddFeature(new Feature(Concrete, 7, Floor));
+    OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(0, 0, 48));
 
     portal = new Portal();
    
@@ -58,13 +63,12 @@ Main::Main()
 
 Main::~Main()
 {
-    player->~Player();
-    wall->~Feature();
+    PLAYER->~Player();
+    OBJECT->Release();
 }
 
 void Main::Init()
 {
-    wall->GetActor()->scale = Vector3(1, 1, 1);
 }
 
 void Main::Release()
@@ -74,31 +78,33 @@ void Main::Release()
 
 void Main::Update()
 {
-    Camera::ControlMainCam();
+    // 카메라 조작 (디버그 모드일때만)
+    if (GM->debugMode) Camera::ControlMainCam();
 
     ImGui::Begin("Hierarchy");
-    grid->RenderHierarchy();
-    cam1->RenderHierarchy();
-    player->GetActor()->RenderHierarchy();
-    wall->GetActor()->RenderHierarchy();
-    
-    
+    {
+        grid->RenderHierarchy();
+        cam1->RenderHierarchy();
+        PLAYER->GetActor()->RenderHierarchy();
+        OBJECT->RenderHierarchy();
+    }
     ImGui::End();
 
     grid->Update();
     Camera::main->Update();
 
-    player->Update();
-    wall->Update();
+    GM->Update();
+    PLAYER->Update();
+    OBJECT->Update();
     portal->Update();
-
     
 }
 
 void Main::LateUpdate()
 {
-    portal->LateUpdate(player, wall);
+    portal->LateUpdate();
 }
+
 void Main::PreRender()
 {
 }
@@ -107,8 +113,8 @@ void Main::Render()
 {
     Camera::main->Set();
     grid->Render();
-    player->Render();
-    wall->Render();
+    PLAYER->Render();
+    OBJECT->Render();
     portal->Render();
 }
 
