@@ -38,12 +38,8 @@ void Portal::Update()
 	{
 		BluePortal->Find("Close")->visible = true;
 		OrangePortal->Find("Close")->visible = true;
-		//BluePortal->Find("OrangeCam")
+		
 	}
-
-
-
-
 
 	BluePortal->Update();
 	OrangePortal->Update();
@@ -70,6 +66,7 @@ void Portal::Render()
 
 void Portal::Portaling(Player* player) //Æ÷Å» ÀÌµ¿
 {
+
 	//Æ÷Å»°ú Á¢ÃË½Ã ¹Ý´ëÆí Æ÷Å»·Î ÀÌµ¿
 	if (player->GetActor()->Find("BodyMesh")->Intersect(BluePortal))
 	{
@@ -91,20 +88,27 @@ void Portal::PortalInstall(Feature* wall) //Æ÷Å» ¼³Ä¡
 	Vector3 Hit;
 	
 	//ÁÂÅ¬¸¯ ºí·çÆ÷Å» »ý¼º
-	if (INPUT->KeyDown(VK_LEFT))
+	if (INPUT->KeyDown(VK_LBUTTON))
 	{
+		
 		if (wall->GetActor()->Find("Mesh")->Intersect(Up, Hit))
 		{
 			BluePortal->SetLocalPos(Hit);
+			ActivateP[BlueP] = true;
+			
 		}
 	}
 
 	//¿ìÅ¬¸¯ ¿À·»ÁöÆ÷Å» »ý¼º
-	if (INPUT->KeyDown(VK_RIGHT))
+	if (INPUT->KeyDown(VK_RBUTTON))
 	{
 		if (wall->GetActor()->Find("Mesh")->Intersect(Up, Hit))
 		{
 			OrangePortal->SetLocalPos(Hit);
+			ActivateP[OrangeP] = true;
+			
 		}
 	}
+
+	
 }
