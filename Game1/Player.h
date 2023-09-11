@@ -13,8 +13,8 @@ class Player : public ObProto
 private:
 	PlayerState state	{ PlayerState::IDLE };
 
-	Vector3 lastPos;
-	bool OnGround		{ false };
+	Vector3 lastPos			{ 0, 0, 0 };
+	bool	OnGround		{ false };
 
 public:
 	Player();

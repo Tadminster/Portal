@@ -52,6 +52,10 @@ void ObjectManager::AddFeature(Feature* feature, Vector3 position, bool defalutA
 		int tempPosY = feature->GetActor()->Find("Mesh")->scale.x;
 		feature->GetActor()->Find("Mesh")->SetLocalPosZ(-tempPosY);
 	}
+	else if (feature->type == Floor)
+	{
+		feature->GetActor()->rotation.z = 180 * ToRadian;
+	}
 
 	features.push_back(feature);
 }

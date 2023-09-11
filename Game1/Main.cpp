@@ -104,6 +104,8 @@ void Main::Update()
         cam1->RenderHierarchy();
         PLAYER->GetActor()->RenderHierarchy();
         OBJECT->RenderHierarchy();
+        portal->GetBluePortal()->RenderHierarchy();
+        portal->GetOrangePortal()->RenderHierarchy();
     }
     ImGui::End();
 

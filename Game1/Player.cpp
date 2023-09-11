@@ -10,6 +10,7 @@ Player::Player()
 	actor->LoadFile("Player.xml");
 	actor->SetWorldPosY(5);
 
+	moveSpeed = 20.0f;
 	gun = Actor::Create();
 	gun->LoadFile("Gun.xml");
 
@@ -58,7 +59,6 @@ void Player::Update()
 	}
 	else if (state == PlayerState::FIRE)
 	{
-		actor->MoveWorldPos(dir * moveSpeed * 0.7f * DELTA);
 	}
 
 	// 땅에 닿아있으면 중력 0
@@ -93,7 +93,9 @@ void Player::LateUpdate()
 			// 벽과 부딪치면 이전 위치로 이동
 			if (actor->Find("Body")->Intersect(feature->GetActor()->Find("Mesh")))
 			{
-				actor->SetWorldPos(lastPos);
+				actor->SetWorldPosX(lastPos.x);
+				actor->SetWorldPosZ(lastPos.z);
+				actor->Update();
 			}
 		}
 	}
@@ -176,12 +178,12 @@ void Player::Control()
 		if (INPUT->KeyPress('W'))
 		{
 			dir = actor->GetForward();
-
 		}
 		else if (INPUT->KeyPress('S'))
 		{
 			dir = -actor->GetForward();
 		}
+
 		if (INPUT->KeyPress('A'))
 		{
 			dir = -actor->GetRight();
@@ -192,7 +194,7 @@ void Player::Control()
 		}
 
 		// run -> idle
-		if (!(INPUT->KeyPress('A') || INPUT->KeyPress('D')))
+		if (!(INPUT->KeyPress('W') || INPUT->KeyPress('S') || INPUT->KeyPress('A') || INPUT->KeyPress('D')) )
 		{
 			state = PlayerState::IDLE;
 		}

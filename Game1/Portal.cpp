@@ -64,6 +64,9 @@ void Portal::Update()
 		ActivateP[OrangeP] = false;
 	}
 
+	//cout << OrangePortal->Find("PortalOrange")->GetForward().x <<"  "
+	//<< OrangePortal->Find("PortalOrange")->GetForward().y<< "  "
+	//<< OrangePortal->Find("PortalOrange")->GetForward().z << endl;
 	//Æ÷Å» Close ÀÌ¹ÌÁö ¾Ö´Ï¸ÅÀÌ¼Ç
 	//BluePortal->Find("Close")
 
@@ -97,16 +100,16 @@ void Portal::Portaling() //Æ÷Å» ÀÌµ¿
 	//Æ÷Å»°ú Á¢ÃË½Ã ¹Ý´ëÆí Æ÷Å»·Î ÀÌµ¿
 	if (PLAYER->GetActor()->Find("Body")->Intersect(BluePortal->Find("PortalBlue")))
 	{
-		PLAYER->GetActor()->SetWorldPos(OrangePortal->GetWorldPos()+
-			Vector3(0, PLAYER->GetActor()->GetWorldPos().y-1, -2));
-		PLAYER->GetActor()->rotation.y += OrangePortal->rotation.y + 180 * ToRadian;
+		PLAYER->GetActor()->SetWorldPos(OrangePortal->Find("PortalOrange")->GetWorldPos()
+			+ OrangePortal->Find("PortalOrange")->GetForward() * -5);
+		PLAYER->GetActor()->rotation.y += OrangePortal->rotation.y  - BluePortal->rotation.y +180*ToRadian;
 		
 	}
 	else if (PLAYER->GetActor()->Find("Body")->Intersect(OrangePortal->Find("PortalOrange")))
 	{
-		PLAYER->GetActor()->SetWorldPos(BluePortal->GetWorldPos() + 
-			Vector3(0, PLAYER->GetActor()->GetWorldPos().y-1, -2));
-		PLAYER->GetActor()->rotation.y += BluePortal->rotation.y + 180 * ToRadian;
+		PLAYER->GetActor()->SetWorldPos(BluePortal->Find("PortalBlue")->GetWorldPos()
+			+ BluePortal->Find("PortalBlue")->GetForward() * -5);
+		PLAYER->GetActor()->rotation.y += BluePortal->rotation.y  - OrangePortal->rotation.y + 180 * ToRadian;
 	}
 
 }
@@ -124,9 +127,15 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 		{
 			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit))
 			{
-				BluePortal->visible = true;
-				BluePortal->SetLocalPos(Hit + Vector3(0, 0, -0.01));
-				ActivateP[BlueP] = true;
+				/*if (feature->type == StructureType::Wall)
+				{*/
+					BluePortal->visible = true;				
+					BluePortal->rotation = feature->GetActor()->rotation + Vector3(-90*ToRadian,0,0);
+					BluePortal->SetLocalPos(Hit);
+					BluePortal->Find("PortalBlue")->SetLocalPosZ(
+						BluePortal->Find("PortalBlue")->GetLocalPos().z - 0.01f);
+					ActivateP[BlueP] = true;
+				/*}*/
 				
 			}
 		}
@@ -139,9 +148,16 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 		{
 			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit))
 			{
-				OrangePortal->visible = true;
-				OrangePortal->SetLocalPos(Hit + Vector3(0,0,-0.01));
-				ActivateP[OrangeP] = true;
+				/*if (feature->type == StructureType::Wall)
+				{*/
+					OrangePortal->visible = true;					
+					OrangePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
+					OrangePortal->SetLocalPos(Hit);
+					OrangePortal->Find("PortalOrange")->SetLocalPosZ(
+						OrangePortal->Find("PortalOrange")->GetLocalPos().z - 0.01f);
+					ActivateP[OrangeP] = true;
+				/*}*/
+				
 			}
 		}
 	}
