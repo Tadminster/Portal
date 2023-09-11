@@ -56,6 +56,7 @@ Main::Main()
 
     OBJECT->AddFeature(new Feature(Concrete, 7, Floor));
     OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(0, 0, 48));
+    OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(48, 0, 0), false);
 
     portal = new Portal();
    
@@ -102,6 +103,7 @@ void Main::Update()
 
 void Main::LateUpdate()
 {
+    PLAYER->LateUpdate();
     portal->LateUpdate();
 }
 

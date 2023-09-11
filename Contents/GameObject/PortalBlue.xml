@@ -1,6 +1,6 @@
 <Root Name="Actor" Visible="true" ObType="1">
     <Transform>
-        <Position X="-5.5999999" Y="1" Z="0"/>
+        <Position X="-3.8664539" Y="1" Z="-0.12884301"/>
         <Scale X="1" Y="1" Z="1"/>
         <Rotation X="0" Y="0" Z="0"/>
     </Transform>
@@ -21,11 +21,11 @@
         </Transform>
         <Children Size="2"/>
         <Child0 Name="Close" Visible="true" ObType="0">
-            <Mesh File="6.Cube.mesh"/>
+            <Mesh File="6.CloseDown.mesh"/>
             <Shader File="6.Cube.hlsl"/>
             <Texture File="portal/portal_blue_close.png"/>
             <Transform>
-                <Position X="0" Y="0" Z="-0.99999988"/>
+                <Position X="0" Y="0" Z="-9.999999"/>
                 <Scale X="0.89999998" Y="0.89999998" Z="1"/>
                 <Rotation X="0" Y="0" Z="0"/>
             </Transform>

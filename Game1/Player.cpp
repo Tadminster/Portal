@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "ObProto.h"
+#include "Feature.h"
+#include "ObjectManager.h"
 #include "Player.h"
 
 Player::Player()
@@ -36,19 +38,23 @@ void Player::Update()
 	else if (state == PlayerState::JUMP)
 	{
 		actor->MoveWorldPos(dir * moveSpeed * DELTA);
+
+		if (OnGround)
+		{
+			state = PlayerState::IDLE;
+		}
 	}
 	else if (state == PlayerState::FIRE)
 	{
 		actor->MoveWorldPos(dir * moveSpeed * 0.7f * DELTA);
 	}
 
-	// 중력가속도 (최대 200)
-	//if (actor->Find("Body")->Intersect())
-	//{
-	//	gravity = min(200.0f, gravity - 30.0f * DELTA);
-	//}
+	// 땅에 닿아있으면 중력 0
+	if (OnGround) gravity = 0;
+	// 땅에 닿아있지 않으면 중력 증가 (최대 200)
+	else gravity = min(200.0f, gravity - 30.0f * DELTA);
 
-	// 중력
+	// 중력에 따라 플레이어 상하이동
 	actor->MoveWorldPos(actor->GetUp() * gravity * DELTA);
 
 	actor->Update();
@@ -56,6 +62,19 @@ void Player::Update()
 
 void Player::LateUpdate()
 {
+	cout << "gravity : " << gravity << "\n";
+
+	// 모든 지형지물과 충돌 체크
+	for (auto& feature : OBJECT->GetFeatures())
+	{
+		// 지형지물의 Body와 플레이어의 Mesh가 충돌하면 땅에 닿아있는 것
+		if (actor->Find("Body")->Intersect(feature->GetActor()->Find("Mesh")))
+		{
+			OnGround = true;
+			break;
+		}
+		else OnGround = false;
+	}
 }
 
 void Player::Render()
@@ -95,7 +114,7 @@ void Player::Control()
 		// IDLE -> JUMP
 		if (INPUT->KeyDown(VK_SPACE))
 		{
-			this->Jump();
+			Jump();
 			state = PlayerState::JUMP;
 		}
 
@@ -144,6 +163,7 @@ void Player::Control()
 		if (INPUT->KeyDown(VK_SPACE))
 		{
 			Jump();
+			state = PlayerState::JUMP;
 		}
 
 		// RUN -> attack
@@ -173,13 +193,11 @@ void Player::Control()
 		}
 		if (INPUT->KeyPress('A'))
 		{
-			actor->rotation.y -= DELTA;
-			//dir = -actor->GetRight();
+			dir = -actor->GetRight();
 		}
 		else if (INPUT->KeyPress('D'))
 		{
-			actor->rotation.y += DELTA;
-			//dir = actor->GetRight();
+			dir = actor->GetRight();
 		}
 
 		// JUMP -> FIRE_BLUE_PORTAL
@@ -229,7 +247,7 @@ void Player::FireYellowPortal()
 
 void Player::Jump()
 {
-
-
-
+	actor->SetWorldPos(actor->GetWorldPos() + Vector3(0, 0.1f, 0));
+	OnGround = false;
+	gravity = 20.0f;
 }
