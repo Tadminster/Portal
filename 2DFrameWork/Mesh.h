@@ -14,6 +14,7 @@ public:
     void*                   vertices;
     UINT                    vertexCount;
     string                  file;
+    
 public:
     Mesh();
     Mesh(void* vertices, UINT vertexCount, UINT* indices,
@@ -26,5 +27,8 @@ public:
     /*void Reset();
     
     */
+
+    void AnimationUp();
+    void AnimationDown();
 };
 

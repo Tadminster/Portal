@@ -6,7 +6,7 @@ Mesh::Mesh()
     primitiveTopology = D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
     byteWidth = sizeof(VertexPT);
 
-
+    
 
     vertexCount = 4;
     //ÀÎµ¦½º °¹¼ö
@@ -484,6 +484,9 @@ void Mesh::RenderDetail()
 {
     for (int i = 0; i < vertexCount; i++)
     {
+        
+
+
         if (vertexType == VertexType::PT)
         {
             if (i % 4 == 0)
@@ -493,6 +496,8 @@ void Mesh::RenderDetail()
             }
 
             VertexPT* vertex = (VertexPT*)vertices;
+            
+                  
             //string str = "pos" + to_string(i);
             /*if (ImGui::SliderFloat3(str.c_str(), (float*)
                 &vertex[i].position, -10, 10))
@@ -511,4 +516,26 @@ void Mesh::RenderDetail()
     }
 
 
+}
+
+void Mesh::AnimationUp()
+{
+    for (int i = 0; i < vertexCount; i++)
+    {
+        VertexPT* vertex = (VertexPT*)vertices;
+        vertex[i].uv.y += DELTA * 0.1f;
+        D3D->GetDC()->UpdateSubresource
+        (vertexBuffer, 0, NULL, vertices, 0, 0);
+    }
+}
+
+void Mesh::AnimationDown()
+{
+    for (int i = 0; i < vertexCount; i++)
+    {
+        VertexPT* vertex = (VertexPT*)vertices;
+        vertex[i].uv.y -= DELTA * 0.1f;
+        D3D->GetDC()->UpdateSubresource
+        (vertexBuffer, 0, NULL, vertices, 0, 0);
+    }
 }
