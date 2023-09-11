@@ -102,6 +102,7 @@ void Main::Update()
 
 void Main::LateUpdate()
 {
+    PLAYER->LateUpdate();
     portal->LateUpdate();
 }
 
