@@ -6,6 +6,8 @@ private:
 	// default
 	Camera* cam1;
 	Grid* grid;
+	Actor* gun;
+
 	
 	
 

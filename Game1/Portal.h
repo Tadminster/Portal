@@ -9,6 +9,8 @@ class Portal
 private:
 	class Actor* BluePortal;
 	class Actor* OrangePortal;
+	class Actor* Ui;
+
 
 	bool ActivateP[2];
 

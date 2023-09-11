@@ -1,0 +1,16 @@
+<Root Name="Ui" Visible="true" ObType="1">
+    <Mesh File="6.UI.mesh"/>
+    <Shader File="6.UI.hlsl"/>
+    <Collider ColliderType="1" Visible="true">
+        <Position X="0" Y="0" Z="0"/>
+        <Scale X="1" Y="1" Z="1"/>
+        <Rotation X="0" Y="0" Z="0"/>
+    </Collider>
+    <Texture File="potalUi/PotalUiAll.png"/>
+    <Transform>
+        <Position X="0" Y="0" Z="0"/>
+        <Scale X="0.050000001" Y="0.1" Z="1"/>
+        <Rotation X="0" Y="0" Z="0"/>
+    </Transform>
+    <Children Size="0"/>
+</Root>

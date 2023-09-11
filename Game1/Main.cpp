@@ -42,7 +42,10 @@ Main::Main()
     cam1 = Camera::Create();
     cam1->LoadFile("Cam.xml");
 
-    Camera::main = cam1;
+  
+
+    //Camera::main = cam1;
+
     cam1->viewport.x = 0.0f;
     cam1->viewport.y = 0.0f;
     cam1->viewport.width = App.GetWidth();
@@ -53,19 +56,30 @@ Main::Main()
     PLAYER = new Player();
     OBJECT = new ObjectManager();
 
+    
+
+    //바디캠
+    Camera::main = (Camera*)PLAYER->GetActor()->Find("BodyCam");
 
     OBJECT->AddFeature(new Feature(Concrete, 7, Floor));
     OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(0, 0, 48));
     OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(48, 0, 0), false);
 
     portal = new Portal();
+
    
+
+    
+   
+
 }
 
 Main::~Main()
 {
+    cam1->SaveFile("Cam.xml");
     PLAYER->~Player();
     OBJECT->Release();
+    
 }
 
 void Main::Init()
@@ -79,6 +93,8 @@ void Main::Release()
 
 void Main::Update()
 {
+    
+
     // 카메라 조작 (디버그 모드일때만)
     if (GM->debugMode) Camera::ControlMainCam();
 
@@ -98,6 +114,7 @@ void Main::Update()
     PLAYER->Update();
     OBJECT->Update();
     portal->Update();
+   
     
 }
 
@@ -105,6 +122,7 @@ void Main::LateUpdate()
 {
     PLAYER->LateUpdate();
     portal->LateUpdate();
+   
 }
 
 void Main::PreRender()
@@ -118,6 +136,7 @@ void Main::Render()
     PLAYER->Render();
     OBJECT->Render();
     portal->Render();
+   
 }
 
 void Main::ResizeScreen()

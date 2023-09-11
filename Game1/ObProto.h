@@ -5,7 +5,9 @@ class ObProto
 {
 protected:
 	class Actor* actor;
-
+	class Actor* gun;
+	
+	
 	Vector3 dir			{};
 	float	gravity		{ 0 };
 	float	moveSpeed	{ 0 };

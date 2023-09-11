@@ -13,6 +13,10 @@ Portal::Portal()
 	OrangePortal = Actor::Create();
 	OrangePortal->LoadFile("PortalOrange.xml");
 
+	Ui = Actor::Create();
+	Ui->LoadFile("Ui.xml");
+
+
 	BluePortal->visible = false;
 	OrangePortal->visible = false;
 
@@ -34,17 +38,20 @@ void Portal::Init()
 void Portal::Update()
 {
 
-	//약쪽 포탈이 활성시 Close 이미지 투명화
+	Ui->RenderHierarchy();
+
+	//양쪽 포탈이 활성시 Close 이미지 투명화
 	if (ActivateP[BlueP] == true and ActivateP[OrangeP] == true)
 	{
 		BluePortal->Find("Close")->visible = false;
 		OrangePortal->Find("Close")->visible = false;
-
+		
 	}
 	else
 	{
 		BluePortal->Find("Close")->visible = true;
 		OrangePortal->Find("Close")->visible = true;
+
 	}
 
 	//포탈 초기화
@@ -62,6 +69,7 @@ void Portal::Update()
 
 	BluePortal->Update();
 	OrangePortal->Update();
+	Ui->Update();
 }
 
 void Portal::LateUpdate()
@@ -80,6 +88,7 @@ void Portal::Render()
 	OrangePortal->Find("Close")->mesh->AnimationUp();
 	BluePortal->Render();
 	OrangePortal->Render();
+	Ui->Render();
 }
 
 void Portal::Portaling() //포탈 이동
@@ -118,10 +127,11 @@ void Portal::PortalInstall() //포탈 설치
 				BluePortal->visible = true;
 				BluePortal->SetLocalPos(Hit + Vector3(0, 0, -0.01));
 				ActivateP[BlueP] = true;
+				
 			}
 		}
 	}
-
+	
 	//우클릭 오렌지포탈 생성
 	if (INPUT->KeyDown(VK_RBUTTON))
 	{

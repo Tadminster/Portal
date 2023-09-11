@@ -10,12 +10,17 @@ Player::Player()
 	actor->LoadFile("Player.xml");
 	actor->SetWorldPosY(5);
 
+	gun = Actor::Create();
+	gun->LoadFile("Gun.xml");
+
 	moveSpeed = 15.0f;
 }
 
 Player::~Player()
 {
 	actor->Release();
+	gun->Release();
+	
 }
 
 void Player::Init()
@@ -24,6 +29,8 @@ void Player::Init()
 
 void Player::Update()
 {
+	
+
 	lastPos = actor->GetWorldPos();
 
 	// 플레이어 조작 (디버그 모드가 아닐때만)
@@ -65,6 +72,14 @@ void Player::Update()
 	}
 
 	actor->Update();
+	
+	//포탈건과 플레이어 위치와 로테이션 동기화
+	gun->rotation = actor->rotation;
+	gun->SetWorldPos(actor->Find("elbow")->GetWorldPos());
+	gun->Update();
+	gun->RenderHierarchy();
+	
+
 }
 
 void Player::LateUpdate()
@@ -101,6 +116,7 @@ void Player::LateUpdate()
 
 void Player::Render()
 {
+	gun->Render();
 	actor->Render();
 }
 
