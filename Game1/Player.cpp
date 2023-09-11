@@ -8,8 +8,9 @@ Player::Player()
 {
 	actor = Actor::Create();
 	actor->LoadFile("Player.xml");
+	actor->SetWorldPosY(5);
 
-	moveSpeed = 10.0f;
+	moveSpeed = 15.0f;
 }
 
 Player::~Player()
@@ -39,6 +40,8 @@ void Player::Update()
 	{
 		actor->MoveWorldPos(dir * moveSpeed * DELTA);
 
+
+		// 땅에 닿으면 JUMP -> IDLE
 		if (OnGround)
 		{
 			state = PlayerState::IDLE;
@@ -51,11 +54,13 @@ void Player::Update()
 
 	// 땅에 닿아있으면 중력 0
 	if (OnGround) gravity = 0;
-	// 땅에 닿아있지 않으면 중력 증가 (최대 200)
-	else gravity = min(200.0f, gravity - 30.0f * DELTA);
-
-	// 중력에 따라 플레이어 상하이동
-	actor->MoveWorldPos(actor->GetUp() * gravity * DELTA);
+	else
+	{
+		// 땅에 닿아있지 않으면 중력 증가 (최대 200)
+		gravity = min(200.0f, gravity - 50.0f * DELTA);
+		// 중력에 따라 플레이어 상하이동
+		actor->MoveWorldPos(actor->GetUp() * gravity * DELTA);
+	}
 
 	actor->Update();
 }
@@ -249,5 +254,5 @@ void Player::Jump()
 {
 	actor->SetWorldPos(actor->GetWorldPos() + Vector3(0, 0.1f, 0));
 	OnGround = false;
-	gravity = 20.0f;
+	gravity = 25.0f;
 }
