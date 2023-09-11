@@ -89,7 +89,7 @@ void Player::LateUpdate()
 		if (feature->type == Floor)
 		{
 			// 지형지물의 Body와 플레이어의 Mesh가 충돌하면 땅에 닿아있는 것
-			if (actor->Find("Body")->Intersect(feature->GetActor()->Find("Mesh")))
+			if (actor->Find("RightFoot")->Intersect(feature->GetActor()->Find("Mesh")))
 			{
 				OnGround = true;
 				break;
