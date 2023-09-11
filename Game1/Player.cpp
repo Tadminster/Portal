@@ -10,7 +10,7 @@ Player::Player()
 	actor->LoadFile("Player.xml");
 	actor->SetWorldPosY(5);
 
-	moveSpeed = 15.0f;
+	moveSpeed = 20.0f;
 }
 
 Player::~Player()
@@ -79,6 +79,7 @@ void Player::LateUpdate()
 			{
 				actor->SetWorldPosX(lastPos.x);
 				actor->SetWorldPosZ(lastPos.z);
+				actor->Update();
 			}
 		}
 	}
@@ -176,7 +177,7 @@ void Player::Control()
 		}
 
 		// run -> idle
-		if (!(INPUT->KeyPress('A') || INPUT->KeyPress('D')))
+		if (!(INPUT->KeyPress('W') || INPUT->KeyPress('S') || INPUT->KeyPress('A') || INPUT->KeyPress('D')) )
 		{
 			state = PlayerState::IDLE;
 		}

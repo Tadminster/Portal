@@ -57,9 +57,9 @@ void Portal::Update()
 		ActivateP[OrangeP] = false;
 	}
 
-	cout << OrangePortal->Find("PortalOrange")->GetForward().x <<"  "
-	<< OrangePortal->Find("PortalOrange")->GetForward().y<< "  "
-	<< OrangePortal->Find("PortalOrange")->GetForward().z << endl;
+	//cout << OrangePortal->Find("PortalOrange")->GetForward().x <<"  "
+	//<< OrangePortal->Find("PortalOrange")->GetForward().y<< "  "
+	//<< OrangePortal->Find("PortalOrange")->GetForward().z << endl;
 	//포탈 Close 이미지 애니매이션
 	//BluePortal->Find("Close")
 
