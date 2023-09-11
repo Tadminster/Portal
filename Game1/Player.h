@@ -13,6 +13,8 @@ class Player : public ObProto
 private:
 	PlayerState state	{ PlayerState::IDLE };
 
+	bool OnGround		{ false };
+
 public:
 	Player();
 	~Player() override;
