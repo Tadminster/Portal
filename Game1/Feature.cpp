@@ -16,7 +16,7 @@ Feature::Feature(Material material, int size, StructureType type)
 
 	if (material == Concrete)
 	{
-		// type에 따라 재질 설정
+		// material에 따라 재질 설정
 		actor->LoadFile("Concrete.xml");
 
 		// size 예외처리
@@ -36,7 +36,7 @@ Feature::Feature(Material material, int size, StructureType type)
 			case 7: file = "concrete_modular_16x16.png"; tileSize = Vector3(48, 1, 48); break;
 		}
 	}
-	else if (material == Concrete)
+	else if (material == Metal)
 	{
 		// material에 따라 재질 설정
 		actor->LoadFile("Metal.xml");

@@ -24,6 +24,8 @@ void Player::Init()
 
 void Player::Update()
 {
+	lastPos = actor->GetWorldPos();
+
 	// 플레이어 조작 (디버그 모드가 아닐때만)
 	if (!GM->debugMode) Control();
 	else dir = Vector3();
@@ -67,18 +69,33 @@ void Player::Update()
 
 void Player::LateUpdate()
 {
-	cout << "gravity : " << gravity << "\n";
-
 	// 모든 지형지물과 충돌 체크
 	for (auto& feature : OBJECT->GetFeatures())
 	{
-		// 지형지물의 Body와 플레이어의 Mesh가 충돌하면 땅에 닿아있는 것
-		if (actor->Find("Body")->Intersect(feature->GetActor()->Find("Mesh")))
+		// 지형지물이 벽이면
+		if (feature->type == Wall)
 		{
-			OnGround = true;
-			break;
+			// 벽과 부딪치면 이전 위치로 이동
+			if (actor->Find("Body")->Intersect(feature->GetActor()->Find("Mesh")))
+			{
+				actor->SetWorldPos(lastPos);
+			}
 		}
-		else OnGround = false;
+	}
+
+	for (auto& feature : OBJECT->GetFeatures())
+	{
+		// 지형지물이 바닥이면
+		if (feature->type == Floor)
+		{
+			// 지형지물의 Body와 플레이어의 Mesh가 충돌하면 땅에 닿아있는 것
+			if (actor->Find("Body")->Intersect(feature->GetActor()->Find("Mesh")))
+			{
+				OnGround = true;
+				break;
+			}
+			else OnGround = false;
+		}
 	}
 }
 

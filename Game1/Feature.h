@@ -28,8 +28,8 @@ public:
 	// @param [1: Concrete], [2: Metal]
 	// @param
 	// @param size 지형지물 크기 
-	// @param if (type==1) [1: 1x1], [2: 2x1], [3: 2x2], [4: 4x1], [5: 4x4], [6: 8x8], [7: 16x16]
-	// @param if (type==2) [1: 1x1], [2: 2x2], [3: 4x4], [4: 8x8], [5: 16x16]
+	// @param if (mater == Concrete) [1: 1x1], [2: 2x1], [3: 2x2], [4: 4x1], [5: 4x4], [6: 8x8], [7: 16x16]
+	// @param if (mater == Metal) [1: 1x1], [2: 2x2], [3: 4x4], [4: 8x8], [5: 16x16]
 	// @param
 	// @param StType 지형지물 용도 
 	// @param [1: Floor], [2: Wall]
