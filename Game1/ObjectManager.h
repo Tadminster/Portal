@@ -14,6 +14,6 @@ public:
 	void	Render();
 	void	RenderHierarchy();
 
-	void	AddFeature(Feature* feature, Vector3 position = Vector3());
+	void	AddFeature(Feature* feature, Vector3 position = Vector3(), bool defalutAngle = true);
 	list<class Feature*>& GetFeatures() { return features; }
 };
