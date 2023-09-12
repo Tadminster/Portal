@@ -1,8 +1,8 @@
 <Root Name="Gun" Visible="true" ObType="1">
     <Transform>
-        <Position X="5.5989337" Y="7.477457" Z="-6.5010309"/>
-        <Scale X="1.3" Y="1.5" Z="2"/>
-        <Rotation X="-0.13353249" Y="-0.048997957" Z="-0.052359879"/>
+        <Position X="-6.8986626" Y="7.3227658" Z="-8.4820747"/>
+        <Scale X="1.5" Y="1.5" Z="2"/>
+        <Rotation X="-0.28804973" Y="6.316515" Z="0"/>
     </Transform>
     <Children Size="21"/>
     <Child0 Name="BodyConnect" Visible="true" ObType="0">
