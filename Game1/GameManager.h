@@ -4,6 +4,7 @@ class GameManager : public Singleton<GameManager>
 public:
 	bool	debugMode   { false };
 
+    class   Camera*         cam1;
     class   Player*         player;
     class   ObjectManager*  object;
 

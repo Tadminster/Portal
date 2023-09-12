@@ -4,6 +4,7 @@
 #include "Feature.h"
 #include "Portal.h"
 #include "ObjectManager.h"
+#include "GameManager.h"
 #include "Main.h"
 
 // [페치] 온라인에 있는 내용을 가져옴
@@ -38,25 +39,7 @@
 Main::Main()
 {
     grid = Grid::Create();
-
-    cam1 = Camera::Create();
-    cam1->LoadFile("Cam.xml");
-
-  
-
-    //Camera::main = cam1;
-
-    cam1->viewport.x = 0.0f;
-    cam1->viewport.y = 0.0f;
-    cam1->viewport.width = App.GetWidth();
-    cam1->viewport.height = App.GetHeight();
-    cam1->width = App.GetWidth();
-    cam1->height = App.GetHeight();
-
-    PLAYER = new Player();
-    OBJECT = new ObjectManager();
-
-    
+    GM->Init();
 
     //바디캠
     Camera::main = (Camera*)PLAYER->GetActor()->Find("BodyCam");
@@ -68,16 +51,11 @@ Main::Main()
 
     portal = new Portal();
 
-   
-
-    
-   
-
 }
 
 Main::~Main()
 {
-    //cam1->SaveFile("Cam.xml");
+    //GM->cam1->SaveFile("Cam.xml");
     PLAYER->~Player();
     OBJECT->Release();
     
@@ -94,15 +72,13 @@ void Main::Release()
 
 void Main::Update()
 {
-    
-
     // 카메라 조작 (디버그 모드일때만)
     if (GM->debugMode) Camera::ControlMainCam();
 
     ImGui::Begin("Hierarchy");
     {
         grid->RenderHierarchy();
-        cam1->RenderHierarchy();
+        GM->cam1->RenderHierarchy();
         PLAYER->GetActor()->RenderHierarchy();
         OBJECT->RenderHierarchy();
         portal->GetBluePortal()->RenderHierarchy();

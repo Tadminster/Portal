@@ -4,7 +4,7 @@ class Main : public Scene
 {
 private:
 	// default
-	Camera* cam1;
+	
 	Grid* grid;
 	Actor* gun;
 

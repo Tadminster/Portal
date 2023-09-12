@@ -158,7 +158,7 @@ void Window::Create()
 	SetForegroundWindow(App.handle);
 	SetFocus(App.handle);
 
-	ShowCursor(true);
+	ShowCursor(false);
 	WIN->Load();
 }
 
