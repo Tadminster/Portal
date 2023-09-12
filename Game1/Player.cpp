@@ -125,31 +125,36 @@ void Player::Render()
 void Player::Control()
 {
 	dir = Vector3();
+	
+	
 
 	if (state == PlayerState::IDLE)
 	{
 		// IDLE -> RUN
 		if (INPUT->KeyPress('W'))
 		{
-			dir = actor->GetForward();
+			dir += actor->GetForward();
 			state = PlayerState::RUN;
 		}
-		else if (INPUT->KeyPress('S'))
+		if (INPUT->KeyPress('S'))
 		{
-			dir = -actor->GetForward();
+			dir -= actor->GetForward();
 			state = PlayerState::RUN;
 		}
 
 		if (INPUT->KeyPress('A'))
 		{
-			dir = -actor->GetRight();
+			dir -= actor->GetRight();
 			state = PlayerState::RUN;
 		}
-		else if (INPUT->KeyPress('D'))
+		if (INPUT->KeyPress('D'))
 		{
-			dir = actor->GetRight();
+			dir += actor->GetRight();
 			state = PlayerState::RUN;
 		}
+
+
+
 
 		// IDLE -> JUMP
 		if (INPUT->KeyDown(VK_SPACE))
@@ -177,20 +182,20 @@ void Player::Control()
 		// moving
 		if (INPUT->KeyPress('W'))
 		{
-			dir = actor->GetForward();
+			dir += actor->GetForward();
 		}
-		else if (INPUT->KeyPress('S'))
+		if (INPUT->KeyPress('S'))
 		{
-			dir = -actor->GetForward();
+			dir -= actor->GetForward();
 		}
 
 		if (INPUT->KeyPress('A'))
 		{
-			dir = -actor->GetRight();
+			dir -= actor->GetRight();
 		}
-		else if (INPUT->KeyPress('D'))
+		 if (INPUT->KeyPress('D'))
 		{
-			dir = actor->GetRight();
+			dir += actor->GetRight();
 		}
 
 		// run -> idle
@@ -225,19 +230,19 @@ void Player::Control()
 		// jump Áß ÀÌµ¿
 		if (INPUT->KeyPress('W'))
 		{
-			dir = actor->GetForward();
+			dir += actor->GetForward();
 		}
 		else if (INPUT->KeyPress('S'))
 		{
-			dir = -actor->GetForward();
+			dir -= actor->GetForward();
 		}
 		if (INPUT->KeyPress('A'))
 		{
-			dir = -actor->GetRight();
+			dir -=	actor->GetRight();
 		}
 		else if (INPUT->KeyPress('D'))
 		{
-			dir = actor->GetRight();
+			dir += actor->GetRight();
 		}
 
 		// JUMP -> FIRE_BLUE_PORTAL
