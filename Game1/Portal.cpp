@@ -64,6 +64,25 @@ void Portal::Update()
 		activateP[OrangeP] = false;
 	}
 
+	//Æ÷Å» ui ÀÌ¹ÌÁö
+	if (activateP[BlueP] == true and activateP[OrangeP] == true)
+	{
+		ui->texture = RESOURCE->textures.Load("potalUi/PotalUiAll.png");
+	}
+	else if (activateP[BlueP] == true)
+	{
+		ui->texture = RESOURCE->textures.Load("potalUi/PotalUiBlue.png");
+	}
+	else if (activateP[OrangeP] == true)
+	{
+		ui->texture = RESOURCE->textures.Load("potalUi/PotalUiOrange.png");
+	}
+	else if (activateP[BlueP] == false and activateP[OrangeP] == false)
+	{
+		ui->texture = RESOURCE->textures.Load("potalUi/PotalUiNon.png");
+	}
+
+
 	//cout << orangePortal->Find("PortalOrange")->GetForward().x <<"  "
 	//<< orangePortal->Find("PortalOrange")->GetForward().y<< "  "
 	//<< orangePortal->Find("PortalOrange")->GetForward().z << endl;
