@@ -7,12 +7,12 @@
 class Portal
 {
 private:
-	class Actor* BluePortal;
-	class Actor* OrangePortal;
-	class Actor* Ui;
+	class Actor* bluePortal;
+	class Actor* orangePortal;
+	class Actor* ui;
 
 
-	bool ActivateP[2];
+	bool activateP[2];
 
 
 public:
@@ -23,8 +23,8 @@ public:
 	void LateUpdate();
 	void Render();
 
-	Actor* GetBluePortal() { return BluePortal; };
-	Actor* GetOrangePortal() { return OrangePortal; };
+	Actor* GetBluePortal() { return bluePortal; };
+	Actor* GetOrangePortal() { return orangePortal; };
 
 	void Portaling();
 	void PortalInstall();
