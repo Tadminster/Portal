@@ -110,7 +110,8 @@ void Portal::Render()
 	orangePortal->Find("Close")->mesh->AnimationUp();
 	bluePortal->Render();
 	orangePortal->Render();
-	ui->Render();
+
+	if (!GM->debugMode) ui->Render();
 }
 
 void Portal::Portaling() //Æ÷Å» ÀÌµ¿
