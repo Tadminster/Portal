@@ -60,6 +60,7 @@ Main::Main()
 
     //¹ÙµðÄ·
     Camera::main = (Camera*)PLAYER->GetActor()->Find("BodyCam");
+    ResizeScreen();
 
     OBJECT->AddFeature(new Feature(Concrete, 7, Floor));
     OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(0, 0, 48));
@@ -76,7 +77,7 @@ Main::Main()
 
 Main::~Main()
 {
-    cam1->SaveFile("Cam.xml");
+    //cam1->SaveFile("Cam.xml");
     PLAYER->~Player();
     OBJECT->Release();
     
