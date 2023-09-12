@@ -1,8 +1,8 @@
 <Root Name="Player" Visible="true" ObType="1">
     <Transform>
-        <Position X="0" Y="5" Z="0"/>
+        <Position X="4.1888952" Y="4.977457" Z="-8.3723383"/>
         <Scale X="1" Y="1" Z="1"/>
-        <Rotation X="0" Y="0" Z="0"/>
+        <Rotation X="0" Y="-0.048997957" Z="0"/>
     </Transform>
     <Children Size="7"/>
     <Child0 Name="Body" Visible="true" ObType="0">
@@ -31,44 +31,14 @@
     </Child0>
     <Child1 Name="BodyCam" Visible="true" ObType="2">
         <Transform>
-            <Position X="0.75" Y="3.3499999" Z="0.55000001"/>
+            <Position X="0.78500003" Y="3.3704236" Z="1.2853571"/>
             <Scale X="1" Y="1" Z="1"/>
-            <Rotation X="0" Y="0" Z="0"/>
+            <Rotation X="0.025893109" Y="0" Z="0"/>
         </Transform>
         <Camera Ortho="false" Fov="1.047192" Width="1280" Height="720" NearZ="0.1" FarZ="500" viewportX="0" viewportY="0" viewportW="1280" viewportH="720"/>
         <Children Size="0"/>
     </Child1>
-    <Child2 Name="LeftSholder" Visible="true" ObType="0">
-        <Transform>
-            <Position X="2" Y="4" Z="0"/>
-            <Scale X="0.5" Y="2" Z="0.5"/>
-            <Rotation X="0" Y="0" Z="0"/>
-        </Transform>
-        <Children Size="2"/>
-        <Child0 Name="LeftArm" Visible="true" ObType="1">
-            <Mesh File="RightArm.mesh"/>
-            <Shader File="6.Cube.hlsl"/>
-            <Texture File="player.png"/>
-            <Transform>
-                <Position X="-1" Y="-0.5" Z="0"/>
-                <Scale X="1" Y="0.5" Z="1"/>
-                <Rotation X="0" Y="0" Z="0"/>
-            </Transform>
-            <Children Size="0"/>
-        </Child0>
-        <Child1 Name="elbow" Visible="true" ObType="0">
-            <Mesh File="elbow.mesh"/>
-            <Shader File="6.Cube.hlsl"/>
-            <Texture File="player.png"/>
-            <Transform>
-                <Position X="-1" Y="-0.75" Z="2.5999999"/>
-                <Scale X="0.5" Y="1" Z="0.050000001"/>
-                <Rotation X="1.5707964" Y="3.1415927" Z="0"/>
-            </Transform>
-            <Children Size="0"/>
-        </Child1>
-    </Child2>
-    <Child3 Name="LeftLeg" Visible="true" ObType="0">
+    <Child2 Name="LeftLeg" Visible="true" ObType="0">
         <Transform>
             <Position X="-0.75" Y="0" Z="0"/>
             <Scale X="0.5" Y="2" Z="0.5"/>
@@ -86,12 +56,42 @@
             </Transform>
             <Children Size="0"/>
         </Child0>
+    </Child2>
+    <Child3 Name="LeftSholder" Visible="true" ObType="0">
+        <Transform>
+            <Position X="2" Y="4" Z="0"/>
+            <Scale X="0.5" Y="2" Z="0.5"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="2"/>
+        <Child0 Name="LeftArm" Visible="true" ObType="1">
+            <Mesh File="RightArm.mesh"/>
+            <Shader File="6.Cube.hlsl"/>
+            <Texture File="player.png"/>
+            <Transform>
+                <Position X="-1" Y="-0.5" Z="0"/>
+                <Scale X="1" Y="0.5" Z="1"/>
+                <Rotation X="0" Y="0" Z="0"/>
+            </Transform>
+            <Children Size="0"/>
+        </Child0>
+        <Child1 Name="elbow" Visible="false" ObType="0">
+            <Mesh File="elbow.mesh"/>
+            <Shader File="6.Cube.hlsl"/>
+            <Texture File="player.png"/>
+            <Transform>
+                <Position X="-1" Y="-0.75" Z="3.5999999"/>
+                <Scale X="0.5" Y="1" Z="0.050000001"/>
+                <Rotation X="1.5707964" Y="3.1415927" Z="0"/>
+            </Transform>
+            <Children Size="0"/>
+        </Child1>
     </Child3>
     <Child4 Name="Neck" Visible="true" ObType="0">
         <Transform>
             <Position X="0" Y="3.3" Z="0"/>
             <Scale X="1" Y="1" Z="1"/>
-            <Rotation X="0" Y="3.1415927" Z="0"/>
+            <Rotation X="0.13353249" Y="3.1415927" Z="0"/>
         </Transform>
         <Children Size="1"/>
         <Child0 Name="Head" Visible="true" ObType="1">

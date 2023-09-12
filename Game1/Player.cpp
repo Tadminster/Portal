@@ -73,8 +73,14 @@ void Player::Update()
 
 	actor->Update();
 	
+
+
 	//포탈건과 플레이어 위치와 로테이션 동기화
-	gun->rotation = actor->rotation;
+	
+	gun->rotation.y = actor->rotation.y; 
+	gun->rotation.x = -actor->Find("Neck")->rotation.x;
+
+	
 	gun->SetWorldPos(actor->Find("elbow")->GetWorldPos());
 	gun->Update();
 	gun->RenderHierarchy();

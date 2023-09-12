@@ -27,7 +27,7 @@ void GameManager::Update()
 
 		// 메인캠 변경
 		if (Camera::main == cam1) Camera::main = (Camera*)player->GetActor()->Find("BodyCam");
-		else Camera::main = cam1;
+		//else Camera::main = cam1;
 
 		// 리사이즈 스크린
 		ResizeScreen();
@@ -40,12 +40,22 @@ void GameManager::Update()
 		ptMouse.x = App.GetHalfWidth();
 		ptMouse.y = App.GetHalfHeight();
 		Vector3 Rot;
-		Rot.x = (INPUT->position.y - ptMouse.y) * 0.0001f;
-		Rot.y = (INPUT->position.x - ptMouse.x) * 0.0001f;
+		Rot.x = (INPUT->position.y - ptMouse.y) * 0.0005f;
+		Rot.y = (INPUT->position.x - ptMouse.x) * 0.0005f;
+
+
+		//x축 회전
+		player->GetActor()->Find("Neck")->rotation.x -= Rot.x;
 		Camera::main->rotation.x += Rot.x;
+
+		//y축 회전
 		player->GetActor()->rotation.y += Rot.y;
+
 		ClientToScreen(App.GetHandle(), &ptMouse);
 		SetCursorPos(ptMouse.x, ptMouse.y);
+
+		
+
 	}
 }
 
