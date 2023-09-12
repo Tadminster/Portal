@@ -8,27 +8,27 @@
 
 Portal::Portal()
 {
-	BluePortal = Actor::Create();
-	BluePortal->LoadFile("PortalBlue.xml");
-	OrangePortal = Actor::Create();
-	OrangePortal->LoadFile("PortalOrange.xml");
+	bluePortal = Actor::Create();
+	bluePortal->LoadFile("PortalBlue.xml");
+	orangePortal = Actor::Create();
+	orangePortal->LoadFile("PortalOrange.xml");
 
-	Ui = Actor::Create();
-	Ui->LoadFile("Ui.xml");
+	ui = Actor::Create();
+	ui->LoadFile("ui.xml");
 
 
-	BluePortal->visible = false;
-	OrangePortal->visible = false;
+	bluePortal->visible = false;
+	orangePortal->visible = false;
 
-	ActivateP[BlueP] = false;
-	ActivateP[OrangeP] = false;
+	activateP[BlueP] = false;
+	activateP[OrangeP] = false;
 
 }
 
 Portal::~Portal()
 {
-	BluePortal->Release();
-	OrangePortal->Release();
+	bluePortal->Release();
+	orangePortal->Release();
 }
 
 void Portal::Init()
@@ -38,48 +38,67 @@ void Portal::Init()
 void Portal::Update()
 {
 
-	Ui->RenderHierarchy();
+	ui->RenderHierarchy();
 
 	//양쪽 포탈이 활성시 Close 이미지 투명화
-	if (ActivateP[BlueP] == true and ActivateP[OrangeP] == true)
+	if (activateP[BlueP] == true and activateP[OrangeP] == true)
 	{
-		BluePortal->Find("Close")->visible = false;
-		OrangePortal->Find("Close")->visible = false;
+		bluePortal->Find("Close")->visible = false;
+		orangePortal->Find("Close")->visible = false;
 		
 	}
 	else
 	{
-		BluePortal->Find("Close")->visible = true;
-		OrangePortal->Find("Close")->visible = true;
+		bluePortal->Find("Close")->visible = true;
+		orangePortal->Find("Close")->visible = true;
 
 	}
 
 	//포탈 초기화
 	if (INPUT->KeyPress(VK_F5))
 	{
-		BluePortal->visible = false;
-		OrangePortal->visible = false;
+		bluePortal->visible = false;
+		orangePortal->visible = false;
 
-		ActivateP[BlueP] = false;
-		ActivateP[OrangeP] = false;
+		activateP[BlueP] = false;
+		activateP[OrangeP] = false;
 	}
 
-	//cout << OrangePortal->Find("PortalOrange")->GetForward().x <<"  "
-	//<< OrangePortal->Find("PortalOrange")->GetForward().y<< "  "
-	//<< OrangePortal->Find("PortalOrange")->GetForward().z << endl;
-	//포탈 Close 이미지 애니매이션
-	//BluePortal->Find("Close")
+	//포탈 ui 이미지
+	if (activateP[BlueP] == true and activateP[OrangeP] == true)
+	{
+		ui->texture = RESOURCE->textures.Load("potalUi/PotalUiAll.png");
+	}
+	else if (activateP[BlueP] == true)
+	{
+		ui->texture = RESOURCE->textures.Load("potalUi/PotalUiBlue.png");
+	}
+	else if (activateP[OrangeP] == true)
+	{
+		ui->texture = RESOURCE->textures.Load("potalUi/PotalUiOrange.png");
+	}
+	else if (activateP[BlueP] == false and activateP[OrangeP] == false)
+	{
+		ui->texture = RESOURCE->textures.Load("potalUi/PotalUiNon.png");
+	}
 
-	BluePortal->Update();
-	OrangePortal->Update();
-	Ui->Update();
+
+	//cout << orangePortal->Find("PortalOrange")->GetForward().x <<"  "
+	//<< orangePortal->Find("PortalOrange")->GetForward().y<< "  "
+	//<< orangePortal->Find("PortalOrange")->GetForward().z << endl;
+	//포탈 Close 이미지 애니매이션
+	//bluePortal->Find("Close")
+
+	bluePortal->Update();
+	orangePortal->Update();
+	ui->Update();
 }
 
 void Portal::LateUpdate()
 {
 	PortalInstall();
 
-	if (ActivateP[BlueP] == true and ActivateP[OrangeP] == true)
+	if (activateP[BlueP] == true and activateP[OrangeP] == true)
 	{
 		Portaling();
 	}
@@ -87,29 +106,29 @@ void Portal::LateUpdate()
 
 void Portal::Render()
 {
-	BluePortal->Find("Close")->mesh->AnimationDown();
-	OrangePortal->Find("Close")->mesh->AnimationUp();
-	BluePortal->Render();
-	OrangePortal->Render();
-	Ui->Render();
+	bluePortal->Find("Close")->mesh->AnimationDown();
+	orangePortal->Find("Close")->mesh->AnimationUp();
+	bluePortal->Render();
+	orangePortal->Render();
+	ui->Render();
 }
 
 void Portal::Portaling() //포탈 이동
 {
 
 	//포탈과 접촉시 반대편 포탈로 이동
-	if (PLAYER->GetActor()->Find("Body")->Intersect(BluePortal->Find("PortalBlue")))
+	if (PLAYER->GetActor()->Find("Body")->Intersect(bluePortal->Find("PortalBlue")))
 	{
-		PLAYER->GetActor()->SetWorldPos(OrangePortal->Find("PortalOrange")->GetWorldPos()
-			+ OrangePortal->Find("PortalOrange")->GetForward() * -5);
-		PLAYER->GetActor()->rotation.y += OrangePortal->rotation.y  - BluePortal->rotation.y +180*ToRadian;
+		PLAYER->GetActor()->SetWorldPos(orangePortal->Find("PortalOrange")->GetWorldPos()
+			+ orangePortal->Find("PortalOrange")->GetForward() * -5);
+		PLAYER->GetActor()->rotation.y += orangePortal->rotation.y  - bluePortal->rotation.y +180*ToRadian;
 		
 	}
-	else if (PLAYER->GetActor()->Find("Body")->Intersect(OrangePortal->Find("PortalOrange")))
+	else if (PLAYER->GetActor()->Find("Body")->Intersect(orangePortal->Find("PortalOrange")))
 	{
-		PLAYER->GetActor()->SetWorldPos(BluePortal->Find("PortalBlue")->GetWorldPos()
-			+ BluePortal->Find("PortalBlue")->GetForward() * -5);
-		PLAYER->GetActor()->rotation.y += BluePortal->rotation.y  - OrangePortal->rotation.y + 180 * ToRadian;
+		PLAYER->GetActor()->SetWorldPos(bluePortal->Find("PortalBlue")->GetWorldPos()
+			+ bluePortal->Find("PortalBlue")->GetForward() * -5);
+		PLAYER->GetActor()->rotation.y += bluePortal->rotation.y  - orangePortal->rotation.y + 180 * ToRadian;
 	}
 
 }
@@ -127,15 +146,14 @@ void Portal::PortalInstall() //포탈 설치
 		{
 			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit))
 			{
-				/*if (feature->type == StructureType::Wall)
-				{*/
-					BluePortal->visible = true;				
-					BluePortal->rotation = feature->GetActor()->rotation + Vector3(-90*ToRadian,0,0);
-					BluePortal->SetLocalPos(Hit);
-					BluePortal->Find("PortalBlue")->SetLocalPosZ(
-						BluePortal->Find("PortalBlue")->GetLocalPos().z - 0.01f);
-					ActivateP[BlueP] = true;
-				/*}*/
+				
+				bluePortal->visible = true;
+				bluePortal->rotation = feature->GetActor()->rotation + Vector3(-90*ToRadian,0,0);
+				bluePortal->SetLocalPos(Hit);
+				bluePortal->Find("PortalBlue")->SetLocalPosZ(
+					bluePortal->Find("PortalBlue")->GetLocalPos().z - 0.01f);
+					activateP[BlueP] = true;
+				
 				
 			}
 		}
@@ -148,15 +166,14 @@ void Portal::PortalInstall() //포탈 설치
 		{
 			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit))
 			{
-				/*if (feature->type == StructureType::Wall)
-				{*/
-					OrangePortal->visible = true;					
-					OrangePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
-					OrangePortal->SetLocalPos(Hit);
-					OrangePortal->Find("PortalOrange")->SetLocalPosZ(
-						OrangePortal->Find("PortalOrange")->GetLocalPos().z - 0.01f);
-					ActivateP[OrangeP] = true;
-				/*}*/
+				
+					orangePortal->visible = true;					
+					orangePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
+					orangePortal->SetLocalPos(Hit);
+					orangePortal->Find("PortalOrange")->SetLocalPosZ(
+						orangePortal->Find("PortalOrange")->GetLocalPos().z - 0.01f);
+					activateP[OrangeP] = true;
+				
 				
 			}
 		}

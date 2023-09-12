@@ -7,8 +7,8 @@
     <Children Size="7"/>
     <Child0 Name="Body" Visible="true" ObType="0">
         <Collider ColliderType="2" Visible="true">
-            <Position X="0" Y="0.27500001" Z="0"/>
-            <Scale X="2" Y="1.8" Z="1.2"/>
+            <Position X="0" Y="-0.44999999" Z="-0.80000001"/>
+            <Scale X="2" Y="2.5999999" Z="2.8"/>
             <Rotation X="0" Y="0" Z="0"/>
         </Collider>
         <Transform>
