@@ -1,14 +1,14 @@
 <Root Name="Actor" Visible="true" ObType="1">
     <Transform>
-        <Position X="1.4776642" Y="4.8140383" Z="1.9271278"/>
+        <Position X="-11.083893" Y="4.9999499" Z="1.9271278"/>
         <Scale X="1" Y="1" Z="1"/>
         <Rotation X="0" Y="0" Z="0"/>
     </Transform>
     <Children Size="7"/>
     <Child0 Name="Body" Visible="true" ObType="0">
         <Collider ColliderType="2" Visible="true">
-            <Position X="0" Y="0.27500001" Z="0"/>
-            <Scale X="2" Y="1.8" Z="1.2"/>
+            <Position X="0" Y="0.375" Z="-0.80000001"/>
+            <Scale X="2" Y="1.8" Z="2.75"/>
             <Rotation X="0" Y="0" Z="0"/>
         </Collider>
         <Transform>
