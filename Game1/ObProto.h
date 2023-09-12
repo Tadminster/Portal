@@ -5,7 +5,6 @@ class ObProto
 {
 protected:
 	class Actor* actor;
-	class Actor* gun;
 	
 	
 	Vector3 dir			{};

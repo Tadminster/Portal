@@ -4,17 +4,7 @@ class Main : public Scene
 {
 private:
 	// default
-	
 	Grid* grid;
-	Actor* gun;
-
-	
-	
-
-	// ¸Ê
-	class Feature* wall;
-
-	// ¿ÀºêÁ§Æ®
 
 	//Æ÷Å»
 	class Portal* portal;

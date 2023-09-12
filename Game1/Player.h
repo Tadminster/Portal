@@ -11,6 +11,8 @@ enum class PlayerState
 class Player : public ObProto
 {
 private:
+	class Actor* gun;
+
 	PlayerState state	{ PlayerState::IDLE };
 
 	Vector3 lastPos			{ 0, 0, 0 };
