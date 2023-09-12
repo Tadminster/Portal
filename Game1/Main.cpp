@@ -97,6 +97,7 @@ void Main::Update()
 
     // 카메라 조작 (디버그 모드일때만)
     if (GM->debugMode) Camera::ControlMainCam();
+        
 
     ImGui::Begin("Hierarchy");
     {
