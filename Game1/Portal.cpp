@@ -126,9 +126,10 @@ void Portal::Portaling() //Æ÷Å» ÀÌµ¿
 			if (orangePortal->rotation.x >= 85 * ToRadian)
 			{
 				PLAYER->GetActor()->SetWorldPos(orangePortal->Find("PortalOrange")->GetWorldPos()
-					+ Vector3(0,50,0));
+					+ Vector3(0,6,0));
 				PLAYER->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;
 
+				//PLAYER->PortalJump();
 				PLAYER->Jump();
 			}
 			else
@@ -145,8 +146,9 @@ void Portal::Portaling() //Æ÷Å» ÀÌµ¿
 			if (bluePortal->rotation.x >= 85 * ToRadian)
 			{
 				PLAYER->GetActor()->SetWorldPos(bluePortal->Find("PortalBlue")->GetWorldPos()
-					+ bluePortal->Find("PortalBlue")->GetForward() * -100);
+					+ Vector3(0, 6, 0));
 				PLAYER->GetActor()->rotation.y += bluePortal->rotation.y - orangePortal->rotation.y + 180 * ToRadian;
+				//PLAYER->PortalJump();
 				PLAYER->Jump();
 			}
 			else
