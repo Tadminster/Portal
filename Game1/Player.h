@@ -30,5 +30,6 @@ public:
 	virtual void FireBluePortal();
 	virtual void FireYellowPortal();
 	virtual void Jump();
+	virtual void PortalJump() { OnGround = false; gravity = 20; };
 };
 
