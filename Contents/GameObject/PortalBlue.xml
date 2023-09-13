@@ -1,26 +1,21 @@
 <Root Name="PortalB" Visible="true" ObType="1">
     <Transform>
-        <Position X="-3.8664539" Y="1" Z="-0.12884301"/>
+        <Position X="-1.7662888" Y="1.0001665" Z="9.9230633"/>
         <Scale X="1" Y="1" Z="1"/>
-        <Rotation X="0" Y="0" Z="0"/>
+        <Rotation X="1.5707879" Y="0.19680111" Z="0"/>
     </Transform>
     <Children Size="1"/>
     <Child0 Name="PortalBlue" Visible="true" ObType="1">
         <Mesh File="6.Cube.mesh"/>
         <Shader File="6.Cube.hlsl"/>
-        <Collider ColliderType="1" Visible="false">
-            <Position X="0" Y="0" Z="-499.99994"/>
-            <Scale X="1" Y="1" Z="1"/>
-            <Rotation X="0" Y="0" Z="0"/>
-        </Collider>
         <Texture File="portal/portal_blue_outline.png"/>
         <Transform>
-            <Position X="0" Y="6" Z="0"/>
+            <Position X="0" Y="6" Z="-0.059999995"/>
             <Scale X="3" Y="6" Z="0.001"/>
             <Rotation X="0" Y="0" Z="0"/>
         </Transform>
-        <Children Size="2"/>
-        <Child0 Name="Close" Visible="true" ObType="0">
+        <Children Size="3"/>
+        <Child0 Name="Close" Visible="false" ObType="0">
             <Mesh File="6.CloseDown.mesh"/>
             <Shader File="6.Cube.hlsl"/>
             <Texture File="portal/portal_blue_close.png"/>
@@ -40,5 +35,18 @@
             <Camera Ortho="false" Fov="1.047192" Width="1280" Height="720" NearZ="0.1" FarZ="500" viewportX="0" viewportY="0" viewportW="1280" viewportH="720"/>
             <Children Size="0"/>
         </Child1>
+        <Child2 Name="collider" Visible="true" ObType="1">
+            <Collider ColliderType="2" Visible="true">
+                <Position X="0" Y="0" Z="-199.99997"/>
+                <Scale X="1" Y="1" Z="1"/>
+                <Rotation X="0" Y="0" Z="0"/>
+            </Collider>
+            <Transform>
+                <Position X="0" Y="0" Z="0"/>
+                <Scale X="1" Y="1" Z="1"/>
+                <Rotation X="0" Y="0" Z="0"/>
+            </Transform>
+            <Children Size="0"/>
+        </Child2>
     </Child0>
 </Root>
