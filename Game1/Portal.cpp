@@ -117,20 +117,47 @@ void Portal::Render()
 void Portal::Portaling() //Æ÷Å» ÀÌµ¿
 {
 
-	//Æ÷Å»°ú Á¢ÃË½Ã ¹Ý´ëÆí Æ÷Å»·Î ÀÌµ¿
-	if (PLAYER->GetActor()->Find("Body")->Intersect(bluePortal->Find("PortalBlue")))
+	if (TIMER->GetTick(portalDelay, 0.1f))
 	{
-		PLAYER->GetActor()->SetWorldPos(orangePortal->Find("PortalOrange")->GetWorldPos()
-			+ orangePortal->Find("PortalOrange")->GetForward() * -5);
-		PLAYER->GetActor()->rotation.y += orangePortal->rotation.y  - bluePortal->rotation.y +180*ToRadian;
-		
+		//Æ÷Å»°ú Á¢ÃË½Ã ¹Ý´ëÆí Æ÷Å»·Î ÀÌµ¿
+	//ºí·ç -> ¿À·»Áö
+		if (PLAYER->GetActor()->Find("Body")->Intersect(bluePortal->Find("collider")))
+		{
+			if (orangePortal->rotation.x >= 85 * ToRadian)
+			{
+				PLAYER->GetActor()->SetWorldPos(orangePortal->Find("PortalOrange")->GetWorldPos()
+					+ Vector3(0,50,0));
+				PLAYER->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;
+
+				PLAYER->Jump();
+			}
+			else
+			{
+				PLAYER->GetActor()->SetWorldPos(orangePortal->Find("PortalOrange")->GetWorldPos()
+					+ orangePortal->Find("PortalOrange")->GetForward() * -5);
+				PLAYER->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;
+			}
+		}
+		//¿À·»Áö -> ºí·ç
+		else if (PLAYER->GetActor()->Find("Body")->Intersect(orangePortal->Find("collider")))
+		{
+
+			if (bluePortal->rotation.x >= 85 * ToRadian)
+			{
+				PLAYER->GetActor()->SetWorldPos(bluePortal->Find("PortalBlue")->GetWorldPos()
+					+ bluePortal->Find("PortalBlue")->GetForward() * -100);
+				PLAYER->GetActor()->rotation.y += bluePortal->rotation.y - orangePortal->rotation.y + 180 * ToRadian;
+				PLAYER->Jump();
+			}
+			else
+			{
+				PLAYER->GetActor()->SetWorldPos(bluePortal->Find("PortalBlue")->GetWorldPos()
+					+ bluePortal->Find("PortalBlue")->GetForward() * -5);
+				PLAYER->GetActor()->rotation.y += bluePortal->rotation.y - orangePortal->rotation.y + 180 * ToRadian;
+			}
+		}
 	}
-	else if (PLAYER->GetActor()->Find("Body")->Intersect(orangePortal->Find("PortalOrange")))
-	{
-		PLAYER->GetActor()->SetWorldPos(bluePortal->Find("PortalBlue")->GetWorldPos()
-			+ bluePortal->Find("PortalBlue")->GetForward() * -5);
-		PLAYER->GetActor()->rotation.y += bluePortal->rotation.y  - orangePortal->rotation.y + 180 * ToRadian;
-	}
+	
 
 }
 
@@ -147,15 +174,25 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 		{
 			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit))
 			{
-				
-				bluePortal->visible = true;
-				bluePortal->rotation = feature->GetActor()->rotation + Vector3(-90*ToRadian,0,0);
-				bluePortal->SetLocalPos(Hit);
-				bluePortal->Find("PortalBlue")->SetLocalPosZ(
-					bluePortal->Find("PortalBlue")->GetLocalPos().z - 0.01f);
+				if (feature->type == StructureType::Wall)
+				{
+					bluePortal->visible = true;
+					bluePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
+					bluePortal->SetLocalPos(Hit);
+					bluePortal->Find("PortalBlue")->SetLocalPosZ(
+						bluePortal->Find("PortalBlue")->GetLocalPos().z - 0.01f);
 					activateP[BlueP] = true;
-				
-				
+				}
+				if (feature->type == StructureType::Floor)
+				{
+					bluePortal->visible = true;
+					bluePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
+					bluePortal->rotation.y = PLAYER->GetActor()->rotation.y;
+					bluePortal->SetLocalPos(Hit);
+					bluePortal->Find("PortalBlue")->SetLocalPosZ(
+						bluePortal->Find("PortalBlue")->GetLocalPos().z - 0.01f);
+					activateP[BlueP] = true;
+				}			
 			}
 		}
 	}
@@ -167,15 +204,25 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 		{
 			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit))
 			{
-				
-					orangePortal->visible = true;					
+				if (feature->type == StructureType::Wall)
+				{
+					orangePortal->visible = true;
 					orangePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
 					orangePortal->SetLocalPos(Hit);
 					orangePortal->Find("PortalOrange")->SetLocalPosZ(
 						orangePortal->Find("PortalOrange")->GetLocalPos().z - 0.01f);
 					activateP[OrangeP] = true;
-				
-				
+				}
+				if (feature->type == StructureType::Floor)
+				{
+					orangePortal->visible = true;
+					orangePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
+					orangePortal->rotation.y = PLAYER->GetActor()->rotation.y;
+					orangePortal->SetLocalPos(Hit);
+					orangePortal->Find("PortalOrange")->SetLocalPosZ(
+						orangePortal->Find("PortalOrange")->GetLocalPos().z - 0.01f);
+					activateP[OrangeP] = true;
+				}
 			}
 		}
 	}

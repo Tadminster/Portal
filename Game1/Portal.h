@@ -13,7 +13,7 @@ private:
 
 
 	bool activateP[2];
-
+	float portalDelay;
 
 public:
 	Portal();
