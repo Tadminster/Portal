@@ -34,7 +34,7 @@ void ObjectManager::RenderHierarchy()
 		feature->GetActor()->RenderHierarchy();
 }
 
-void ObjectManager::AddFeature(Feature* feature, Vector3 position, bool defalutAngle)
+void ObjectManager::AddFeature(Feature* feature, Vector3 position, float rotationY)
 {
 	// Set position
 	feature->GetActor()->SetWorldPos(position);
@@ -42,8 +42,8 @@ void ObjectManager::AddFeature(Feature* feature, Vector3 position, bool defalutA
 	// type이 벽이면
 	if (feature->type == Wall)
 	{
-		// 기본앵글이 아니면 y축 90도 회전
-		if (!defalutAngle) feature->GetActor()->rotation.y = 90 * ToRadian;
+		// y축 회전
+		feature->GetActor()->rotation.y = rotationY * ToRadian;
 
 		// x축 90도 회전
 		feature->GetActor()->rotation.x = 90 * ToRadian;
@@ -55,6 +55,10 @@ void ObjectManager::AddFeature(Feature* feature, Vector3 position, bool defalutA
 	else if (feature->type == Floor)
 	{
 		feature->GetActor()->rotation.x = 180 * ToRadian;
+	}
+	else if (feature->type == Ceiling)
+	{
+		//feature->GetActor()->rotation.x = 0 * ToRadian;
 	}
 
 	features.push_back(feature);
