@@ -9,6 +9,7 @@ enum Material
 enum StructureType
 {
 	Floor,
+	Ceiling,
 	Wall
 };
 
