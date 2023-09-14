@@ -27,7 +27,7 @@ void GameManager::Update()
 
 		// 메인캠 변경
 		if (Camera::main == cam1) Camera::main = (Camera*)player->GetActor()->Find("BodyCam");
-		//else Camera::main = cam1;
+		else Camera::main = cam1;
 
 		// 리사이즈 스크린
 		ResizeScreen();
