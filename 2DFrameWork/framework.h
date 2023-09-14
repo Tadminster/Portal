@@ -15,6 +15,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <queue>
+#include <algorithm>
 using namespace std;
 
 //DirectX d3d 11
