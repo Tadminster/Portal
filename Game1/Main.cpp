@@ -1,11 +1,6 @@
 #include "stdafx.h"
-#include "ObProto.h"
-#include "Player.h"
-#include "Feature.h"
-#include "Portal.h"
-#include "Cube.h"
-#include "ObjectManager.h"
-#include "GameManager.h"
+#include "Scene1.h"
+
 #include "Main.h"
 
 // [페치] 온라인에 있는 내용을 가져옴
@@ -39,73 +34,34 @@
 
 Main::Main()
 {
-    grid = Grid::Create();
-    GM->Init();
-
-    //바디캠
-    Camera::main = (Camera*)PLAYER->GetActor()->Find("BodyCam");
-    ResizeScreen();
-
-    OBJECT->AddFeature(new Feature(Concrete, 7, Floor));
-    OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(0, 0, 48));
-    OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(48, 0, 0), false);
-
-    portal  = new Portal();
-    cube = new Cube();
-    
+    sc1 = new Scene1();
 }
 
 Main::~Main()
 {
     //GM->cam1->SaveFile("Cam.xml");
-    PLAYER->~Player();
-    OBJECT->Release();
-    cube->~Cube();
+    GM->Release();
 }
 
 void Main::Init()
 {
+    SCENE->AddScene("scene1", sc1);
+    SCENE->ChangeScene("scene1");
 }
 
 void Main::Release()
 {
-   
+    SCENE->Release();
 }
 
 void Main::Update()
 {
-    // 카메라 조작 (디버그 모드일때만)
-    if (GM->debugMode) Camera::ControlMainCam();
-        
-
-    ImGui::Begin("Hierarchy");
-    {
-        grid->RenderHierarchy();
-        GM->cam1->RenderHierarchy();
-        PLAYER->GetActor()->RenderHierarchy();
-        OBJECT->RenderHierarchy();
-        portal->GetBluePortal()->RenderHierarchy();
-        portal->GetOrangePortal()->RenderHierarchy();
-        cube->GetActor()->RenderHierarchy();
-    }
-    ImGui::End();
-
-    grid->Update();
-    Camera::main->Update();
-
-    GM->Update();
-    PLAYER->Update();
-    OBJECT->Update();
-    portal->Update();
-    cube->Update();
-    
+    SCENE->Update();
 }
 
 void Main::LateUpdate()
 {
-    PLAYER->LateUpdate();
-    portal->LateUpdate();
-    cube->LateUpdate();
+    SCENE->LateUpdate();
 }
 
 void Main::PreRender()
@@ -114,23 +70,12 @@ void Main::PreRender()
 
 void Main::Render()
 {
-    Camera::main->Set();
-    grid->Render();
-    PLAYER->Render();
-    OBJECT->Render();
-    portal->Render();
-    cube->Render();
+    SCENE->Render();
 }
 
 void Main::ResizeScreen()
 {
-    Camera::main->viewport.x = 0.0f;
-    Camera::main->viewport.y = 0.0f;
-    Camera::main->viewport.width = App.GetWidth();
-    Camera::main->viewport.height = App.GetHeight();
-
-    Camera::main->width = App.GetWidth();
-    Camera::main->height = App.GetHeight();
+    SCENE->ResizeScreen();
 }
 
 int WINAPI wWinMain(HINSTANCE instance, HINSTANCE prevInstance, LPWSTR param, int command)

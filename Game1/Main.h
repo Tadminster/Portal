@@ -3,12 +3,8 @@
 class Main : public Scene
 {
 private:
-	// default
-	Grid* grid;
+	class Scene1* sc1;
 
-	//Æ÷Å»
-	class Portal* portal;
-	class Cube* cube;
 public:
 	Main();
 	~Main();

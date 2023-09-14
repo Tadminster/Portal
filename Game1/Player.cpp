@@ -31,11 +31,6 @@ void Player::Init()
 void Player::Update()
 {
 
-	
-
-	
-
-
 	lastPos = actor->GetWorldPos();
 
 	// 플레이어 조작 (디버그 모드가 아닐때만)

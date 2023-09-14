@@ -1,7 +1,8 @@
 #pragma once
 class Scene1 : public Scene
 {
-protected:
+private:
+	class Cube* cube;
 
 public:
 	Scene1();
@@ -11,6 +12,7 @@ public:
 	virtual void Update();
 	virtual void LateUpdate();
 	virtual void Render();
+	virtual void PreRender();
 	virtual void ResizeScreen();
 };
 

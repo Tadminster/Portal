@@ -1,13 +1,16 @@
 #include "stdafx.h"
 #include "ObProto.h"
 #include "Player.h"
+#include "Portal.h"
 #include "ObjectManager.h"
 #include "GameManager.h"
 
 void GameManager::Init()
 {
+	grid = Grid::Create();
 	cam1 = Camera::Create();
 	player = new Player();
+	portal = new Portal();
 	object = new ObjectManager();
 
 	cam1->LoadFile("Cam.xml");
@@ -15,10 +18,18 @@ void GameManager::Init()
 
 void GameManager::Release()
 {
+	grid->Release();
+	cam1->Release();
+	player->~Player();
+	portal->~Portal();
+	object->Release();
 }
 
 void GameManager::Update()
 {
+	
+	
+
 	if (INPUT->KeyDown(VK_F1))
 	{
 		// 모드 전환
@@ -33,7 +44,12 @@ void GameManager::Update()
 		ResizeScreen();
 	}
 
-	if (!debugMode)
+	if (GM->debugMode)				// 디버그 모드
+	{
+		// 카메라 컨트롤
+		Camera::ControlMainCam();
+	}
+	else							// 게임모드
 	{
 		//중앙값
 		POINT ptMouse;
@@ -43,20 +59,14 @@ void GameManager::Update()
 		Rot.x = (INPUT->position.y - ptMouse.y) * 0.0005f;
 		Rot.y = (INPUT->position.x - ptMouse.x) * 0.0005f;
 
-
 		//x축 회전
 		player->GetActor()->Find("Player2")->rotation.x += Rot.x;
 
 		//y축 회전
 		player->GetActor()->rotation.y += Rot.y;
 		
-		
-
 		ClientToScreen(App.GetHandle(), &ptMouse);
 		SetCursorPos(ptMouse.x, ptMouse.y);
-
-		
-
 	}
 }
 
