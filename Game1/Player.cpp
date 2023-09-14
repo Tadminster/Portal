@@ -40,11 +40,12 @@ void Player::Update()
 
 	if (state == PlayerState::IDLE)
 	{
-
+		
 	}
 	else if (state == PlayerState::RUN)
 	{
 		actor->MoveWorldPos(dir * moveSpeed * DELTA);
+		actor->SetLocalPosY(5);
 	}
 	else if (state == PlayerState::JUMP)
 	{
@@ -55,6 +56,7 @@ void Player::Update()
 		if (OnGround)
 		{
 			state = PlayerState::IDLE;
+			actor->SetLocalPosY(5);
 		}
 	}
 	else if (state == PlayerState::FIRE)
@@ -75,11 +77,15 @@ void Player::Update()
 	actor->Update();
 	
 
-
 	//포탈건과 플레이어 위치와 로테이션 동기화
 	
+	actor->Find("LeftLeg")->rotation.x = actor->rotation.x;
+	actor->Find("RightLeg")->rotation.x = -actor->rotation.x;
+
+	gun->rotation.x = actor->rotation.x;
 	gun->rotation.y = actor->rotation.y; 
-	gun->rotation.x = -actor->Find("Neck")->rotation.x;
+	
+	//gun->rotation.x = -actor->Find("Neck")->rotation.x;
 
 	
 	gun->SetWorldPos(actor->Find("elbow")->GetWorldPos());
@@ -116,6 +122,7 @@ void Player::LateUpdate()
 			if (actor->Find("RightFoot")->Intersect(feature->GetActor()->Find("Mesh")))
 			{
 				OnGround = true;
+
 				break;
 			}
 			else OnGround = false;
