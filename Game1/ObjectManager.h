@@ -14,6 +14,6 @@ public:
 	void	Render();
 	void	RenderHierarchy();
 
-	void	AddFeature(Structure* feature, Vector3 position = Vector3(), float rotationY = 0.0f);
-	list<class Structure*>& GetFeatures() { return structures; }
+	void	AddStructure(Structure* structure, Vector3 position = Vector3(), float rotationY = 0.0f);
+	list<class Structure*>& GetStructures() { return structures; }
 };

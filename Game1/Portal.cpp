@@ -175,7 +175,7 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 	//ÁÂÅ¬¸¯ ºí·çÆ÷Å» »ý¼º
 	if (INPUT->KeyDown(VK_LBUTTON))
 	{
-		for (auto& feature : OBJECT->GetFeatures())
+		for (auto& feature : OBJECT->GetStructures())
 		{
 			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit))
 			{
@@ -206,7 +206,7 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 	//¿ìÅ¬¸¯ ¿À·»ÁöÆ÷Å» »ý¼º
 	if (INPUT->KeyDown(VK_RBUTTON))
 	{
-		for (auto& feature : OBJECT->GetFeatures())
+		for (auto& feature : OBJECT->GetStructures())
 		{
 			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit))
 			{

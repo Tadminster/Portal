@@ -34,7 +34,7 @@ void ObjectManager::RenderHierarchy()
 		it->GetActor()->RenderHierarchy();
 }
 
-void ObjectManager::AddFeature(Structure* feature, Vector3 position, float rotationY)
+void ObjectManager::AddStructure(Structure* feature, Vector3 position, float rotationY)
 {
 	// Set position
 	feature->GetActor()->SetWorldPos(position);

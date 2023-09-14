@@ -109,13 +109,13 @@ void Player::Update()
 void Player::LateUpdate()
 {
 	// 모든 지형지물과 충돌 체크
-	for (auto& feature : OBJECT->GetFeatures())
+	for (auto& it : OBJECT->GetStructures())
 	{
 		// 지형지물이 벽이면
-		if (feature->type == Wall)
+		if (it->type == Wall)
 		{
 			// 벽과 부딪치면 이전 위치로 이동
-			if (actor->Find("Body")->Intersect(feature->GetActor()->Find("Mesh")))
+			if (actor->Find("Body")->Intersect(it->GetActor()->Find("Mesh")))
 			{
 				actor->SetWorldPosX(lastPos.x);
 				actor->SetWorldPosZ(lastPos.z);
@@ -124,13 +124,13 @@ void Player::LateUpdate()
 		}
 	}
 
-	for (auto& feature : OBJECT->GetFeatures())
+	for (auto& it : OBJECT->GetStructures())
 	{
 		// 지형지물이 바닥이면
-		if (feature->type == Floor)
+		if (it->type == Floor)
 		{
 			// 지형지물의 Body와 플레이어의 Mesh가 충돌하면 땅에 닿아있는 것
-			if (actor->Find("RightFoot")->Intersect(feature->GetActor()->Find("Mesh")))
+			if (actor->Find("RightFoot")->Intersect(it->GetActor()->Find("Mesh")))
 			{
 				OnGround = true;
 

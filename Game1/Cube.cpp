@@ -38,7 +38,7 @@ void Cube::Update()
 void Cube::LateUpdate()
 {
 	// 모든 지형지물과 충돌 체크
-	for (auto& feature : OBJECT->GetFeatures())
+	for (auto& feature : OBJECT->GetStructures())
 	{
 		// 지형지물이 벽이면
 		if (feature->type == Wall)
@@ -53,7 +53,7 @@ void Cube::LateUpdate()
 		}
 	}
 
-	for (auto& feature : OBJECT->GetFeatures())
+	for (auto& feature : OBJECT->GetStructures())
 	{
 		// 지형지물이 바닥이면
 		if (feature->type == Floor)
