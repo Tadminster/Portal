@@ -49,9 +49,10 @@ void GameManager::Update()
 		//Camera::main->rotation.x += Rot.x;
 
 		//yÃà È¸Àü
-		player->GetActor()->rotation.y += Rot.y;
-		player->GetActor()->rotation.x += Rot.x;
+		
+		player->GetActor()->Find("Player2")->rotation.x += Rot.x;
 
+		player->GetActor()->rotation.y += Rot.y;
 		
 
 		ClientToScreen(App.GetHandle(), &ptMouse);
