@@ -74,7 +74,7 @@ void Player::Update()
 
 	if (bounceSpeed > 0)
 	{
-		actor->MoveWorldPos(actor->GetForward() * bounceSpeed * DELTA);
+		actor->MoveWorldPos(bounceDir * bounceSpeed * DELTA);
 		bounceSpeed = clamp(bounceSpeed - 20.0f * DELTA, 0.0f, 400.0f);
 	}
 
