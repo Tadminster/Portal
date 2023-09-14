@@ -45,14 +45,11 @@ void GameManager::Update()
 
 
 		//x축 회전
-		//player->GetActor()->Find("Neck")->rotation.x -= Rot.x;
-		//Camera::main->rotation.x += Rot.x;
-
-		//y축 회전
-		
 		player->GetActor()->Find("Player2")->rotation.x += Rot.x;
 
+		//y축 회전
 		player->GetActor()->rotation.y += Rot.y;
+		
 		
 
 		ClientToScreen(App.GetHandle(), &ptMouse);

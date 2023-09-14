@@ -30,7 +30,11 @@ void Player::Init()
 
 void Player::Update()
 {
+
 	
+
+	
+
 
 	lastPos = actor->GetWorldPos();
 
@@ -83,6 +87,13 @@ void Player::Update()
 	actor->Update();
 	
 
+
+	//플레이어 x축 범위 제한 -90도 ~ 90도
+
+	float rotationX = actor->Find("Player2")->rotation.x;
+	rotationX = max(-90.0f * ToRadian, min(90.0f * ToRadian, rotationX));
+	actor->Find("Player2")->rotation.x = rotationX;
+
 	//포탈건과 플레이어 위치와 로테이션 동기화
 	
 	actor->Find("LeftLeg")->rotation.x = actor->Find("Player2")->rotation.x;
@@ -91,6 +102,7 @@ void Player::Update()
 	gun->rotation.x = actor->Find("Player2")->rotation.x;
 	gun->rotation.y = actor->rotation.y;
 
+	
 	
 
 
