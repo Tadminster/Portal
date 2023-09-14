@@ -11,12 +11,15 @@ enum class PlayerState
 class Player : public ObProto
 {
 private:
-	class Actor* gun;
+	class Actor* gun;							// 포탈건
 
-	PlayerState state	{ PlayerState::IDLE };
+	PlayerState state	{ PlayerState::IDLE };	// 플레이어 상태
 
-	Vector3 lastPos			{ 0, 0, 0 };
-	bool	OnGround		{ false };
+	Vector3 lastPos			{ 0, 0, 0 };		// 이전 프레임의 위치
+	bool	OnGround		{ false };			// 플레이어가 바닥에 닿아있는지
+
+	Vector3 bounceDir		{ 0, 0, 0 };		// 포탈을 통해 튕겨져 나오는 방향
+	float	bounceSpeed		{ 0 };				// 포탈을 통해 튕겨져 나오는 속도
 
 public:
 	Player();
@@ -31,5 +34,8 @@ public:
 	virtual void FireYellowPortal();
 	virtual void Jump();
 	virtual void PortalJump() { OnGround = false; gravity = 20; };
+	virtual void PortalBounce() { bounceSpeed = -gravity; gravity = 0; };
+
+	virtual void SetBounceDir(Vector3 dir) { bounceDir = dir; };
 };
 

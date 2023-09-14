@@ -74,6 +74,12 @@ void Player::Update()
 		actor->MoveWorldPos(actor->GetUp() * gravity * DELTA);
 	}
 
+	if (bounceSpeed > 0)
+	{
+		actor->MoveWorldPos(bounceDir * bounceSpeed * DELTA);
+		bounceSpeed = clamp(bounceSpeed - 20.0f * DELTA, 0.0f, 400.0f);
+	}
+
 	actor->Update();
 	
 
@@ -87,12 +93,9 @@ void Player::Update()
 	
 	//gun->rotation.x = -actor->Find("Neck")->rotation.x;
 
-	
 	gun->SetWorldPos(actor->Find("elbow")->GetWorldPos());
 	gun->Update();
 	gun->RenderHierarchy();
-	
-
 }
 
 void Player::LateUpdate()

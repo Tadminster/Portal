@@ -118,7 +118,7 @@ void Portal::Portaling() //Æ÷Å» ÀÌµ¿
 {
 
 		//Æ÷Å»°ú Á¢ÃË½Ã ¹Ý´ëÆí Æ÷Å»·Î ÀÌµ¿
-	//ºí·ç -> ¿À·»Áö
+		//ºí·ç -> ¿À·»Áö
 		if (PLAYER->GetActor()->Find("Body")->Intersect(bluePortal->Find("collider")))
 		{
 			if (orangePortal->rotation.x == 90 * ToRadian)
@@ -134,6 +134,8 @@ void Portal::Portaling() //Æ÷Å» ÀÌµ¿
 				PLAYER->GetActor()->SetWorldPos(orangePortal->Find("PortalOrange")->GetWorldPos()
 					+ orangePortal->Find("PortalOrange")->GetForward() * -5);
 				PLAYER->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;
+				PLAYER->SetBounceDir(-orangePortal->Find("PortalOrange")->GetForward());
+				PLAYER->PortalBounce();
 			}
 		}
 		//¿À·»Áö -> ºí·ç
@@ -153,6 +155,8 @@ void Portal::Portaling() //Æ÷Å» ÀÌµ¿
 				PLAYER->GetActor()->SetWorldPos(bluePortal->Find("PortalBlue")->GetWorldPos()
 					+ bluePortal->Find("PortalBlue")->GetForward() * -5);
 				PLAYER->GetActor()->rotation.y += bluePortal->rotation.y - orangePortal->rotation.y + 180 * ToRadian;
+				PLAYER->SetBounceDir(-bluePortal->Find("PortalBlue")->GetForward());
+				PLAYER->PortalBounce();
 			}
 		}
 	
