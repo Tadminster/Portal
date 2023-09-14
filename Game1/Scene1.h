@@ -2,6 +2,8 @@
 class Scene1 : public Scene
 {
 private:
+	Vector3 startPoint{ 5, 5, 0 };
+
 	class Cube* cube;
 
 public:
