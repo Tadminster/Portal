@@ -40,6 +40,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GameObject", "GameObject", 
 		Contents\GameObject\Metal.xml = Contents\GameObject\Metal.xml
 		Contents\GameObject\Player.xml = Contents\GameObject\Player.xml
 		Contents\GameObject\PortalBlue.xml = Contents\GameObject\PortalBlue.xml
+		Contents\GameObject\PortalCube.xml = Contents\GameObject\PortalCube.xml
 		Contents\GameObject\PortalOrange.xml = Contents\GameObject\PortalOrange.xml
 	EndProjectSection
 EndProject
