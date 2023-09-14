@@ -8,7 +8,7 @@ private:
 
 	//Æ÷Å»
 	class Portal* portal;
-
+	class Cube* cube;
 public:
 	Main();
 	~Main();

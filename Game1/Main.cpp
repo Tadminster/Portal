@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Feature.h"
 #include "Portal.h"
+#include "Cube.h"
 #include "ObjectManager.h"
 #include "GameManager.h"
 #include "Main.h"
@@ -49,8 +50,9 @@ Main::Main()
     OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(0, 0, 48));
     OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(48, 0, 0), false);
 
-    portal = new Portal();
-
+    portal  = new Portal();
+    cube = new Cube();
+    
 }
 
 Main::~Main()
@@ -58,7 +60,7 @@ Main::~Main()
     //GM->cam1->SaveFile("Cam.xml");
     PLAYER->~Player();
     OBJECT->Release();
-    
+    cube->~Cube();
 }
 
 void Main::Init()
@@ -84,6 +86,7 @@ void Main::Update()
         OBJECT->RenderHierarchy();
         portal->GetBluePortal()->RenderHierarchy();
         portal->GetOrangePortal()->RenderHierarchy();
+        cube->GetActor()->RenderHierarchy();
     }
     ImGui::End();
 
@@ -94,7 +97,7 @@ void Main::Update()
     PLAYER->Update();
     OBJECT->Update();
     portal->Update();
-   
+    cube->Update();
     
 }
 
@@ -102,7 +105,7 @@ void Main::LateUpdate()
 {
     PLAYER->LateUpdate();
     portal->LateUpdate();
-   
+    cube->LateUpdate();
 }
 
 void Main::PreRender()
@@ -116,7 +119,7 @@ void Main::Render()
     PLAYER->Render();
     OBJECT->Render();
     portal->Render();
-   
+    cube->Render();
 }
 
 void Main::ResizeScreen()

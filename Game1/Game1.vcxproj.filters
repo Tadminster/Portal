@@ -21,6 +21,9 @@
     <ClInclude Include="ObjectManager.h">
       <Filter>System</Filter>
     </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -38,6 +41,9 @@
     </ClCompile>
     <ClCompile Include="ObjectManager.cpp">
       <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
