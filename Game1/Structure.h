@@ -8,12 +8,12 @@ enum Material
 
 enum StructureType
 {
-	Floor,
 	Ceiling,
+	Floor,
 	Wall
 };
 
-class Feature
+class Structure
 {
 private:
 	class Actor* actor;
@@ -24,7 +24,7 @@ public:
 
 public:
 	// @brief 지형지물 생성자, 지형지물 타입과 크기를 받아서 초기화
-	// @brief ex) Feature(1, 3) 이면 Concrete 2x2로 생성
+	// @brief ex) Structure(1, 3) 이면 Concrete 2x2로 생성
 	// @param mater 지형지물 재질 
 	// @param [1: Concrete], [2: Metal]
 	// @param
@@ -36,8 +36,8 @@ public:
 	// @param [1: Floor], [2: Wall]
 	// @param
 	// @exception size가 최소보다 작으면 1, 최대보다 크면 가능한 최대 사이즈로 초기화
-	Feature(Material mater = Concrete, int size = 1, StructureType StType = Floor);
-	~Feature();
+	Structure(Material mater = Concrete, int size = 1, StructureType StType = Floor);
+	~Structure();
 	void Init();
 	void Update();
 	void LateUpdate();

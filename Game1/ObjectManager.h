@@ -2,7 +2,7 @@
 class ObjectManager
 {
 private:
-	list<class Feature*> features;
+	list<class Structure*> structures;
 
 public:
 	~ObjectManager() {};
@@ -14,6 +14,6 @@ public:
 	void	Render();
 	void	RenderHierarchy();
 
-	void	AddFeature(Feature* feature, Vector3 position = Vector3(), float rotationY = 0.0f);
-	list<class Feature*>& GetFeatures() { return features; }
+	void	AddFeature(Structure* feature, Vector3 position = Vector3(), float rotationY = 0.0f);
+	list<class Structure*>& GetFeatures() { return structures; }
 };

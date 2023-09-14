@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "Feature.h"
+#include "Structure.h"
 
-Feature::Feature(Material material, int size, StructureType type)
+Structure::Structure(Material material, int size, StructureType type)
 	: material(material), type(type)
 {
 	actor = Actor::Create();	// actor °´Ã¼ »ı¼º
@@ -63,25 +63,25 @@ Feature::Feature(Material material, int size, StructureType type)
 	actor->Find("Mesh")->scale = tileSize;
 }
 
-Feature::~Feature()
+Structure::~Structure()
 {
 	actor->Release();
 }
 
-void Feature::Init()
+void Structure::Init()
 {
 }
 
-void Feature::Update()
+void Structure::Update()
 {
 	actor->Update();
 }
 
-void Feature::LateUpdate()
+void Structure::LateUpdate()
 {
 }
 
-void Feature::Render()
+void Structure::Render()
 {
 	actor->Render();
 }

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "ObProto.h"
 #include "Player.h"
-#include "Feature.h"
+#include "Structure.h"
 #include "ObjectManager.h"
 #include "Portal.h"
 
@@ -188,7 +188,8 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 						bluePortal->Find("PortalBlue")->GetLocalPos().z - 0.01f);
 					activateP[BlueP] = true;
 				}
-				if (feature->type == StructureType::Floor)
+				if (feature->type == StructureType::Ceiling
+					|| feature->type == StructureType::Floor)
 				{
 					bluePortal->visible = true;
 					bluePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
@@ -218,7 +219,8 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 						orangePortal->Find("PortalOrange")->GetLocalPos().z - 0.01f);
 					activateP[OrangeP] = true;
 				}
-				if (feature->type == StructureType::Floor)
+				if (feature->type == StructureType::Ceiling
+					|| feature->type == StructureType::Floor)
 				{
 					orangePortal->visible = true;
 					orangePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);

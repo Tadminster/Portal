@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "ObProto.h"
-#include "Feature.h"
+#include "Structure.h"
 #include "ObjectManager.h"
 #include "Player.h"
 

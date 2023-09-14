@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Feature.h"
+#include "Structure.h"
 #include "ObProto.h"
 #include "Player.h"
 #include "Cube.h"
@@ -25,33 +25,33 @@ void Scene1::Init()
 {
     cube = new Cube();
     
-    OBJECT->AddFeature(new Feature(Concrete, 7, Floor), Vector3(12, 0, 0));         // 바닥1
-    OBJECT->AddFeature(new Feature(Concrete, 7, Ceiling), Vector3(12, 48, 0));      // 천장1
-    OBJECT->AddFeature(new Feature(Concrete, 7, Floor), Vector3(132, 0, 0));        // 바닥2
-    OBJECT->AddFeature(new Feature(Concrete, 7, Ceiling), Vector3(108, 48, 0));     // 천장2
+    OBJECT->AddFeature(new Structure(Concrete, 7, Floor), Vector3(12, 0, 0));         // 바닥1
+    OBJECT->AddFeature(new Structure(Concrete, 7, Ceiling), Vector3(12, 48, 0));      // 천장1
+    OBJECT->AddFeature(new Structure(Concrete, 7, Floor), Vector3(132, 0, 0));        // 바닥2
+    OBJECT->AddFeature(new Structure(Concrete, 7, Ceiling), Vector3(108, 48, 0));     // 천장2
     
-    OBJECT->AddFeature(new Feature(Concrete, 5, Ceiling), Vector3(12, 24, 0));      // 시작위치 위쪽 천장
-    OBJECT->AddFeature(new Feature(Concrete, 5, Wall), Vector3(0, 0, 0), 270);      // 시작위치 뒷쪽 벽
-    OBJECT->AddFeature(new Feature(Concrete, 5, Wall), Vector3(12, 0, 11));         // 시작위치 왼쪽 벽
-    OBJECT->AddFeature(new Feature(Concrete, 5, Wall), Vector3(12, 0, -11), 180);   // 시작위치 오른쪽 벽
+    OBJECT->AddFeature(new Structure(Concrete, 5, Ceiling), Vector3(12, 24, 0));      // 시작위치 위쪽 천장
+    OBJECT->AddFeature(new Structure(Concrete, 5, Wall), Vector3(0, 0, 0), 270);      // 시작위치 뒷쪽 벽
+    OBJECT->AddFeature(new Structure(Concrete, 5, Wall), Vector3(12, 0, 11));         // 시작위치 왼쪽 벽
+    OBJECT->AddFeature(new Structure(Concrete, 5, Wall), Vector3(12, 0, -11), 180);   // 시작위치 오른쪽 벽
 
-    OBJECT->AddFeature(new Feature(Concrete, 5, Wall), Vector3(23, 24, 0), 270);    // 시작위치에서 나와서 바로 위쪽 벽
-    OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(23, 0, 36), 270);    // 시작위치에서 나와서 바로 왼쪽 큰벽
-    OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(23, 0, -36), 270);   // 시작위치에서 나와서 바로 오른쪽 큰벽
+    OBJECT->AddFeature(new Structure(Concrete, 5, Wall), Vector3(23, 24, 0), 270);    // 시작위치에서 나와서 바로 위쪽 벽
+    OBJECT->AddFeature(new Structure(Concrete, 6, Wall), Vector3(23, 0, 36), 270);    // 시작위치에서 나와서 바로 왼쪽 큰벽
+    OBJECT->AddFeature(new Structure(Concrete, 6, Wall), Vector3(23, 0, -36), 270);   // 시작위치에서 나와서 바로 오른쪽 큰벽
 
-    OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(48, 0, 48));         // 시작위치에서 나와서 왼쪽 큰벽1
-    OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(96, 0, 48));         // 시작위치에서 나와서 왼쪽 큰벽2
-    OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(48, 0, -48), 180);   // 시작위치에서 나와서 오른쪽 큰벽1
-    OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(96, 0, -48), 180);   // 시작위치에서 나와서 오른쪽 큰벽2
+    OBJECT->AddFeature(new Structure(Concrete, 6, Wall), Vector3(48, 0, 48));         // 시작위치에서 나와서 왼쪽 큰벽1
+    OBJECT->AddFeature(new Structure(Concrete, 6, Wall), Vector3(96, 0, 48));         // 시작위치에서 나와서 왼쪽 큰벽2
+    OBJECT->AddFeature(new Structure(Concrete, 6, Wall), Vector3(48, 0, -48), 180);   // 시작위치에서 나와서 오른쪽 큰벽1
+    OBJECT->AddFeature(new Structure(Concrete, 6, Wall), Vector3(96, 0, -48), 180);   // 시작위치에서 나와서 오른쪽 큰벽2
 
-    OBJECT->AddFeature(new Feature(Concrete, 5, Wall), Vector3(120, 24, 0), 90);   // 도작위치 들어가기 전 바로 위쪽 벽
-    OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(120, 0, 36), 90);   // 도작위치 들어가기 전 바로 왼쪽 큰벽
-    OBJECT->AddFeature(new Feature(Concrete, 6, Wall), Vector3(120, 0, -36), 90);  // 도작위치 들어가기 전 바로 오른쪽 큰벽
+    OBJECT->AddFeature(new Structure(Concrete, 5, Wall), Vector3(120, 24, 0), 90);   // 도작위치 들어가기 전 바로 위쪽 벽
+    OBJECT->AddFeature(new Structure(Concrete, 6, Wall), Vector3(120, 0, 36), 90);   // 도작위치 들어가기 전 바로 왼쪽 큰벽
+    OBJECT->AddFeature(new Structure(Concrete, 6, Wall), Vector3(120, 0, -36), 90);  // 도작위치 들어가기 전 바로 오른쪽 큰벽
 
-    OBJECT->AddFeature(new Feature(Concrete, 5, Ceiling), Vector3(131, 24, 0));     // 도착위치 천장
-    OBJECT->AddFeature(new Feature(Concrete, 5, Wall), Vector3(143, 0, 0), 90);    // 도착위치 뒷쪽 벽
-    OBJECT->AddFeature(new Feature(Concrete, 5, Wall), Vector3(131, 0, 11));        // 도착위치 왼쪽 벽
-    OBJECT->AddFeature(new Feature(Concrete, 5, Wall), Vector3(131, 0, -11), 180);  // 도착위치 오른쪽 벽
+    OBJECT->AddFeature(new Structure(Concrete, 5, Ceiling), Vector3(131, 24, 0));     // 도착위치 천장
+    OBJECT->AddFeature(new Structure(Concrete, 5, Wall), Vector3(143, 0, 0), 90);    // 도착위치 뒷쪽 벽
+    OBJECT->AddFeature(new Structure(Concrete, 5, Wall), Vector3(131, 0, 11));        // 도착위치 왼쪽 벽
+    OBJECT->AddFeature(new Structure(Concrete, 5, Wall), Vector3(131, 0, -11), 180);  // 도착위치 오른쪽 벽
     
     PLAYER->GetActor()->SetWorldPos(startPoint);
 }

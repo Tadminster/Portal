@@ -6,7 +6,7 @@
     <ClInclude Include="Player.h">
       <Filter>GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="Feature.h">
+    <ClInclude Include="Structure.h">
       <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="ObProto.h">
@@ -33,7 +33,7 @@
     <ClCompile Include="Player.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="Feature.cpp">
+    <ClCompile Include="Structure.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Portal.cpp">

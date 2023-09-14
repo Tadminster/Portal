@@ -1,7 +1,7 @@
 #include <list>			// Doubly Linked List
 
 #include "stdafx.h"
-#include "Feature.h"
+#include "Structure.h"
 #include "ObjectManager.h"
 
 void ObjectManager::Init()
@@ -14,8 +14,8 @@ void ObjectManager::Release()
 
 void ObjectManager::Update()
 {
-	for (auto& feature : features)
-		feature->Update();
+	for (auto& it : structures)
+		it->Update();
 }
 
 void ObjectManager::LateUpdate()
@@ -24,17 +24,17 @@ void ObjectManager::LateUpdate()
 
 void ObjectManager::Render()
 {
-	for (auto& feature : features)
-		feature->Render();
+	for (auto& it : structures)
+		it->Render();
 }
 
 void ObjectManager::RenderHierarchy()
 {
-	for (auto& feature : features)
-		feature->GetActor()->RenderHierarchy();
+	for (auto& it : structures)
+		it->GetActor()->RenderHierarchy();
 }
 
-void ObjectManager::AddFeature(Feature* feature, Vector3 position, float rotationY)
+void ObjectManager::AddFeature(Structure* feature, Vector3 position, float rotationY)
 {
 	// Set position
 	feature->GetActor()->SetWorldPos(position);
@@ -61,5 +61,5 @@ void ObjectManager::AddFeature(Feature* feature, Vector3 position, float rotatio
 		//feature->GetActor()->rotation.x = 0 * ToRadian;
 	}
 
-	features.push_back(feature);
+	structures.push_back(feature);
 }
