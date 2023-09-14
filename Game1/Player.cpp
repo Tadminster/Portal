@@ -72,21 +72,21 @@ void Player::Update()
 		actor->MoveWorldPos(actor->GetUp() * gravity * DELTA);
 	}
 
-	actor->Update();
-	
+	if (bounceSpeed > 0)
+	{
+		actor->MoveWorldPos(actor->GetForward() * bounceSpeed * DELTA);
+		bounceSpeed = clamp(bounceSpeed - 20.0f * DELTA, 0.0f, 400.0f);
+	}
 
+	actor->Update();
 
 	//포탈건과 플레이어 위치와 로테이션 동기화
-	
 	gun->rotation.y = actor->rotation.y; 
 	gun->rotation.x = -actor->Find("Neck")->rotation.x;
 
-	
 	gun->SetWorldPos(actor->Find("elbow")->GetWorldPos());
 	gun->Update();
 	gun->RenderHierarchy();
-	
-
 }
 
 void Player::LateUpdate()

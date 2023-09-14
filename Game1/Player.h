@@ -11,12 +11,14 @@ enum class PlayerState
 class Player : public ObProto
 {
 private:
-	class Actor* gun;
+	class Actor* gun;							// 포탈건
 
-	PlayerState state	{ PlayerState::IDLE };
+	PlayerState state	{ PlayerState::IDLE };	// 플레이어 상태
 
-	Vector3 lastPos			{ 0, 0, 0 };
-	bool	OnGround		{ false };
+	Vector3 lastPos			{ 0, 0, 0 };		// 이전 프레임의 위치
+	bool	OnGround		{ false };			// 플레이어가 바닥에 닿아있는지
+
+	float	bounceSpeed		{ 0 };				// 포탈을 통해 튕겨져 나오는 속도
 
 public:
 	Player();
