@@ -15,18 +15,12 @@ private:
 
 	PlayerState state	{ PlayerState::IDLE };	// 플레이어 상태
 
-<<<<<<< HEAD
-	Vector3 lastPos			{ 0, 0, 0 };		// 이전 프레임의 위치
+	Vector3 lastPos			{ 0, 5, 0 };		// 이전 프레임의 위치
 	bool	OnGround		{ false };			// 플레이어가 바닥에 닿아있는지
 
 	Vector3 bounceDir		{ 0, 0, 0 };		// 포탈을 통해 튕겨져 나오는 방향
 	float	bounceSpeed		{ 0 };				// 포탈을 통해 튕겨져 나오는 속도
-=======
-	Vector3 lastPos			{ 0, 5, 0 };
-	bool	OnGround		{ false };
->>>>>>> TSRT
 
-	
 public:
 	Player();
 	~Player() override;
@@ -40,13 +34,9 @@ public:
 	virtual void FireYellowPortal();
 	virtual void Jump();
 	virtual void PortalJump() { OnGround = false; gravity = 20; };
-<<<<<<< HEAD
 	virtual void PortalBounce() { bounceSpeed = -gravity; gravity = 0; };
 
 	virtual void SetBounceDir(Vector3 dir) { bounceDir = dir; };
-=======
-	
 	bool    isCatch{ false };
->>>>>>> TSRT
 };
 
