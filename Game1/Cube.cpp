@@ -1,11 +1,7 @@
 #include "stdafx.h"
 #include "ObProto.h"
-<<<<<<< HEAD
 #include "Structure.h"
-=======
-#include "Feature.h"
 #include "Player.h"
->>>>>>> TSRT
 #include "ObjectManager.h"
 #include "Cube.h"
 
@@ -59,6 +55,12 @@ void Cube::Update()
 		}
 	}
 	
+	if (bounceSpeed > 0)
+	{
+		actor->MoveWorldPos(bounceDir * bounceSpeed * DELTA);
+		bounceSpeed = clamp(bounceSpeed - 20.0f * DELTA, 0.0f, 400.0f);
+		if (OnGround) bounceSpeed = 0;
+	}
 
 	actor->Update();
 }

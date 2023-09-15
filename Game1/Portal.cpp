@@ -2,6 +2,7 @@
 #include "ObProto.h"
 #include "Player.h"
 #include "Structure.h"
+#include "Cube.h"
 #include "ObjectManager.h"
 #include "Portal.h"
 
@@ -166,6 +167,55 @@ void Portal::Portaling() //Æ÷Å» ÀÌµ¿
 
 }
 
+void Portal::PortalingCube(Cube* cube)//Å¥ºê Æ÷Å»ÀÌµ¿
+{
+	//Æ÷Å»°ú Á¢ÃË½Ã ¹Ý´ëÆí Æ÷Å»·Î ÀÌµ¿
+	//ºí·ç -> ¿À·»Áö
+	if (cube->GetActor()->Find("Mesh")->Intersect(bluePortal->Find("collider")))
+	{
+
+		if (orangePortal->rotation.x == 90 * ToRadian)
+		{
+			cube->GetActor()->SetWorldPos(orangePortal->Find("PortalOrange")->GetWorldPos()
+				+ Vector3(0, 6, 0));
+			cube->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;
+			cube->PortalJump();
+			HandFree(cube);
+		}
+		else
+		{
+			cube->GetActor()->SetWorldPos(orangePortal->Find("PortalOrange")->GetWorldPos()
+				+ orangePortal->Find("PortalOrange")->GetForward() * -5);
+			cube->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;
+			cube->SetBounceDir(-orangePortal->Find("PortalOrange")->GetForward());
+			cube->PortalBounce();
+			HandFree(cube);
+		}
+	}
+	//¿À·»Áö -> ºí·ç
+	else if (cube->GetActor()->Find("Mesh")->Intersect(orangePortal->Find("collider")))
+	{
+
+		if (bluePortal->rotation.x == 90 * ToRadian)
+		{
+			cube->GetActor()->SetWorldPos(bluePortal->Find("PortalBlue")->GetWorldPos()
+				+ Vector3(0, 6, 0));
+			cube->GetActor()->rotation.y += bluePortal->rotation.y - orangePortal->rotation.y + 180 * ToRadian;
+			cube->PortalJump();
+			HandFree(cube);
+		}
+		else
+		{
+			cube->GetActor()->SetWorldPos(bluePortal->Find("PortalBlue")->GetWorldPos()
+				+ bluePortal->Find("PortalBlue")->GetForward() * -5);
+			cube->GetActor()->rotation.y += bluePortal->rotation.y - orangePortal->rotation.y + 180 * ToRadian;
+			cube->SetBounceDir(-bluePortal->Find("PortalBlue")->GetForward());
+			cube->PortalBounce();
+			HandFree(cube);
+		}
+	}
+}
+
 void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 {
 	Ray Up;
@@ -233,4 +283,10 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 			}
 		}
 	}
+}
+
+void Portal::HandFree(Cube* cube)
+{
+	PLAYER->isCatch = false;
+	cube->SetisCatched(false);
 }
