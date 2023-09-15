@@ -27,7 +27,9 @@ public:
 	Actor* GetOrangePortal() { return orangePortal; };
 
 	void Portaling();
+	void PortalingCube(class Cube* cube);
 	void PortalInstall();
 	
+	void HandFree(class Cube* cube);
 };
 
