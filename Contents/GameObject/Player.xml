@@ -1,23 +1,18 @@
 <Root Name="Player" Visible="true" ObType="1">
     <Transform>
-        <Position X="25.002592" Y="5" Z="-8.6844378"/>
+        <Position X="38.153809" Y="4.9998751" Z="-3.7684267"/>
         <Scale X="1" Y="1" Z="1"/>
-        <Rotation X="0" Y="1917.9382" Z="0"/>
+        <Rotation X="0" Y="-24400.521" Z="0"/>
     </Transform>
-    <Children Size="2"/>
+    <Children Size="3"/>
     <Child0 Name="Player2" Visible="true" ObType="1">
         <Transform>
             <Position X="0" Y="0" Z="0"/>
             <Scale X="1" Y="1" Z="1"/>
-            <Rotation X="0.10149992" Y="0" Z="0"/>
+            <Rotation X="0.37479594" Y="0" Z="0"/>
         </Transform>
         <Children Size="7"/>
         <Child0 Name="Body" Visible="true" ObType="0">
-            <Collider ColliderType="2" Visible="true">
-                <Position X="0" Y="0" Z="-1.5"/>
-                <Scale X="2" Y="2" Z="3"/>
-                <Rotation X="0" Y="0" Z="0"/>
-            </Collider>
             <Transform>
                 <Position X="0" Y="2" Z="0"/>
                 <Scale X="1" Y="2" Z="1"/>
@@ -42,14 +37,14 @@
                 <Scale X="1" Y="1" Z="1"/>
                 <Rotation X="-0.02559909" Y="-0.08200004" Z="0"/>
             </Transform>
-            <Camera Ortho="false" Fov="1.047192" Width="1280" Height="720" NearZ="0.1" FarZ="500" viewportX="0" viewportY="0" viewportW="1280" viewportH="720"/>
+            <Camera Ortho="false" Fov="1.047192" Width="842" Height="639" NearZ="0.1" FarZ="500" viewportX="0" viewportY="0" viewportW="842" viewportH="639"/>
             <Children Size="0"/>
         </Child1>
         <Child2 Name="LeftLeg" Visible="true" ObType="0">
             <Transform>
                 <Position X="-0.75" Y="0" Z="0"/>
                 <Scale X="0.5" Y="2" Z="0.5"/>
-                <Rotation X="0.10149992" Y="3.1415927" Z="0"/>
+                <Rotation X="0.37479594" Y="3.1415927" Z="0"/>
             </Transform>
             <Children Size="1"/>
             <Child0 Name="LeftFoot" Visible="true" ObType="1">
@@ -115,9 +110,9 @@
         </Child4>
         <Child5 Name="RightLeg" Visible="true" ObType="0">
             <Transform>
-                <Position X="0.25" Y="1" Z="0"/>
+                <Position X="0.25" Y="0" Z="0"/>
                 <Scale X="0.5" Y="2" Z="0.5"/>
-                <Rotation X="-0.10149992" Y="0" Z="0"/>
+                <Rotation X="-0.37479594" Y="0" Z="0"/>
             </Transform>
             <Children Size="1"/>
             <Child0 Name="RightFoot" Visible="true" ObType="1">
@@ -130,7 +125,7 @@
                 </Collider>
                 <Texture File="player.png"/>
                 <Transform>
-                    <Position X="0.5" Y="-1.5" Z="0"/>
+                    <Position X="0.5" Y="-1" Z="0"/>
                     <Scale X="1" Y="1" Z="1"/>
                     <Rotation X="0" Y="0" Z="0"/>
                 </Transform>
@@ -158,9 +153,9 @@
         </Child6>
     </Child0>
     <Child1 Name="PortalActor" Visible="true" ObType="1">
-        <Collider ColliderType="2" Visible="false">
-            <Position X="0" Y="1" Z="1"/>
-            <Scale X="2.3" Y="5" Z="2.5999999"/>
+        <Collider ColliderType="2" Visible="true">
+            <Position X="0" Y="1" Z="0"/>
+            <Scale X="2" Y="5.3000002" Z="4"/>
             <Rotation X="0" Y="0" Z="0"/>
         </Collider>
         <Transform>
@@ -170,4 +165,17 @@
         </Transform>
         <Children Size="0"/>
     </Child1>
+    <Child2 Name="WallCol" Visible="true" ObType="1">
+        <Collider ColliderType="0" Visible="true">
+            <Position X="0" Y="0" Z="0"/>
+            <Scale X="5" Y="5" Z="5"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Collider>
+        <Transform>
+            <Position X="0" Y="0" Z="0"/>
+            <Scale X="1" Y="1" Z="1"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child2>
 </Root>
