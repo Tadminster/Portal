@@ -10,12 +10,10 @@
 
 Scene2::Scene2()
 {
-
     GM->Init();
 
     Camera::main = (Camera*)PLAYER->GetActor()->Find("BodyCam");
     ResizeScreen();
-
 }
 
 Scene2::~Scene2()
@@ -27,18 +25,14 @@ void Scene2::Init()
 {
     cube = new Cube();
 
-
-    
-
-
-
+    OBJECT->AddStructure(new Structure(Concrete, _16x16, Floor), Vector3(12, 0, 0));         // ¹Ù´Ú1
 
     PLAYER->GetActor()->SetWorldPos(startPoint);
 }
 
 void Scene2::Release()
 {
-    
+
 }
 
 void Scene2::Update()
@@ -72,7 +66,9 @@ void Scene2::LateUpdate()
 {
     PLAYER->LateUpdate();
     GM->portal->LateUpdate();
+    GM->portal->PortalingCube(cube);
     cube->LateUpdate();
+
 }
 
 void Scene2::Render()
