@@ -2,14 +2,14 @@
     <Transform>
         <Position X="38.153809" Y="4.9998751" Z="-3.7684267"/>
         <Scale X="1" Y="1" Z="1"/>
-        <Rotation X="0" Y="-24400.521" Z="0"/>
+        <Rotation X="0" Y="1.57" Z="0"/>
     </Transform>
     <Children Size="3"/>
     <Child0 Name="Player2" Visible="true" ObType="1">
         <Transform>
             <Position X="0" Y="0" Z="0"/>
             <Scale X="1" Y="1" Z="1"/>
-            <Rotation X="0.37479594" Y="0" Z="0"/>
+            <Rotation X="0" Y="0" Z="0"/>
         </Transform>
         <Children Size="7"/>
         <Child0 Name="Body" Visible="true" ObType="0">
