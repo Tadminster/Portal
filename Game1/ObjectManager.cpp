@@ -42,9 +42,6 @@ void ObjectManager::AddStructure(Structure* feature, Vector3 position, float rot
 	// type이 벽이면
 	if (feature->type == Wall)
 	{
-		// y축 회전
-		feature->GetActor()->rotation.y = rotationY * ToRadian;
-
 		// x축 90도 회전
 		feature->GetActor()->rotation.x = 90 * ToRadian;
 		
@@ -60,6 +57,9 @@ void ObjectManager::AddStructure(Structure* feature, Vector3 position, float rot
 	{
 		//feature->GetActor()->rotation.x = 0 * ToRadian;
 	}
+
+	// y축 회전
+	feature->GetActor()->rotation.y = rotationY * ToRadian;
 
 	structures.push_back(feature);
 }
