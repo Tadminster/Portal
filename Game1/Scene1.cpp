@@ -92,7 +92,9 @@ void Scene1::LateUpdate()
 {
     PLAYER->LateUpdate();
     GM->portal->LateUpdate();
+    GM->portal->PortalingCube(cube);
     cube->LateUpdate();
+    
 }
 
 void Scene1::Render()
