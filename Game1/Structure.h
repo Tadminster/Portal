@@ -13,6 +13,15 @@ enum StructureType
 	Wall
 };
 
+enum StructureSize
+{
+	_1x1,
+	_2x1, _2x2,
+	_4x1, _4x2, _4x4, 
+	_8x1, _8x2, _8x4, _8x8,
+	_16x1, _16x4, _16x8, _16x16
+};
+
 class Structure
 {
 private:
@@ -26,16 +35,15 @@ public:
 	// @brief 지형지물 생성자, 지형지물 타입과 크기를 받아서 초기화
 	// @brief ex) Structure(1, 3) 이면 Concrete 2x2로 생성
 	// @param mater 지형지물 재질 
-	// @param [1: Concrete], [2: Metal]
+	// @param [Concrete], [Metal]
 	// @param
 	// @param size 지형지물 크기 
-	// @param if (mater == Concrete) [1: 1x1], [2: 2x1], [3: 2x2], [4: 4x1], [5: 4x4], [6: 8x8], [7: 16x16]
-	// @param if (mater == Metal) [1: 1x1], [2: 2x2], [3: 4x4], [4: 8x8], [5: 16x16]
+	// @param [_1x1], [_2x1], [_2x2], [_4x1], [_4x2] [_4x4], [_8x1], [_8x4], [_8x8], [_16x1], [_16x4], [_16x8] [_16x16]
 	// @param
 	// @param StType 지형지물 용도 
-	// @param [1: Floor], [2: Wall]
+	// @param [Ceiling], [Floor], [Wall]
 	// @param
-	// @exception size가 최소보다 작으면 1, 최대보다 크면 가능한 최대 사이즈로 초기화
+	// @exception size가 최소보다 작으면 1x1, 최대보다 크면 가능한 16x16으로 초기화
 	Structure(Material mater = Concrete, int size = 1, StructureType StType = Floor);
 	~Structure();
 	void Init();
