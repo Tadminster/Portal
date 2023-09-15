@@ -57,7 +57,7 @@ Structure::Structure(Material material, StructureSize size, StructureType type)
 			case _2x2: file = "metal_modular_2x2.png"; tileSize = Vector3(6, 1, 6); break;
 			case _4x1: file = "metal_modular_4x1.png"; tileSize = Vector3(12, 1, 3); break;
 			case _4x2: file = "metal_modular_4x2.png"; tileSize = Vector3(12, 1, 6); break;
-			case _4x4: file = "metal_modular_4x4.png"; tileSize = Vector3(12, 1, 9); break;
+			case _4x4: file = "metal_modular_4x4.png"; tileSize = Vector3(12, 1, 12); break;
 			case _8x1: file = "metal_modular_8x1.png"; tileSize = Vector3(24, 1, 3); break;
 			case _8x2: file = "metal_modular_8x2.png"; tileSize = Vector3(24, 1, 6); break;
 			case _8x4: file = "metal_modular_8x4.png"; tileSize = Vector3(24, 1, 12); break;
