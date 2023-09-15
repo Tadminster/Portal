@@ -10,6 +10,12 @@ void ObjectManager::Init()
 
 void ObjectManager::Release()
 {
+	for (auto& it : structures)
+	{
+		it->~Structure();
+	}
+
+	structures.clear();
 }
 
 void ObjectManager::Update()

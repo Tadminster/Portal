@@ -67,7 +67,7 @@ void Scene1::Init()
 
 void Scene1::Release()
 {
-
+    OBJECT->Release();
 }
 
 void Scene1::Update()
