@@ -19,7 +19,7 @@ enum StructureSize
 	_2x1, _2x2,
 	_4x1, _4x2, _4x4, 
 	_8x1, _8x2, _8x4, _8x8,
-	_16x1, _16x4, _16x8, _16x16
+	_16x1, _16x2, _16x4, _16x8, _16x16
 };
 
 class Structure
@@ -44,7 +44,7 @@ public:
 	// @param [Ceiling], [Floor], [Wall]
 	// @param
 	// @exception size가 최소보다 작으면 1x1, 최대보다 크면 가능한 16x16으로 초기화
-	Structure(Material mater = Concrete, int size = 1, StructureType StType = Floor);
+	Structure(Material mater = Concrete, StructureSize size = _1x1, StructureType StType = Floor);
 	~Structure();
 	void Init();
 	void Update();
