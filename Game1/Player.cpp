@@ -116,7 +116,7 @@ void Player::LateUpdate()
 		if (it->type == Wall)
 		{
 			// 벽과 부딪치면 이전 위치로 이동
-			if (actor->Find("Body")->Intersect(it->GetActor()->Find("Mesh")))
+			if (actor->Find("WallCol")->Intersect(it->GetActor()->Find("Mesh")))
 			{
 				actor->SetWorldPosX(lastPos.x);
 				actor->SetWorldPosZ(lastPos.z);
