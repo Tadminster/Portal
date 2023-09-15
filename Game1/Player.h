@@ -15,9 +15,10 @@ private:
 
 	PlayerState state	{ PlayerState::IDLE };
 
-	Vector3 lastPos			{ 0, 0, 0 };
+	Vector3 lastPos			{ 0, 5, 0 };
 	bool	OnGround		{ false };
 
+	
 public:
 	Player();
 	~Player() override;
@@ -31,5 +32,7 @@ public:
 	virtual void FireYellowPortal();
 	virtual void Jump();
 	virtual void PortalJump() { OnGround = false; gravity = 20; };
+	
+	bool    isCatch{ false };
 };
 

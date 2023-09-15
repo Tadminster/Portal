@@ -178,7 +178,7 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 				{
 					bluePortal->visible = true;
 					bluePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
-					bluePortal->SetLocalPos(Hit);
+					bluePortal->SetLocalPos(Hit );
 					bluePortal->Find("PortalBlue")->SetLocalPosZ(
 						bluePortal->Find("PortalBlue")->GetLocalPos().z - 0.01f);
 					activateP[BlueP] = true;
@@ -208,7 +208,7 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 				{
 					orangePortal->visible = true;
 					orangePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
-					orangePortal->SetLocalPos(Hit);
+					orangePortal->SetLocalPos(Hit );
 					orangePortal->Find("PortalOrange")->SetLocalPosZ(
 						orangePortal->Find("PortalOrange")->GetLocalPos().z - 0.01f);
 					activateP[OrangeP] = true;
