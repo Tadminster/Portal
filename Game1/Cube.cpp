@@ -1,11 +1,7 @@
 #include "stdafx.h"
 #include "ObProto.h"
-<<<<<<< HEAD
 #include "Structure.h"
-=======
-#include "Feature.h"
 #include "Player.h"
->>>>>>> TSRT
 #include "ObjectManager.h"
 #include "Cube.h"
 
