@@ -9,6 +9,8 @@ private:
 	Vector3 lastPos{ 5, 5, 5 };
 	bool	OnGround{ false };
 
+	bool	isCatched{ false };
+
 public:
 	Cube();
 	~Cube() override;
@@ -17,6 +19,6 @@ public:
 	void LateUpdate() override;
 	void Render() override;
 
-	
+	virtual void Catch();
 };
 
