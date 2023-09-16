@@ -6,6 +6,7 @@ private:
 
 	class Cube* cube;
 	class Button* button;
+	class Door* door;
 public:
 	Scene1();
 	~Scene1();

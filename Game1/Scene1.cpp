@@ -26,9 +26,10 @@ Scene1::~Scene1()
 void Scene1::Init()
 {
     cube = new Cube();
-    cube->GetActor()->SetWorldPos(Vector3(45, 4, -30));
+    cube->GetActor()->SetWorldPos(Vector3(100, 5, -30));
 
     button = new Button();
+    door = new Door();
 
     OBJECT->AddStructure(new Structure(Concrete, _16x16, Floor), Vector3(12, 0, 0));        // ¹Ù´Ú1
     OBJECT->AddStructure(new Structure(Concrete, _16x16, Ceiling), Vector3(12, 48, 0));     // ÃµÀå1
@@ -90,6 +91,7 @@ void Scene1::Update()
         GM->portal->GetOrangePortal()->RenderHierarchy();
         cube->GetActor()->RenderHierarchy();
         button->GetActor()->RenderHierarchy();
+        door->GetActor()->RenderHierarchy();
     }
     ImGui::End();
 
@@ -97,6 +99,9 @@ void Scene1::Update()
     Camera::main->Update();
 
     button->SwitchPress(cube);
+    if (button->Getswitched()) door->isOpen = true;
+    else door->isOpen = false;
+
 
     GM->Update();
     PLAYER->Update();
@@ -104,6 +109,7 @@ void Scene1::Update()
     GM->portal->Update();
     cube->Update();
     button->Update();
+    door->Update();
 }
 
 void Scene1::LateUpdate()
@@ -115,6 +121,7 @@ void Scene1::LateUpdate()
     GM->portal->PortalingCube(cube);
     cube->LateUpdate();
     button->LateUpdate();
+    door->LateUpdate();
     
 }
 
@@ -127,6 +134,7 @@ void Scene1::Render()
     GM->portal->Render();
     cube->Render();
     button->Render();
+    door->Render();
 }
 
 void Scene1::PreRender()

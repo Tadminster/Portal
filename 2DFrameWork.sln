@@ -36,6 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GameObject", "GameObject", 
 		Contents\GameObject\Button.xml = Contents\GameObject\Button.xml
 		Contents\GameObject\Cam.xml = Contents\GameObject\Cam.xml
 		Contents\GameObject\Concrete.xml = Contents\GameObject\Concrete.xml
+		Contents\GameObject\Door.xml = Contents\GameObject\Door.xml
 		Contents\GameObject\Grid.xml = Contents\GameObject\Grid.xml
 		Contents\GameObject\Gun.xml = Contents\GameObject\Gun.xml
 		Contents\GameObject\Metal.xml = Contents\GameObject\Metal.xml

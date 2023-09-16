@@ -49,6 +49,7 @@ void Button::SwitchPress(Cube* cube)
 		actor->Find("ButtonCol")->Intersect(cube->GetActor()->Find("Mesh")))
 	{
 		switched = true;
+		
 	}
 	else  switched = false;;
 
