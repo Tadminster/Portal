@@ -122,15 +122,20 @@ void Portal::Portaling() //Æ÷Å» ÀÌµ¿
 		//ºí·ç -> ¿À·»Áö
 		if (PLAYER->GetActor()->Find("PortalActor")->Intersect(bluePortal->Find("collider")))
 		{ 
-			
+			PLAYER->SetState(PlayerState::JUMP);
 			if (orangePortal->rotation.x == 90 * ToRadian)
 			{
 				PLAYER->GetActor()->SetWorldPos(orangePortal->Find("PortalOrange")->GetWorldPos()
-					+ Vector3(0,6,0));
+					+ orangePortal->Find("PortalOrange")->GetForward()* -6);
 				PLAYER->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;
-				PLAYER->PortalJump();
-				//PLAYER->Jump();
-				
+				PLAYER->PortalJump();								
+			}
+			else if(orangePortal->rotation.x == -90 * ToRadian)
+			{
+				PLAYER->GetActor()->SetWorldPos(orangePortal->Find("PortalOrange")->GetWorldPos()
+					+ orangePortal->Find("PortalOrange")->GetForward() * -7);
+				PLAYER->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;
+								
 			}
 			else
 			{
@@ -139,20 +144,26 @@ void Portal::Portaling() //Æ÷Å» ÀÌµ¿
 				PLAYER->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;
 				PLAYER->SetBounceDir(-orangePortal->Find("PortalOrange")->GetForward());
 				PLAYER->PortalBounce();
-				
 			}
 		}
 		//¿À·»Áö -> ºí·ç
 		else if (PLAYER->GetActor()->Find("PortalActor")->Intersect(orangePortal->Find("collider")))
 		{
-
+			PLAYER->SetState(PlayerState::JUMP);
 			if (bluePortal->rotation.x == 90 * ToRadian)
 			{
 				PLAYER->GetActor()->SetWorldPos(bluePortal->Find("PortalBlue")->GetWorldPos()
-					+ Vector3(0, 6, 0));
+					+ bluePortal->Find("PortalBlue")->GetForward() *-6);
 				PLAYER->GetActor()->rotation.y += bluePortal->rotation.y - orangePortal->rotation.y + 180 * ToRadian;
 				PLAYER->PortalJump();
-				//PLAYER->Jump();
+
+			}
+			else if (bluePortal->rotation.x == -90 * ToRadian)
+			{
+				PLAYER->GetActor()->SetWorldPos(bluePortal->Find("PortalBlue")->GetWorldPos()
+					+ bluePortal->Find("PortalBlue")->GetForward() * -7);
+				PLAYER->GetActor()->rotation.y += bluePortal->rotation.y - orangePortal->rotation.y + 180 * ToRadian;
+				
 			}
 			else
 			{
@@ -173,14 +184,19 @@ void Portal::PortalingCube(Cube* cube)//Å¥ºê Æ÷Å»ÀÌµ¿
 	//ºí·ç -> ¿À·»Áö
 	if (cube->GetActor()->Find("Mesh")->Intersect(bluePortal->Find("collider")))
 	{
-
+		HandFree(cube);
 		if (orangePortal->rotation.x == 90 * ToRadian)
 		{
 			cube->GetActor()->SetWorldPos(orangePortal->Find("PortalOrange")->GetWorldPos()
 				+ Vector3(0, 6, 0));
 			cube->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;
-			cube->PortalJump();
-			HandFree(cube);
+			cube->PortalJump();			
+		}
+		else if (orangePortal->rotation.x == -90 * ToRadian)
+		{
+			cube->GetActor()->SetWorldPos(orangePortal->Find("PortalOrange")->GetWorldPos()
+				+ orangePortal->Find("PortalOrange")->GetForward() * -7);
+			cube->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;
 		}
 		else
 		{
@@ -188,21 +204,25 @@ void Portal::PortalingCube(Cube* cube)//Å¥ºê Æ÷Å»ÀÌµ¿
 				+ orangePortal->Find("PortalOrange")->GetForward() * -5);
 			cube->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;
 			cube->SetBounceDir(-orangePortal->Find("PortalOrange")->GetForward());
-			cube->PortalBounce();
-			HandFree(cube);
+			cube->PortalBounce();			
 		}
 	}
 	//¿À·»Áö -> ºí·ç
 	else if (cube->GetActor()->Find("Mesh")->Intersect(orangePortal->Find("collider")))
 	{
-
+		HandFree(cube);
 		if (bluePortal->rotation.x == 90 * ToRadian)
 		{
 			cube->GetActor()->SetWorldPos(bluePortal->Find("PortalBlue")->GetWorldPos()
 				+ Vector3(0, 6, 0));
 			cube->GetActor()->rotation.y += bluePortal->rotation.y - orangePortal->rotation.y + 180 * ToRadian;
-			cube->PortalJump();
-			HandFree(cube);
+			cube->PortalJump();			
+		}
+		else if (bluePortal->rotation.x == -90 * ToRadian)
+		{
+			cube->GetActor()->SetWorldPos(bluePortal->Find("PortalBlue")->GetWorldPos()
+				+ bluePortal->Find("PortalBlue")->GetForward() * -7);
+			cube->GetActor()->rotation.y += bluePortal->rotation.y - orangePortal->rotation.y + 180 * ToRadian;
 		}
 		else
 		{
@@ -210,8 +230,7 @@ void Portal::PortalingCube(Cube* cube)//Å¥ºê Æ÷Å»ÀÌµ¿
 				+ bluePortal->Find("PortalBlue")->GetForward() * -5);
 			cube->GetActor()->rotation.y += bluePortal->rotation.y - orangePortal->rotation.y + 180 * ToRadian;
 			cube->SetBounceDir(-bluePortal->Find("PortalBlue")->GetForward());
-			cube->PortalBounce();
-			HandFree(cube);
+			cube->PortalBounce();			
 		}
 	}
 }

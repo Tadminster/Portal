@@ -36,6 +36,8 @@ public:
 	virtual void PortalJump() { OnGround = false; gravity = 20; };
 	virtual void PortalBounce() { bounceSpeed = -gravity; gravity = 0; };
 
+	virtual void SetState(PlayerState state) { this->state = state; };
+
 	virtual void SetBounceDir(Vector3 dir) { bounceDir = dir; };
 	bool    isCatch{ false };
 };
