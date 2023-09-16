@@ -24,7 +24,8 @@ Scene1::~Scene1()
 void Scene1::Init()
 {
     cube = new Cube();
-    
+    cube->GetActor()->SetWorldPos(Vector3(45, 4, -30));
+
     OBJECT->AddStructure(new Structure(Concrete, _16x16, Floor), Vector3(12, 0, 0));        // ¹Ù´Ú1
     OBJECT->AddStructure(new Structure(Concrete, _16x16, Ceiling), Vector3(12, 48, 0));     // ÃµÀå1
     OBJECT->AddStructure(new Structure(Concrete, _16x16, Floor), Vector3(132, 0, 0));       // ¹Ù´Ú2
