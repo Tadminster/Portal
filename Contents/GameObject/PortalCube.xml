@@ -1,24 +1,24 @@
 <Root Name="Cube" Visible="true" ObType="1">
-    <Mesh File="6.Cube.mesh"/>
     <Shader File="6.Cube.hlsl"/>
     <Texture File="portalcube.png"/>
     <Transform>
-        <Position X="0" Y="5.9000001" Z="0"/>
+        <Position X="42.326336" Y="4.519819" Z="-23.862028"/>
         <Scale X="2" Y="2" Z="2"/>
-        <Rotation X="0" Y="0" Z="0"/>
+        <Rotation X="0" Y="3.203275" Z="0"/>
     </Transform>
     <Children Size="1"/>
     <Child0 Name="Mesh" Visible="true" ObType="0">
-        <Mesh File="6.Cube.mesh"/>
+        <Mesh File="Metal_box/g.mesh"/>
         <Shader File="6.Cube.hlsl"/>
         <Collider ColliderType="2" Visible="true">
             <Position X="0" Y="0" Z="0"/>
-            <Scale X="1" Y="1" Z="1"/>
+            <Scale X="18" Y="18" Z="18"/>
             <Rotation X="0" Y="0" Z="0"/>
         </Collider>
+        <Texture File="metal_box_skin00.png"/>
         <Transform>
             <Position X="0" Y="0" Z="0"/>
-            <Scale X="1" Y="1" Z="1"/>
+            <Scale X="0.07" Y="0.07" Z="0.07"/>
             <Rotation X="0" Y="0" Z="0"/>
         </Transform>
         <Children Size="0"/>

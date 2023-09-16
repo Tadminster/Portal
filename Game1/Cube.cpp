@@ -113,10 +113,14 @@ void Cube::Catch()
 {
 	Ray Up;
 	Up = Utility::MouseToRay();
+	Up.direction.Normalize();
+	Up.direction *=5;
+
 	Vector3 Hit;
 
-	//좌클릭 블루포탈 생성
-	if (INPUT->KeyDown('E') and actor->Find("Mesh")->Intersect(Up, Hit))
+	// E누를시 큐브 잡기
+	if (INPUT->KeyDown('E') and actor->Find("Mesh")->Intersect(Up, Hit) and
+		PLAYER->GetActor()->Find("CatchRange")->Intersect(actor->Find("Mesh")))
 	{
 		
 		if (PLAYER->isCatch == false)

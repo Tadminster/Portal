@@ -4,6 +4,8 @@
 #include "Player.h"
 #include "Cube.h"
 #include "Portal.h"
+#include "Button.h"
+#include "Door.h"
 #include "ObjectManager.h"
 #include "GameManager.h"
 #include "Scene1.h"
@@ -30,7 +32,11 @@ void Scene1::Init()
     SCENE->AddScene("scene2", sc2);
 
     cube = new Cube();
-    
+    cube->GetActor()->SetWorldPos(Vector3(100, 5, -30));
+
+    button = new Button();
+    door = new Door();
+
     OBJECT->AddStructure(new Structure(Concrete, _16x16, Floor), Vector3(12, 0, 0));        // 바닥1
     OBJECT->AddStructure(new Structure(Concrete, _16x16, Ceiling), Vector3(12, 48, 0));     // 천장1
     OBJECT->AddStructure(new Structure(Concrete, _16x16, Floor), Vector3(132, 0, 0));       // 바닥2
@@ -91,35 +97,39 @@ void Scene1::Update()
         GM->portal->GetBluePortal()->RenderHierarchy();
         GM->portal->GetOrangePortal()->RenderHierarchy();
         cube->GetActor()->RenderHierarchy();
+        button->GetActor()->RenderHierarchy();
+        door->GetActor()->RenderHierarchy();
     }
     ImGui::End();
 
     GM->grid->Update();
     Camera::main->Update();
 
+    button->SwitchPress(cube);
+    if (button->Getswitched()) door->isOpen = true;
+    else door->isOpen = false;
+
+
     GM->Update();
     PLAYER->Update();
     OBJECT->Update();
     GM->portal->Update();
     cube->Update();
+    button->Update();
+    door->Update();
 }
 
 void Scene1::LateUpdate()
 {
+    
+
     PLAYER->LateUpdate();
     GM->portal->LateUpdate();
     GM->portal->PortalingCube(cube);
     cube->LateUpdate();
-
-
-    // 신(다음스테이지) 이동
-
-    if (INPUT->KeyDown(VK_F8))
-    {
-        SCENE->ChangeScene("scene2");
-    }
-   
-
+    button->LateUpdate();
+    door->LateUpdate();
+    
 }
 
 void Scene1::Render()
@@ -130,6 +140,8 @@ void Scene1::Render()
     OBJECT->Render();
     GM->portal->Render();
     cube->Render();
+    button->Render();
+    door->Render();
 }
 
 void Scene1::PreRender()

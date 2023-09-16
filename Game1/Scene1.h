@@ -5,8 +5,8 @@ private:
 	Vector3 startPoint{ 10, 5, 0 };
 
 	class Cube* cube;
-	
-
+	class Button* button;
+	class Door* door;
 public:
 	Scene1();
 	~Scene1();

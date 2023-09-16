@@ -33,8 +33,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{23927E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GameObject", "GameObject", "{2C99B77E-2775-4066-AC03-9062F4F4FC4F}"
 	ProjectSection(SolutionItems) = preProject
+		Contents\GameObject\Button.xml = Contents\GameObject\Button.xml
 		Contents\GameObject\Cam.xml = Contents\GameObject\Cam.xml
 		Contents\GameObject\Concrete.xml = Contents\GameObject\Concrete.xml
+		Contents\GameObject\Door.xml = Contents\GameObject\Door.xml
 		Contents\GameObject\Grid.xml = Contents\GameObject\Grid.xml
 		Contents\GameObject\Gun.xml = Contents\GameObject\Gun.xml
 		Contents\GameObject\Metal.xml = Contents\GameObject\Metal.xml

@@ -30,8 +30,11 @@
     <ClInclude Include="Scene2.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Scene3.h">
-      <Filter>Scene</Filter>
+    <ClInclude Include="Button.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Door.h">
+      <Filter>GameObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -60,8 +63,11 @@
     <ClCompile Include="Scene2.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Scene3.cpp">
-      <Filter>Scene</Filter>
+    <ClCompile Include="Button.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Door.cpp">
+      <Filter>GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
