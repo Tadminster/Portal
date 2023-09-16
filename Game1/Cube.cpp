@@ -40,7 +40,7 @@ void Cube::Update()
 	{
 		if (OnGround)
 		{
-			cout << "adsfa" << endl;
+			
 			gravity = 0;
 			
 		}
@@ -118,7 +118,7 @@ void Cube::Catch()
 	//ÁÂÅ¬¸¯ ºí·çÆ÷Å» »ý¼º
 	if (INPUT->KeyDown('E') and actor->Find("Mesh")->Intersect(Up, Hit))
 	{
-		cout << "asdfadf" << endl;
+		
 		if (PLAYER->isCatch == false)
 		{
 			PLAYER->isCatch = true;

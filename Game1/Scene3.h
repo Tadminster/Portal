@@ -1,15 +1,14 @@
 #pragma once
-class Scene1 : public Scene
+class Scene3 : public Scene
 {
 private:
-	Vector3 startPoint{ 10, 5, 0 };
+	Vector3 startPoint{10, 5, 0 };
 
 	class Cube* cube;
-	
 
 public:
-	Scene1();
-	~Scene1();
+	Scene3();
+	~Scene3();
 	virtual void Init();
 	virtual void Release();
 	virtual void Update();
@@ -18,4 +17,5 @@ public:
 	virtual void PreRender();
 	virtual void ResizeScreen();
 };
+
 

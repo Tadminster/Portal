@@ -10,7 +10,8 @@ enum StructureType
 {
 	Ceiling,
 	Floor,
-	Wall
+	Wall,
+	
 };
 
 enum StructureSize

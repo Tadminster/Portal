@@ -7,6 +7,7 @@
 #include "ObjectManager.h"
 #include "GameManager.h"
 #include "Scene1.h"
+#include "Scene2.h"
 
 Scene1::Scene1()
 {
@@ -14,6 +15,8 @@ Scene1::Scene1()
 
     Camera::main = (Camera*)PLAYER->GetActor()->Find("BodyCam");
     ResizeScreen();
+
+   
 }
 
 Scene1::~Scene1()
@@ -23,6 +26,9 @@ Scene1::~Scene1()
 
 void Scene1::Init()
 {
+    Scene2* sc2 = new Scene2 ();
+    SCENE->AddScene("scene2", sc2);
+
     cube = new Cube();
     
     OBJECT->AddStructure(new Structure(Concrete, _16x16, Floor), Vector3(12, 0, 0));        // 바닥1
@@ -75,6 +81,7 @@ void Scene1::Update()
     // 카메라 조작 (디버그 모드일때만)
     if (GM->debugMode) Camera::ControlMainCam();
 
+
     ImGui::Begin("Hierarchy");
     {
         GM->grid->RenderHierarchy();
@@ -103,7 +110,16 @@ void Scene1::LateUpdate()
     GM->portal->LateUpdate();
     GM->portal->PortalingCube(cube);
     cube->LateUpdate();
-    
+
+
+    // 신(다음스테이지) 이동
+
+    if (INPUT->KeyDown(VK_F8))
+    {
+        SCENE->ChangeScene("scene2");
+    }
+   
+
 }
 
 void Scene1::Render()

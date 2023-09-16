@@ -44,7 +44,7 @@ void Player::Update()
 	else if (state == PlayerState::RUN)
 	{
 		actor->MoveWorldPos(dir * moveSpeed * DELTA);
-		actor->SetLocalPosY(5);
+		
 	}
 	else if (state == PlayerState::JUMP)
 	{
@@ -54,8 +54,7 @@ void Player::Update()
 		// 땅에 닿으면 JUMP -> IDLE
 		if (OnGround)
 		{
-			state = PlayerState::IDLE;
-			actor->SetLocalPosY(5);
+			state = PlayerState::IDLE;		
 		}
 	}
 	else if (state == PlayerState::FIRE)
@@ -133,13 +132,16 @@ void Player::LateUpdate()
 			// 지형지물의 Body와 플레이어의 Mesh가 충돌하면 땅에 닿아있는 것
 			if (actor->Find("RightFoot")->Intersect(it->GetActor()->Find("Mesh")))
 			{
+				
 				OnGround = true;
 
 				break;
 			}
 			else OnGround = false;
+
 		}
 	}
+	
 }
 
 void Player::Render()
