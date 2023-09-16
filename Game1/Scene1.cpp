@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "Location.h"
 #include "Structure.h"
 #include "ObProto.h"
 #include "Player.h"
@@ -64,8 +65,9 @@ void Scene1::Init()
 
     cube = new Cube();
 
-    trigger = Actor::Create();
-    trigger->name = "Trigger";
+    Vector3 LocationScale{ 5, 5, 5 };
+    Vector3 LocationPosition{ 10, 0, 0 };
+    nextScene = new Location(LocationScale, LocationPosition);
 }
 
 void Scene1::Release()
@@ -86,7 +88,7 @@ void Scene1::Update()
         OBJECT->RenderHierarchy();
         GM->portal->GetBluePortal()->RenderHierarchy();
         GM->portal->GetOrangePortal()->RenderHierarchy();
-        trigger->RenderHierarchy();
+        nextScene->RenderHierarchy();
         cube->GetActor()->RenderHierarchy();
     }
     ImGui::End();
@@ -99,7 +101,7 @@ void Scene1::Update()
     OBJECT->Update();
     GM->portal->Update();
     cube->Update();
-    trigger->Update();
+    nextScene->Update();
 }
 
 void Scene1::LateUpdate()
@@ -119,8 +121,7 @@ void Scene1::Render()
     OBJECT->Render();
     GM->portal->Render();
     cube->Render();
-    trigger->Render();
-
+    nextScene->Render();
 }
 
 void Scene1::PreRender()
