@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cube.h" />
+    <ClInclude Include="Location.h" />
     <ClInclude Include="Scene2.h" />
     <ClInclude Include="Structure.h" />
     <ClInclude Include="GameManager.h" />
@@ -33,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="Location.cpp" />
     <ClCompile Include="Scene2.cpp" />
     <ClCompile Include="Structure.cpp" />
     <ClCompile Include="GameManager.cpp" />

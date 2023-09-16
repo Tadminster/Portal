@@ -5,6 +5,7 @@ private:
 	Vector3 startPoint{ 10, 5, 0 };
 
 	class Cube* cube;
+	class Actor* trigger;
 
 public:
 	Scene1();

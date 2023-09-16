@@ -23,8 +23,6 @@ Scene1::~Scene1()
 
 void Scene1::Init()
 {
-    cube = new Cube();
-    
     OBJECT->AddStructure(new Structure(Concrete, _16x16, Floor), Vector3(12, 0, 0));        // ¹Ù´Ú1
     OBJECT->AddStructure(new Structure(Concrete, _16x16, Ceiling), Vector3(12, 48, 0));     // ÃµÀå1
     OBJECT->AddStructure(new Structure(Concrete, _16x16, Floor), Vector3(132, 0, 0));       // ¹Ù´Ú2
@@ -63,6 +61,11 @@ void Scene1::Init()
     PLAYER->GetActor()->rotation = Vector3(0, 90 * ToRadian, 0);
     PLAYER->GetActor()->Find("Player2")->rotation = Vector3(0, 0, 0);
     PLAYER->GetActor()->SetWorldPos(startPoint);
+
+    cube = new Cube();
+
+    trigger = Actor::Create();
+    trigger->name = "Trigger";
 }
 
 void Scene1::Release()
@@ -83,6 +86,7 @@ void Scene1::Update()
         OBJECT->RenderHierarchy();
         GM->portal->GetBluePortal()->RenderHierarchy();
         GM->portal->GetOrangePortal()->RenderHierarchy();
+        trigger->RenderHierarchy();
         cube->GetActor()->RenderHierarchy();
     }
     ImGui::End();
@@ -95,6 +99,7 @@ void Scene1::Update()
     OBJECT->Update();
     GM->portal->Update();
     cube->Update();
+    trigger->Update();
 }
 
 void Scene1::LateUpdate()
@@ -114,6 +119,8 @@ void Scene1::Render()
     OBJECT->Render();
     GM->portal->Render();
     cube->Render();
+    trigger->Render();
+
 }
 
 void Scene1::PreRender()
