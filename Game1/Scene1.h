@@ -7,6 +7,8 @@ private:
 	class Cube* cube;
 	class Button* button;
 	class Door* door;
+	class Actor* finish;
+
 public:
 	Scene1();
 	~Scene1();

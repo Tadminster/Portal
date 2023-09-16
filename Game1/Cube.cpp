@@ -27,8 +27,6 @@ void Cube::Update()
 
 	Catch();
 
-	
-	
 
 	if (isCatched == true)
 	{
@@ -39,17 +37,15 @@ void Cube::Update()
 	else
 	{
 		if (OnGround)
-		{
-			
-			gravity = 0;
-			
+		{		
+			gravity = 0;		
 		}
 		else
 		{
 			
 			// 땅에 닿아있지 않으면 중력 증가 (최대 200)
 			gravity = clamp(gravity - 50.0f * DELTA, -200.0f, 200.0f);
-
+	
 			// 중력에 따라 플레이어 상하이동
 			actor->MoveWorldPos(actor->GetUp() * gravity * DELTA);
 		}

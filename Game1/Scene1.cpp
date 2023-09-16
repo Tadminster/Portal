@@ -18,7 +18,8 @@ Scene1::Scene1()
     Camera::main = (Camera*)PLAYER->GetActor()->Find("BodyCam");
     ResizeScreen();
 
-   
+    finish = Actor::Create();
+    finish->LoadFile("Finish.xml");
 }
 
 Scene1::~Scene1()
@@ -32,7 +33,7 @@ void Scene1::Init()
     SCENE->AddScene("scene2", sc2);
 
     cube = new Cube();
-    cube->GetActor()->SetWorldPos(Vector3(100, 5, -30));
+    cube->GetActor()->SetWorldPos(Vector3(100, 10, -30));
 
     button = new Button();
     door = new Door();
@@ -42,7 +43,7 @@ void Scene1::Init()
     OBJECT->AddStructure(new Structure(Concrete, _16x16, Floor), Vector3(132, 0, 0));       // 바닥2
     OBJECT->AddStructure(new Structure(Concrete, _16x16, Ceiling), Vector3(108, 48, 0));    // 천장2
     
-    OBJECT->AddStructure(new Structure(Metal, _4x4, Ceiling), Vector3(12, 24, 0));          // 시작위치 위쪽 천장
+    OBJECT->AddStructure(new Structure(Metal, _4x4, Ceiling), Vector3(12, 23, 0));          // 시작위치 위쪽 천장
     OBJECT->AddStructure(new Structure(Metal, _4x4, Wall), Vector3(0, 0, 0), 270);          // 시작위치 뒷쪽 벽
     OBJECT->AddStructure(new Structure(Metal, _4x4, Wall), Vector3(12, 0, 11));             // 시작위치 왼쪽 벽
     OBJECT->AddStructure(new Structure(Metal, _4x4, Wall), Vector3(12, 0, -11), 180);       // 시작위치 오른쪽 벽
@@ -67,7 +68,7 @@ void Scene1::Init()
     OBJECT->AddStructure(new Structure(Concrete, _8x8, Wall), Vector3(120, 0, 36), 90);     // 도작위치 들어가기 전 바로 왼쪽 큰벽
     OBJECT->AddStructure(new Structure(Concrete, _8x8, Wall), Vector3(120, 0, -36), 90);    // 도작위치 들어가기 전 바로 오른쪽 큰벽
 
-    OBJECT->AddStructure(new Structure(Metal, _4x4, Ceiling), Vector3(131, 24, 0));         // 도착위치 천장
+    OBJECT->AddStructure(new Structure(Metal, _4x4, Ceiling), Vector3(131, 23, 0));         // 도착위치 천장
     OBJECT->AddStructure(new Structure(Metal, _4x4, Wall), Vector3(143, 0, 0), 90);         // 도착위치 뒷쪽 벽
     OBJECT->AddStructure(new Structure(Metal, _4x4, Wall), Vector3(131, 0, 11));            // 도착위치 왼쪽 벽
     OBJECT->AddStructure(new Structure(Metal, _4x4, Wall), Vector3(131, 0, -11), 180);      // 도착위치 오른쪽 벽
@@ -99,6 +100,7 @@ void Scene1::Update()
         cube->GetActor()->RenderHierarchy();
         button->GetActor()->RenderHierarchy();
         door->GetActor()->RenderHierarchy();
+        finish->RenderHierarchy();
     }
     ImGui::End();
 
@@ -117,19 +119,26 @@ void Scene1::Update()
     cube->Update();
     button->Update();
     door->Update();
+    finish->Update();
 }
 
 void Scene1::LateUpdate()
 {
-    
-
     PLAYER->LateUpdate();
     GM->portal->LateUpdate();
     GM->portal->PortalingCube(cube);
     cube->LateUpdate();
     button->LateUpdate();
     door->LateUpdate();
-    
+
+    if (PLAYER->GetActor()->Find("WallCol")->Intersect(finish))
+    {
+
+        SCENE->ChangeScene("scene2");
+
+    }
+
+
 }
 
 void Scene1::Render()
@@ -142,6 +151,7 @@ void Scene1::Render()
     cube->Render();
     button->Render();
     door->Render();
+    finish->Render();
 }
 
 void Scene1::PreRender()

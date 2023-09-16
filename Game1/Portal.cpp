@@ -246,7 +246,7 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 	{
 		for (auto& feature : OBJECT->GetStructures())
 		{
-			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit))
+			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit) && feature->material == Concrete)
 			{
 				if (feature->type == StructureType::Wall)
 				{
@@ -277,7 +277,7 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 	{
 		for (auto& feature : OBJECT->GetStructures())
 		{
-			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit))
+			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit) && feature->material == Concrete)
 			{
 				if (feature->type == StructureType::Wall)
 				{

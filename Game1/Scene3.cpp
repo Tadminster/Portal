@@ -3,6 +3,8 @@
 #include "ObProto.h"
 #include "Player.h"
 #include "Cube.h"
+#include "Button.h"
+#include "Door.h"
 #include "Portal.h"
 #include "ObjectManager.h"
 #include "GameManager.h"
@@ -14,6 +16,9 @@ Scene3::Scene3()
 
     Camera::main = (Camera*)PLAYER->GetActor()->Find("BodyCam");
     ResizeScreen();
+
+    finish = Actor::Create();
+    finish->LoadFile("Finish.xml");
 }
 
 Scene3::~Scene3()
@@ -24,7 +29,14 @@ void Scene3::Init()
 {
     cube = new Cube();
     
-    cube->GetActor()->SetWorldPos(Vector3(124, 35, 36));
+    //cube->GetActor()->SetWorldPos(Vector3(124, 35, 36));
+    
+    button = new Button();
+    door = new Door();
+
+    door->GetActor()->SetWorldPos(Vector3(195, 24, 0));
+    button->GetActor()->SetWorldPos(Vector3(144, 2.4, 22.6));
+
 
     OBJECT->AddStructure(new Structure(Concrete, _16x8, Floor), Vector3(108, -24, 0), 90);      // ¶³¾îÁö´Â °÷ ¹Ù´Ú
     OBJECT->AddStructure(new Structure(Concrete, _8x4, Wall), Vector3(108, -36, 48));           // ¶³¾îÁö´Â °÷ ¿ÞÂÊ
@@ -121,19 +133,27 @@ void Scene3::Update()
         GM->portal->GetBluePortal()->RenderHierarchy();
         GM->portal->GetOrangePortal()->RenderHierarchy();
         cube->GetActor()->RenderHierarchy();
+        button->GetActor()->RenderHierarchy();
+        door->GetActor()->RenderHierarchy();
+        finish->RenderHierarchy();
     }
     ImGui::End();
 
     GM->grid->Update();
     Camera::main->Update();
 
+    button->SwitchPress(cube);
+    if (button->Getswitched()) door->isOpen = true;
+    else door->isOpen = false;
+
     GM->Update();
     PLAYER->Update();
     OBJECT->Update();
     GM->portal->Update();
     cube->Update();
-
-    
+    button->Update();
+    door->Update();
+    finish->Update();
 
   
 
@@ -145,6 +165,8 @@ void Scene3::LateUpdate()
     GM->portal->LateUpdate();
     GM->portal->PortalingCube(cube);
     cube->LateUpdate();
+    button->LateUpdate();
+    door->LateUpdate();
 }
 
 void Scene3::Render()
@@ -155,7 +177,9 @@ void Scene3::Render()
     OBJECT->Render();
     GM->portal->Render();
     cube->Render();
-
+    button->Render();
+    door->Render();
+    finish->Render();
 }
 
 void Scene3::PreRender()

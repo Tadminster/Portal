@@ -4,6 +4,7 @@ class Main : public Scene
 {
 private:
 	class Scene1* sc1;
+	class Scene2* sc2;
 	class Scene3* sc3;
 	
 
