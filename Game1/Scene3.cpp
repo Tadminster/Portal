@@ -9,6 +9,7 @@
 #include "ObjectManager.h"
 #include "GameManager.h"
 #include "Scene3.h"
+#include "Scene4.h"
 
 Scene3::Scene3()
 {
@@ -23,20 +24,23 @@ Scene3::Scene3()
 
 Scene3::~Scene3()
 {
+   
 }
 
 void Scene3::Init()
 {
+    Scene4* sc4 = new Scene4();
+    SCENE->AddScene("scene4", sc4);
+
+
     cube = new Cube();
-    
-    //cube->GetActor()->SetWorldPos(Vector3(124, 35, 36));
-    
     button = new Button();
     door = new Door();
 
+    cube->GetActor()->SetWorldPos(Vector3(124, 35, 36));
     door->GetActor()->SetWorldPos(Vector3(195, 24, 0));
     button->GetActor()->SetWorldPos(Vector3(144, 2.4, 22.6));
-
+    finish->SetWorldPos(Vector3(208, 31,0));
 
     OBJECT->AddStructure(new Structure(Concrete, _16x8, Floor), Vector3(108, -24, 0), 90);      // ¶³¾îÁö´Â °÷ ¹Ù´Ú
     OBJECT->AddStructure(new Structure(Concrete, _8x4, Wall), Vector3(108, -36, 48));           // ¶³¾îÁö´Â °÷ ¿ÞÂÊ
@@ -116,6 +120,7 @@ void Scene3::Init()
 
 void Scene3::Release()
 {
+    OBJECT->Release();
 }
 
 void Scene3::Update()
@@ -167,6 +172,13 @@ void Scene3::LateUpdate()
     cube->LateUpdate();
     button->LateUpdate();
     door->LateUpdate();
+
+    if (PLAYER->GetActor()->Find("WallCol")->Intersect(finish))
+    {
+
+        SCENE->ChangeScene("scene4");
+    }
+
 }
 
 void Scene3::Render()

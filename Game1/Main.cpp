@@ -2,6 +2,7 @@
 #include "Scene1.h"
 #include "Scene2.h"
 #include "Scene3.h"
+#include "Scene4.h"
 
 #include "Main.h"
 
@@ -39,6 +40,7 @@ Main::Main()
     sc1 = new Scene1();
     sc2 = new Scene2();
     sc3 = new Scene3();
+    sc4 = new Scene4();
 }
 
 Main::~Main()
@@ -52,7 +54,8 @@ void Main::Init()
     SCENE->AddScene("scene1", sc1);
     SCENE->AddScene("scene2", sc2);
     SCENE->AddScene("scene3", sc3);
-    SCENE->ChangeScene("scene1");
+    SCENE->AddScene("scene4", sc4);
+    SCENE->ChangeScene("scene2");
 }
 
 void Main::Release()

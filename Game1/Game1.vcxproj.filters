@@ -36,6 +36,12 @@
     <ClInclude Include="Door.h">
       <Filter>GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="Scene3.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene4.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -68,6 +74,12 @@
     </ClCompile>
     <ClCompile Include="Door.cpp">
       <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene3.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene4.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

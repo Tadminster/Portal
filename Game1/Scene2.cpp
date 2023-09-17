@@ -82,7 +82,7 @@ void Scene2::Init()
 
 void Scene2::Release()
 {
-
+    OBJECT->Release();
 }
 
 void Scene2::Update()
@@ -128,6 +128,7 @@ void Scene2::LateUpdate()
 {
     PLAYER->LateUpdate();
     GM->portal->LateUpdate();
+    GM->portal->PortalingCube(cube);
     cube->LateUpdate();
     button->LateUpdate();
     door->LateUpdate();

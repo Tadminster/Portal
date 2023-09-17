@@ -2,8 +2,9 @@
 class Scene3 : public Scene
 {
 private:
-	Vector3 startPoint{10, 5, 0 };
-
+	//Vector3 startPoint{205, 31, 0 };
+	Vector3 startPoint{10, 6, 0 };
+	
 	class Cube* cube;
 	class Button* button;
 	class Door* door;

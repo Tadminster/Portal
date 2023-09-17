@@ -1,17 +1,13 @@
 #pragma once
-class Scene2 : public Scene
+class Scene4 : public Scene
 {
 private:
-	Vector3 startPoint{ 10, 6, 0 };
+	Vector3 startPoint{ 5.2, 6, 0 };
 
-	class Cube* cube;
-	class Button* button;
-	class Door* door;
-	class Actor* finish;
-
+	
 public:
-	Scene2();
-	~Scene2();
+	Scene4();
+	~Scene4();
 	virtual void Init();
 	virtual void Release();
 	virtual void Update();

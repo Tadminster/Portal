@@ -24,6 +24,7 @@
     <ClInclude Include="Door.h" />
     <ClInclude Include="Scene2.h" />
     <ClInclude Include="Scene3.h" />
+    <ClInclude Include="Scene4.h" />
     <ClInclude Include="Structure.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="ObjectManager.h" />
@@ -40,6 +41,7 @@
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="Scene2.cpp" />
     <ClCompile Include="Scene3.cpp" />
+    <ClCompile Include="Scene4.cpp" />
     <ClCompile Include="Structure.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Main.cpp" />
