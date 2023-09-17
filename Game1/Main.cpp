@@ -36,10 +36,8 @@
 
 Main::Main()
 {
-    sc1 = new Scene1();
-    sc2 = new Scene2();
-    sc3 = new Scene3();
-    sc4 = new Scene4();
+   sc1 = new Scene1();
+ 
 }
 
 Main::~Main()
@@ -50,11 +48,8 @@ Main::~Main()
 
 void Main::Init()
 {
-    SCENE->AddScene("scene1", sc1);
-    SCENE->AddScene("scene2", sc2);
-    SCENE->AddScene("scene3", sc3);
-    SCENE->AddScene("scene4", sc4);
-    SCENE->ChangeScene("scene3");
+   SCENE->AddScene("scene1", sc1);
+   SCENE->ChangeScene("scene1");
 }
 
 void Main::Release()

@@ -18,14 +18,29 @@ Scene4::Scene4()
     Camera::main = (Camera*)PLAYER->GetActor()->Find("BodyCam");
     ResizeScreen();
 
+    Potatos = Actor::Create();
+    Potatos->LoadFile("PotatOS.xml");
+
+    SOUND->AddSound("portal-still_alive.mp3", "Bgm4", true);
+
+    SOUND->Play("Bgm4");
+
+    SOUND->SetVolume("Bgm4", 0.4f);
+
+
+
 }
 
 Scene4::~Scene4()
 {
+    SOUND->DeleteSound("Bgm4");
 }
 
 void Scene4::Init()
 {
+
+ 
+ 
    
     OBJECT->AddStructure(new Structure(Metal, _4x4, Ceiling), Vector3(12, 23, 0));          // 시작위치 위쪽 천장
     OBJECT->AddStructure(new Structure(Metal, _4x4, Floor), Vector3(12, 1, 0));             // 시작위치 바닥
@@ -49,6 +64,10 @@ void Scene4::Release()
 
 void Scene4::Update()
 {
+    SOUND->Play("Bgm4");
+    SOUND->Stop("Bgm1");
+
+
     // 카메라 조작 (디버그 모드일때만)
     if (GM->debugMode) Camera::ControlMainCam();
 
@@ -60,6 +79,7 @@ void Scene4::Update()
         OBJECT->RenderHierarchy();
         GM->portal->GetBluePortal()->RenderHierarchy();
         GM->portal->GetOrangePortal()->RenderHierarchy();
+        Potatos->RenderHierarchy();
        
     }
     ImGui::End();
@@ -67,13 +87,21 @@ void Scene4::Update()
     GM->grid->Update();
     Camera::main->Update();
 
+    if (INPUT->KeyDown('X'))
+    {
+        exit(EXIT_SUCCESS);
+ 
+    }
+
+
+
     
 
     GM->Update();
     PLAYER->Update();
     OBJECT->Update();
     GM->portal->Update();
-   
+    Potatos->Update();
    
     
 }
@@ -90,11 +118,30 @@ void Scene4::LateUpdate()
 
 void Scene4::Render()
 {
+
+
+    RECT rd;
+    rd.right = App.GetWidth() + 820;
+    rd.left = rd.right - 2050;
+    rd.top = 150;
+    rd.bottom = rd.top + 50;
+    DWRITE->RenderText(L"Thank you for playing !!", rd, 105.0f, L"Arial", Color(1, 1, 1, 0), DWRITE_FONT_WEIGHT_SEMI_BOLD, DWRITE_FONT_STYLE_ITALIC, DWRITE_FONT_STRETCH_EXPANDED);
+
+
+    RECT rc;
+    rc.right = App.GetWidth() + 820;
+    rc.left = rc.right - 1620;
+    rc.top = 450;
+    rc.bottom = rc.top + 50;
+    DWRITE->RenderText(L"'x' key = Die ", rc, 50.0f, L"Arial", Color(1, 1, 1,0), DWRITE_FONT_WEIGHT_SEMI_BOLD, DWRITE_FONT_STYLE_ITALIC, DWRITE_FONT_STRETCH_EXPANDED);
+
+
     Camera::main->Set();
     GM->grid->Render();
     PLAYER->Render();
     OBJECT->Render();
     GM->portal->Render();
+    Potatos->Render();
 }
 
 void Scene4::PreRender()

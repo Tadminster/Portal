@@ -3,11 +3,15 @@ class Button : public ObProto
 {
 private:
 
-
-
-
 	bool switched { false };
+	int  buttonCount;
 	int	 count;
+
+	string buttonUpSoundKey;
+	string buttonDownSoundKey;
+
+	void PlaybuttonUpSoundEffect();
+	void PlaybuttonDownSoundEffect();
 
 public:
 	Button();

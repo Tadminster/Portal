@@ -3,7 +3,7 @@ class Scene4 : public Scene
 {
 private:
 	Vector3 startPoint{ 5.2, 6, 0 };
-
+	class  Actor* Potatos;
 	
 public:
 	Scene4();

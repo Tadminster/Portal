@@ -20,11 +20,19 @@ Scene1::Scene1()
 
     finish = Actor::Create();
     finish->LoadFile("Finish.xml");
+
+   
+    SOUND->AddSound("Portal2-15-Forwarding_The_Cause_Of_Science.mp3", "Bgm1",true);
+
+    SOUND->Play("Bgm1");
+
+    SOUND->SetVolume("Bgm1", 0.15f);
+
 }
 
 Scene1::~Scene1()
 {
-
+    SOUND->DeleteSound("Bgm1");
 }
 
 void Scene1::Init()
@@ -133,9 +141,8 @@ void Scene1::LateUpdate()
 
     if (PLAYER->GetActor()->Find("WallCol")->Intersect(finish))
     {
-
         SCENE->ChangeScene("scene2");
-
+       
     }
 
 
