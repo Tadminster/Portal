@@ -2,7 +2,7 @@
     <Shader File="6.Cube.hlsl"/>
     <Texture File="portalcube.png"/>
     <Transform>
-        <Position X="42.326336" Y="4.519819" Z="-23.862028"/>
+        <Position X="42.326336" Y="10" Z="-23.862028"/>
         <Scale X="2" Y="2" Z="2"/>
         <Rotation X="0" Y="3.203275" Z="0"/>
     </Transform>

@@ -9,7 +9,7 @@ Cube::Cube()
 {
 	actor = Actor::Create();
 	actor->LoadFile("PortalCube.xml");
-	
+	actor->SetWorldPos(Vector3(100, 10, -30));
 }
 
 Cube::~Cube()

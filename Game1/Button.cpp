@@ -41,7 +41,10 @@ void Button::SwitchPress(Cube* cube)
 	//버튼 위로 이동
 	if (actor->Find("ButtonCol")->Intersect(cube->GetActor()->Find("Mesh")))
 	{
-		cube->GetActor()->SetWorldPosY(actor->GetWorldPos().y + 1);
+		count++;
+
+		if(count>=2)
+			cube->GetActor()->SetWorldPosY(actor->GetWorldPos().y + 1);
 	}
 
 	//버튼 스위치 누르기

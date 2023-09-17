@@ -6,7 +6,7 @@ private:
 
 	
 
-	Vector3 lastPos{ 5, 5, 5 };
+	Vector3 lastPos{ 0,0,0 };
 	bool	OnGround{ false };
 
 	Vector3 bounceDir{ 0, 0, 0 };		// 포탈을 통해 튕겨져 나오는 방향

@@ -7,6 +7,7 @@ private:
 
 
 	bool switched { false };
+	int	 count;
 
 public:
 	Button();
