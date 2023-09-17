@@ -103,7 +103,7 @@ void Player::Update()
 
 	gun->SetWorldPos(actor->Find("elbow")->GetWorldPos());
 	gun->Update();
-	gun->RenderHierarchy();
+	//gun->RenderHierarchy();
 }
 
 void Player::LateUpdate()

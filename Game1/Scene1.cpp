@@ -99,20 +99,20 @@ void Scene1::Update()
     if (GM->debugMode) Camera::ControlMainCam();
 
 
-    ImGui::Begin("Hierarchy");
-    {
-        GM->grid->RenderHierarchy();
-        GM->cam1->RenderHierarchy();
-        PLAYER->GetActor()->RenderHierarchy();
-        OBJECT->RenderHierarchy();
-        GM->portal->GetBluePortal()->RenderHierarchy();
-        GM->portal->GetOrangePortal()->RenderHierarchy();
-        cube->GetActor()->RenderHierarchy();
-        button->GetActor()->RenderHierarchy();
-        door->GetActor()->RenderHierarchy();
-        finish->RenderHierarchy();
-    }
-    ImGui::End();
+    //ImGui::Begin("Hierarchy");
+    //{
+    //   // GM->grid->RenderHierarchy();
+    //   // GM->cam1->RenderHierarchy();
+    //   // PLAYER->GetActor()->RenderHierarchy();
+    //   // OBJECT->RenderHierarchy();
+    //   // GM->portal->GetBluePortal()->RenderHierarchy();
+    //   // GM->portal->GetOrangePortal()->RenderHierarchy();
+    //   // cube->GetActor()->RenderHierarchy();
+    //   // button->GetActor()->RenderHierarchy();
+    //   // door->GetActor()->RenderHierarchy();
+    //   // finish->RenderHierarchy();
+    //}
+    //ImGui::End();
 
     GM->grid->Update();
     Camera::main->Update();

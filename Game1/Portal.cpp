@@ -32,7 +32,9 @@ Portal::Portal()
 	portalEnterSoundKey = "PortalEnterSound";
 	SOUND->AddSound("PortalEnterSound.wav", portalEnterSoundKey);
 
-	
+	SOUND->SetVolume(bluePortalSoundKey, 0.3f);
+	SOUND->SetVolume(orangePortalSoundKey, 0.3f);
+	SOUND->SetVolume(portalEnterSoundKey, 0.3f);
 }
 
 Portal::~Portal()
@@ -48,7 +50,7 @@ void Portal::Init()
 void Portal::Update()
 {
 
-	ui->RenderHierarchy();
+	//ui->RenderHierarchy();
 
 	//양쪽 포탈이 활성시 Close 이미지 투명화
 	if (activateP[BlueP] == true and activateP[OrangeP] == true)

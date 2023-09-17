@@ -71,18 +71,18 @@ void Scene4::Update()
     // 카메라 조작 (디버그 모드일때만)
     if (GM->debugMode) Camera::ControlMainCam();
 
-    ImGui::Begin("Hierarchy");
-    {
-        GM->grid->RenderHierarchy();
-        GM->cam1->RenderHierarchy();
-        PLAYER->GetActor()->RenderHierarchy();
-        OBJECT->RenderHierarchy();
-        GM->portal->GetBluePortal()->RenderHierarchy();
-        GM->portal->GetOrangePortal()->RenderHierarchy();
-        Potatos->RenderHierarchy();
-       
-    }
-    ImGui::End();
+   // ImGui::Begin("Hierarchy");
+   // {
+   //     GM->grid->RenderHierarchy();
+   //     GM->cam1->RenderHierarchy();
+   //     PLAYER->GetActor()->RenderHierarchy();
+   //     OBJECT->RenderHierarchy();
+   //     GM->portal->GetBluePortal()->RenderHierarchy();
+   //     GM->portal->GetOrangePortal()->RenderHierarchy();
+   //     Potatos->RenderHierarchy();
+   //    
+   // }
+   // ImGui::End();
 
     GM->grid->Update();
     Camera::main->Update();
