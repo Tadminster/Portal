@@ -1,8 +1,8 @@
 <Root Name="Player" Visible="true" ObType="1">
     <Transform>
-        <Position X="76.464218" Y="-19.006651" Z="-11.303038"/>
+        <Position X="46.436031" Y="4.7828236" Z="-4.5881114"/>
         <Scale X="1" Y="1" Z="1"/>
-        <Rotation X="0" Y="28.285557" Z="0"/>
+        <Rotation X="0" Y="-1.271212" Z="0"/>
     </Transform>
     <Children Size="4"/>
     <Child0 Name="CatchRange" Visible="true" ObType="1">
@@ -22,7 +22,7 @@
         <Transform>
             <Position X="0" Y="0" Z="0"/>
             <Scale X="1" Y="1" Z="1"/>
-            <Rotation X="0.015997373" Y="0" Z="0"/>
+            <Rotation X="-0.079999946" Y="0" Z="0"/>
         </Transform>
         <Children Size="7"/>
         <Child0 Name="Body" Visible="true" ObType="0">
@@ -57,7 +57,7 @@
             <Transform>
                 <Position X="-0.75" Y="0" Z="0"/>
                 <Scale X="0.5" Y="2" Z="0.5"/>
-                <Rotation X="0.015997373" Y="3.1415927" Z="0"/>
+                <Rotation X="-0.079999946" Y="3.1415927" Z="0"/>
             </Transform>
             <Children Size="1"/>
             <Child0 Name="LeftFoot" Visible="true" ObType="1">
@@ -125,13 +125,13 @@
             <Transform>
                 <Position X="0.25" Y="0" Z="0"/>
                 <Scale X="0.5" Y="2" Z="0.5"/>
-                <Rotation X="-0.015997373" Y="0" Z="0"/>
+                <Rotation X="0.079999946" Y="0" Z="0"/>
             </Transform>
             <Children Size="1"/>
             <Child0 Name="RightFoot" Visible="true" ObType="1">
                 <Mesh File="RightLeg.mesh"/>
                 <Shader File="6.Cube.hlsl"/>
-                <Collider ColliderType="2" Visible="true">
+                <Collider ColliderType="2" Visible="false">
                     <Position X="-1" Y="-0.5" Z="0"/>
                     <Scale X="3" Y="0.5" Z="1.2"/>
                     <Rotation X="0" Y="0" Z="0"/>
@@ -166,7 +166,7 @@
         </Child6>
     </Child1>
     <Child2 Name="PortalActor" Visible="true" ObType="1">
-        <Collider ColliderType="2" Visible="true">
+        <Collider ColliderType="2" Visible="false">
             <Position X="0" Y="1" Z="1.05"/>
             <Scale X="2" Y="5.3000002" Z="4.5"/>
             <Rotation X="0" Y="0" Z="0"/>
@@ -179,7 +179,7 @@
         <Children Size="0"/>
     </Child2>
     <Child3 Name="WallCol" Visible="true" ObType="1">
-        <Collider ColliderType="2" Visible="true">
+        <Collider ColliderType="2" Visible="false">
             <Position X="0" Y="2.2" Z="1"/>
             <Scale X="2.0999999" Y="5" Z="4"/>
             <Rotation X="0" Y="0" Z="0"/>
