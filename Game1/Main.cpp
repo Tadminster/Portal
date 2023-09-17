@@ -55,7 +55,7 @@ void Main::Init()
     SCENE->AddScene("scene2", sc2);
     SCENE->AddScene("scene3", sc3);
     SCENE->AddScene("scene4", sc4);
-    SCENE->ChangeScene("scene2");
+    SCENE->ChangeScene("scene1");
 }
 
 void Main::Release()
