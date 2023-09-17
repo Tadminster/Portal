@@ -5,10 +5,23 @@
         <Rotation X="0" Y="0" Z="0"/>
     </Transform>
     <Children Size="2"/>
-    <Child0 Name="ButtonSwitch" Visible="true" ObType="1">
+    <Child0 Name="ButtonCol" Visible="true" ObType="1">
+        <Collider ColliderType="2" Visible="false">
+            <Position X="0" Y="-0.25" Z="1.4"/>
+            <Scale X="5.5" Y="0.69999999" Z="5.5"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Collider>
+        <Transform>
+            <Position X="0" Y="0" Z="0"/>
+            <Scale X="1" Y="1" Z="1"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child0>
+    <Child1 Name="ButtonSwitch" Visible="true" ObType="1">
         <Mesh File="box_socket/g.mesh"/>
         <Shader File="6.Cube.hlsl"/>
-        <Collider ColliderType="2" Visible="true">
+        <Collider ColliderType="2" Visible="false">
             <Position X="0" Y="7.333333" Z="9.3333311"/>
             <Scale X="20" Y="2" Z="20"/>
             <Rotation X="0" Y="0" Z="0"/>
@@ -17,19 +30,6 @@
         <Transform>
             <Position X="0" Y="0" Z="0"/>
             <Scale X="0.15000001" Y="0.15000001" Z="0.15000001"/>
-            <Rotation X="0" Y="0" Z="0"/>
-        </Transform>
-        <Children Size="0"/>
-    </Child0>
-    <Child1 Name="ButtonCol" Visible="true" ObType="1">
-        <Collider ColliderType="2" Visible="true">
-            <Position X="0" Y="-0.25" Z="1.4"/>
-            <Scale X="5.5" Y="0.69999999" Z="5.5"/>
-            <Rotation X="0" Y="0" Z="0"/>
-        </Collider>
-        <Transform>
-            <Position X="0" Y="0" Z="0"/>
-            <Scale X="1" Y="1" Z="1"/>
             <Rotation X="0" Y="0" Z="0"/>
         </Transform>
         <Children Size="0"/>

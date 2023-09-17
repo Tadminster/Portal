@@ -2,7 +2,7 @@
     <Mesh File="grid.mesh"/>
     <Shader File="0.Cube.hlsl"/>
     <Transform>
-        <Position X="78" Y="0" Z="-11"/>
+        <Position X="80" Y="0" Z="-17"/>
         <Scale X="1" Y="1" Z="1"/>
         <Rotation X="0" Y="0" Z="0"/>
     </Transform>

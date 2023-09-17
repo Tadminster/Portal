@@ -74,13 +74,18 @@ void Scene4::Update()
     OBJECT->Update();
     GM->portal->Update();
    
+   
     
 }
 
 void Scene4::LateUpdate()
 {
     PLAYER->LateUpdate();
-    GM->portal->LateUpdate(); 
+    GM->portal->LateUpdate();
+  
+   
+
+   
 }
 
 void Scene4::Render()

@@ -175,7 +175,6 @@ void Scene3::LateUpdate()
 
     if (PLAYER->GetActor()->Find("WallCol")->Intersect(finish))
     {
-
         SCENE->ChangeScene("scene4");
     }
 
