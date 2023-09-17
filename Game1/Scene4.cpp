@@ -43,11 +43,11 @@ void Scene4::Init()
  
    
     OBJECT->AddStructure(new Structure(Metal, _4x4, Ceiling), Vector3(12, 23, 0));          // 시작위치 위쪽 천장
-    OBJECT->AddStructure(new Structure(Metal, _4x4, Floor), Vector3(12, 1, 0));             // 시작위치 바닥
     OBJECT->AddStructure(new Structure(Metal, _4x4, Wall), Vector3(0, 0, 0), 270);          // 시작위치 뒷쪽 벽
     OBJECT->AddStructure(new Structure(Metal, _4x4, Wall), Vector3(12, 0, 11));             // 시작위치 왼쪽 벽
     OBJECT->AddStructure(new Structure(Metal, _4x4, Wall), Vector3(12, 0, -11), 180);       // 시작위치 오른쪽 벽
-    OBJECT->AddStructure(new Structure(Metal, _4x4, Wall), Vector3(25, 0, 0), 90);       // 시작위치 바깥쪽 벽
+    OBJECT->AddStructure(new Structure(Metal, _4x4, Wall), Vector3(25, 0, 0), 90);          // 시작위치 바깥쪽 벽
+    OBJECT->AddStructure(new Structure(Metal, _4x4, Floor), Vector3(12, 1, 0));             // 시작위치 바닥
 
 
     PLAYER->GetActor()->rotation = Vector3(0, 90 * ToRadian, 0);
