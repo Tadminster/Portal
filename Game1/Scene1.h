@@ -2,10 +2,15 @@
 class Scene1 : public Scene
 {
 private:
-	Vector3 startPoint{ 10, 5, 0 };
+	Vector3 startPoint{ 10, 6, 0 };
+	string  bgm;
+
+
 
 	class Cube* cube;
-	class Location* nextScene;
+	class Button* button;
+	class Door* door;
+	class Actor* finish;
 
 public:
 	Scene1();

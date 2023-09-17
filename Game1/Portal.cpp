@@ -6,7 +6,6 @@
 #include "ObjectManager.h"
 #include "Portal.h"
 
-
 Portal::Portal()
 {
 	bluePortal = Actor::Create();
@@ -24,6 +23,16 @@ Portal::Portal()
 	activateP[BlueP] = false;
 	activateP[OrangeP] = false;
 
+	bluePortalSoundKey = "BluePortalSound";
+	SOUND->AddSound("BluePortalSound.wav", bluePortalSoundKey);
+
+	orangePortalSoundKey = "OrangePortalSound";
+	SOUND->AddSound("OrangePortalSound.wav", orangePortalSoundKey);
+
+	portalEnterSoundKey = "PortalEnterSound";
+	SOUND->AddSound("PortalEnterSound.wav", portalEnterSoundKey);
+
+	
 }
 
 Portal::~Portal()
@@ -122,6 +131,9 @@ void Portal::Portaling() //포탈 이동
 		//블루 -> 오렌지
 		if (PLAYER->GetActor()->Find("PortalActor")->Intersect(bluePortal->Find("collider")))
 		{ 
+			SOUND->Stop(portalEnterSoundKey);  
+			SOUND->Play(portalEnterSoundKey);  
+
 			PLAYER->SetState(PlayerState::JUMP);
 			if (orangePortal->rotation.x == 90 * ToRadian)
 			{
@@ -149,6 +161,10 @@ void Portal::Portaling() //포탈 이동
 		//오렌지 -> 블루
 		else if (PLAYER->GetActor()->Find("PortalActor")->Intersect(orangePortal->Find("collider")))
 		{
+			SOUND->Stop(portalEnterSoundKey);
+			SOUND->Play(portalEnterSoundKey);
+
+
 			PLAYER->SetState(PlayerState::JUMP);
 			if (bluePortal->rotation.x == 90 * ToRadian)
 			{
@@ -188,7 +204,7 @@ void Portal::PortalingCube(Cube* cube)//큐브 포탈이동
 		if (orangePortal->rotation.x == 90 * ToRadian)
 		{
 			cube->GetActor()->SetWorldPos(orangePortal->Find("PortalOrange")->GetWorldPos()
-				+ Vector3(0, 6, 0));
+				+ orangePortal->Find("PortalOrange")->GetForward() * -6);
 			cube->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;
 			cube->PortalJump();			
 		}
@@ -214,7 +230,7 @@ void Portal::PortalingCube(Cube* cube)//큐브 포탈이동
 		if (bluePortal->rotation.x == 90 * ToRadian)
 		{
 			cube->GetActor()->SetWorldPos(bluePortal->Find("PortalBlue")->GetWorldPos()
-				+ Vector3(0, 6, 0));
+				+ orangePortal->Find("PortalOrange")->GetForward() * -6);
 			cube->GetActor()->rotation.y += bluePortal->rotation.y - orangePortal->rotation.y + 180 * ToRadian;
 			cube->PortalJump();			
 		}
@@ -246,8 +262,13 @@ void Portal::PortalInstall() //포탈 설치
 	{
 		for (auto& feature : OBJECT->GetStructures())
 		{
-			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit))
+			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit) && feature->material == Concrete)
 			{
+				
+				SOUND->Stop(bluePortalSoundKey);  // 현재 재생 중인 사운드 중지
+				SOUND->Play(bluePortalSoundKey);  // 사운드 재생
+
+				//PlayBluePortalSoundEffect();
 				if (feature->type == StructureType::Wall)
 				{
 					bluePortal->visible = true;
@@ -277,8 +298,11 @@ void Portal::PortalInstall() //포탈 설치
 	{
 		for (auto& feature : OBJECT->GetStructures())
 		{
-			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit))
+			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit) && feature->material == Concrete)
 			{
+				SOUND->Stop(orangePortalSoundKey);  // 현재 재생 중인 사운드 중지
+				SOUND->Play(orangePortalSoundKey);  // 사운드 재생
+
 				if (feature->type == StructureType::Wall)
 				{
 					orangePortal->visible = true;
@@ -303,6 +327,22 @@ void Portal::PortalInstall() //포탈 설치
 		}
 	}
 }
+
+void Portal::PlayBluePortalSoundEffect()
+{
+	SOUND->Play(bluePortalSoundKey);
+}
+
+void Portal::PlayOrangePortalSoundEffect()
+{
+	SOUND->Play(orangePortalSoundKey);
+}
+
+void Portal::PlayPortalEnterSoundEffect()
+{
+	SOUND->Play(portalEnterSoundKey);
+}
+
 
 void Portal::HandFree(Cube* cube)
 {

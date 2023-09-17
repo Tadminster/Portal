@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Scene1.h"
-
+#include "Scene2.h"
+#include "Scene3.h"
+#include "Scene4.h"
 #include "Main.h"
 
 // [페치] 온라인에 있는 내용을 가져옴
@@ -34,7 +36,8 @@
 
 Main::Main()
 {
-    sc1 = new Scene1();
+   sc1 = new Scene1();
+ 
 }
 
 Main::~Main()
@@ -45,8 +48,8 @@ Main::~Main()
 
 void Main::Init()
 {
-    SCENE->AddScene("scene1", sc1);
-    SCENE->ChangeScene("scene1");
+   SCENE->AddScene("scene1", sc1);
+   SCENE->ChangeScene("scene1");
 }
 
 void Main::Release()

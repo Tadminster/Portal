@@ -10,10 +10,16 @@ private:
 	class Actor* bluePortal;
 	class Actor* orangePortal;
 	class Actor* ui;
-
+	string bluePortalSoundKey;
+	string orangePortalSoundKey;
+	string portalEnterSoundKey;
 
 	bool activateP[2];
 	float portalDelay;
+
+	void PlayBluePortalSoundEffect();
+	void PlayOrangePortalSoundEffect();
+	void PlayPortalEnterSoundEffect();
 
 public:
 	Portal();
@@ -31,5 +37,6 @@ public:
 	void PortalInstall();
 	
 	void HandFree(class Cube* cube);
+	
 };
 

@@ -1,0 +1,25 @@
+<Root Name="Door" Visible="true" ObType="1">
+    <Texture File="portal_door_Diff.png"/>
+    <Transform>
+        <Position X="118.95" Y="0" Z="0"/>
+        <Scale X="1" Y="1" Z="1"/>
+        <Rotation X="0" Y="1.5707964" Z="0"/>
+    </Transform>
+    <Children Size="1"/>
+    <Child0 Name="DoorMesh" Visible="true" ObType="1">
+        <Mesh File="portal_door_combined_model_lod1/door.mesh"/>
+        <Shader File="6.Cube.hlsl"/>
+        <Collider ColliderType="2" Visible="false">
+            <Position X="0" Y="50.662254" Z="0"/>
+            <Scale X="60" Y="40" Z="10"/>
+            <Rotation X="0" Y="0" Z="0"/>
+        </Collider>
+        <Texture File="portal_door_Diff.png"/>
+        <Transform>
+            <Position X="0" Y="0" Z="0"/>
+            <Scale X="0.15000001" Y="0.15099999" Z="0.15000001"/>
+            <Rotation X="0" Y="3.1415927" Z="0"/>
+        </Transform>
+        <Children Size="0"/>
+    </Child0>
+</Root>

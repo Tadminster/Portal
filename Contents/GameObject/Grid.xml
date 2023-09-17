@@ -1,8 +1,8 @@
-<Root Name="Grid" Visible="true" ObType="1">
+<Root Name="Grid" Visible="false" ObType="1">
     <Mesh File="grid.mesh"/>
     <Shader File="0.Cube.hlsl"/>
     <Transform>
-        <Position X="1" Y="0" Z="-12"/>
+        <Position X="80" Y="0" Z="-17"/>
         <Scale X="1" Y="1" Z="1"/>
         <Rotation X="0" Y="0" Z="0"/>
     </Transform>
