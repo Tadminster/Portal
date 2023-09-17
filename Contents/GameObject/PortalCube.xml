@@ -10,7 +10,8 @@
     <Child0 Name="Mesh" Visible="true" ObType="0">
         <Mesh File="Metal_box/g.mesh"/>
         <Shader File="6.Cube.hlsl"/>
-        <Collider ColliderType="2" Visible="false">
+        <Collider ColliderType="2" Visible="true">
+
             <Position X="0" Y="0" Z="0"/>
             <Scale X="18" Y="18" Z="18"/>
             <Rotation X="0" Y="0" Z="0"/>
