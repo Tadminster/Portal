@@ -26,7 +26,7 @@ Scene4::~Scene4()
 
 void Scene4::Init()
 {
-   
+    
     OBJECT->AddStructure(new Structure(Metal, _4x4, Ceiling), Vector3(12, 23, 0));          // 시작위치 위쪽 천장
     OBJECT->AddStructure(new Structure(Metal, _4x4, Floor), Vector3(12, 1, 0));             // 시작위치 바닥
     OBJECT->AddStructure(new Structure(Metal, _4x4, Wall), Vector3(0, 0, 0), 270);          // 시작위치 뒷쪽 벽
