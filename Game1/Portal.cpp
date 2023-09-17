@@ -188,7 +188,7 @@ void Portal::PortalingCube(Cube* cube)//큐브 포탈이동
 		if (orangePortal->rotation.x == 90 * ToRadian)
 		{
 			cube->GetActor()->SetWorldPos(orangePortal->Find("PortalOrange")->GetWorldPos()
-				+ Vector3(0, 6, 0));
+				+ orangePortal->Find("PortalOrange")->GetForward() * -6);
 			cube->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;
 			cube->PortalJump();			
 		}
@@ -214,7 +214,7 @@ void Portal::PortalingCube(Cube* cube)//큐브 포탈이동
 		if (bluePortal->rotation.x == 90 * ToRadian)
 		{
 			cube->GetActor()->SetWorldPos(bluePortal->Find("PortalBlue")->GetWorldPos()
-				+ Vector3(0, 6, 0));
+				+ orangePortal->Find("PortalOrange")->GetForward() * -6);
 			cube->GetActor()->rotation.y += bluePortal->rotation.y - orangePortal->rotation.y + 180 * ToRadian;
 			cube->PortalJump();			
 		}
