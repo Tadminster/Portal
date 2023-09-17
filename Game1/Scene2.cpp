@@ -20,11 +20,20 @@ Scene2::Scene2()
 
     finish = Actor::Create();
     finish->LoadFile("Finish.xml");
+
+   //SOUND->AddSound("Portal2-02-Halls_Of_Science_4.mp3", "Bgm2", true);
+   //
+   //
+   //
+   //SOUND->Play("Bgm2");
+   //
+   //SOUND->SetVolume("Bgm2", 0.15f);
+
 }
 
 Scene2::~Scene2()
 {
-
+   // SOUND->DeleteSound("Bgm2");
 }
 
 void Scene2::Init()
@@ -137,7 +146,9 @@ void Scene2::LateUpdate()
 
     if (PLAYER->GetActor()->Find("WallCol")->Intersect(finish))
     {
+       
         SCENE->ChangeScene("scene3");
+     
     }
 }
 

@@ -1,0 +1,11 @@
+<Root Name="PotatOS" Visible="true" ObType="1">
+    <Mesh File="potatOS/PotatOS.mesh"/>
+    <Shader File="6.Cube.hlsl"/>
+    <Texture File="potatOS.png"/>
+    <Transform>
+        <Position X="17.65" Y="2.25" Z="0"/>
+        <Scale X="0.2" Y="0.2" Z="0.2"/>
+        <Rotation X="-1.0995575" Y="1.9373156" Z="0"/>
+    </Transform>
+    <Children Size="0"/>
+</Root>

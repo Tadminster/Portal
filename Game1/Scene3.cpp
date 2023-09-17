@@ -18,13 +18,24 @@ Scene3::Scene3()
     Camera::main = (Camera*)PLAYER->GetActor()->Find("BodyCam");
     ResizeScreen();
 
+   
+
+
     finish = Actor::Create();
     finish->LoadFile("Finish.xml");
+
+   // SOUND->AddSound("Portal2-17-The_Reunion.mp3", "Bgm3", true);
+   //
+   // SOUND->Play("Bgm3");
+   //
+   // SOUND->SetVolume("Bgm3", 0.15f);
+
+
 }
 
 Scene3::~Scene3()
 {
-   
+    //SOUND->DeleteSound("Bgm3");
 }
 
 void Scene3::Init()
@@ -126,6 +137,10 @@ void Scene3::Release()
 void Scene3::Update()
 {
 
+    SOUND->Stop("Bgm4");
+
+
+
     // 카메라 조작 (디버그 모드일때만)
     if (GM->debugMode) Camera::ControlMainCam();
 
@@ -175,7 +190,9 @@ void Scene3::LateUpdate()
 
     if (PLAYER->GetActor()->Find("WallCol")->Intersect(finish))
     {
-        SCENE->ChangeScene("scene4");
+       
+        SCENE->ChangeScene("scene4");     
+
     }
 
 }

@@ -8,6 +8,7 @@ private:
 	class Button* button;
 	class Door* door;
 	class Actor* finish;
+
 public:
 	Scene3();
 	~Scene3();
