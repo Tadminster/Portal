@@ -281,7 +281,7 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 					bluePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
 					bluePortal->SetLocalPos(Hit );
 					bluePortal->Find("PortalBlue")->SetLocalPosZ(
-						bluePortal->Find("PortalBlue")->GetLocalPos().z - 0.01f);
+						bluePortal->Find("PortalBlue")->GetLocalPos().z - 0.1f);
 					activateP[BlueP] = true;
 				}
 				if (feature->type == StructureType::Ceiling
@@ -292,7 +292,7 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 					bluePortal->rotation.y = PLAYER->GetActor()->rotation.y;
 					bluePortal->SetLocalPos(Hit);
 					bluePortal->Find("PortalBlue")->SetLocalPosZ(
-						bluePortal->Find("PortalBlue")->GetLocalPos().z - 0.01f);
+						bluePortal->Find("PortalBlue")->GetLocalPos().z - 0.1f);
 					activateP[BlueP] = true;
 				}
 
@@ -318,7 +318,7 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 					orangePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
 					orangePortal->SetLocalPos(Hit );
 					orangePortal->Find("PortalOrange")->SetLocalPosZ(
-						orangePortal->Find("PortalOrange")->GetLocalPos().z - 0.01f);
+						orangePortal->Find("PortalOrange")->GetLocalPos().z - 0.1f);
 					activateP[OrangeP] = true;
 				}
 				if (feature->type == StructureType::Ceiling
@@ -329,7 +329,7 @@ void Portal::PortalInstall() //Æ÷Å» ¼³Ä¡
 					orangePortal->rotation.y = PLAYER->GetActor()->rotation.y;
 					orangePortal->SetLocalPos(Hit);
 					orangePortal->Find("PortalOrange")->SetLocalPosZ(
-						orangePortal->Find("PortalOrange")->GetLocalPos().z - 0.01f);
+						orangePortal->Find("PortalOrange")->GetLocalPos().z - 0.1f);
 					activateP[OrangeP] = true;
 				}
 
