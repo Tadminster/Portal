@@ -262,46 +262,63 @@ void Portal::PortalInstall() //포탈 설치
 	Ray Up;
 	Up = Utility::MouseToRay();
 	Vector3 Hit;
-	
+	Vector3 LastHitB = Vector3(0,0,0);
+	Structure* saveFeatureB = nullptr;
 	//좌클릭 블루포탈 생성
 	if (INPUT->KeyDown(VK_LBUTTON))
 	{
 		for (auto& feature : OBJECT->GetStructures())
 		{
 			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit) && feature->material == Concrete)
-			{
-				
-				SOUND->Stop(bluePortalSoundKey);  // 현재 재생 중인 사운드 중지
-				SOUND->Play(bluePortalSoundKey);  // 사운드 재생
-
-				//PlayBluePortalSoundEffect();
-				if (feature->type == StructureType::Wall)
+			{							
+				if (LastHitB == Vector3(0, 0, 0))
 				{
-					bluePortal->visible = true;
-					bluePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
-					bluePortal->SetLocalPos(Hit );
-					bluePortal->Find("PortalBlue")->SetLocalPosZ(
-						bluePortal->Find("PortalBlue")->GetLocalPos().z - 0.1f);
-					activateP[BlueP] = true;
-				}
-				if (feature->type == StructureType::Ceiling
-					|| feature->type == StructureType::Floor)
-				{
-					bluePortal->visible = true;
-					bluePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
-					bluePortal->rotation.y = PLAYER->GetActor()->rotation.y;
-					bluePortal->SetLocalPos(Hit);
-					bluePortal->Find("PortalBlue")->SetLocalPosZ(
-						bluePortal->Find("PortalBlue")->GetLocalPos().z - 0.1f);
-					activateP[BlueP] = true;
+					LastHitB = Hit;
+					saveFeatureB = feature;
 				}
 
-				bluePortal->Update();
-				//spaceCheck(bluePortal, BlueP);
-			}
+				if ((LastHitB - PLAYER->GetActor()->GetWorldPos()).Length() >=
+					(Hit - PLAYER->GetActor()->GetWorldPos()).Length())
+				{
+					LastHitB = Hit;
+					saveFeatureB = feature;
+				}									
+			}			
 		}
+		if (saveFeatureB!= nullptr )
+		{
+			SOUND->Stop(bluePortalSoundKey);  // 현재 재생 중인 사운드 중지
+			SOUND->Play(bluePortalSoundKey);  // 사운드 재생
+			//PlayBluePortalSoundEffect();
+			if (saveFeatureB->type == StructureType::Wall)
+			{
+				bluePortal->visible = true;
+				bluePortal->rotation = saveFeatureB->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
+				bluePortal->SetWorldPos(LastHitB);
+				/*bluePortal->Find("PortalBlue")->SetWorldPosZ(
+					bluePortal->Find("PortalBlue")->GetLocalPos().z - 0.1f);*/
+				activateP[BlueP] = true;
+			}
+			if (saveFeatureB->type == StructureType::Ceiling
+				|| saveFeatureB->type == StructureType::Floor)
+			{
+				bluePortal->visible = true;
+				bluePortal->rotation = saveFeatureB->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
+				bluePortal->rotation.y = PLAYER->GetActor()->rotation.y;
+				bluePortal->SetWorldPos(LastHitB);
+				/*bluePortal->Find("PortalBlue")->SetWorldPosZ(
+					abluePortal->Find("PortalBlue")->GetLocalPos().z - 0.1f);*/
+				activateP[BlueP] = true;
+			}
+
+			bluePortal->Update();
+			//spaceCheck(bluePortal, BlueP);
+		}
+		
 	}
 	
+	Vector3 LastHitO = Vector3(0, 0, 0);
+	Structure* saveFeatureO = nullptr;
 	//우클릭 오렌지포탈 생성
 	if (INPUT->KeyDown(VK_RBUTTON))
 	{
@@ -309,34 +326,52 @@ void Portal::PortalInstall() //포탈 설치
 		{
 			if (feature->GetActor()->Find("Mesh")->Intersect(Up, Hit) && feature->material == Concrete)
 			{
-				SOUND->Stop(orangePortalSoundKey);  // 현재 재생 중인 사운드 중지
-				SOUND->Play(orangePortalSoundKey);  // 사운드 재생
-
-				if (feature->type == StructureType::Wall)
+				if (LastHitO == Vector3(0, 0, 0))
 				{
-					orangePortal->visible = true;
-					orangePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
-					orangePortal->SetLocalPos(Hit );
-					orangePortal->Find("PortalOrange")->SetLocalPosZ(
-						orangePortal->Find("PortalOrange")->GetLocalPos().z - 0.1f);
-					activateP[OrangeP] = true;
-				}
-				if (feature->type == StructureType::Ceiling
-					|| feature->type == StructureType::Floor)
-				{
-					orangePortal->visible = true;
-					orangePortal->rotation = feature->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
-					orangePortal->rotation.y = PLAYER->GetActor()->rotation.y;
-					orangePortal->SetLocalPos(Hit);
-					orangePortal->Find("PortalOrange")->SetLocalPosZ(
-						orangePortal->Find("PortalOrange")->GetLocalPos().z - 0.1f);
-					activateP[OrangeP] = true;
+					LastHitO = Hit;
+					saveFeatureO = feature;
 				}
 
-				orangePortal->Update();
-				//spaceCheck(orangePortal, OrangeP);
+				if ((LastHitO - PLAYER->GetActor()->GetWorldPos()).Length() >=
+					(Hit - PLAYER->GetActor()->GetWorldPos()).Length())
+				{
+					LastHitO = Hit;
+					saveFeatureO = feature;
+				}
+				
 			}
 		}
+
+		if (saveFeatureO!= nullptr)
+		{
+			SOUND->Stop(orangePortalSoundKey);  // 현재 재생 중인 사운드 중지
+			SOUND->Play(orangePortalSoundKey);  // 사운드 재생
+
+			if (saveFeatureO->type == StructureType::Wall)
+			{
+				orangePortal->visible = true;
+				orangePortal->rotation = saveFeatureO->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
+				orangePortal->SetWorldPos(LastHitO);
+				/*orangePortal->Find("PortalOrange")->SetLocalPosZ(
+					orangePortal->Find("PortalOrange")->GetLocalPos().z - 0.1f);*/
+				activateP[OrangeP] = true;
+			}
+			if (saveFeatureO->type == StructureType::Ceiling
+				|| saveFeatureO->type == StructureType::Floor)
+			{
+				orangePortal->visible = true;
+				orangePortal->rotation = saveFeatureO->GetActor()->rotation + Vector3(-90 * ToRadian, 0, 0);
+				orangePortal->rotation.y = PLAYER->GetActor()->rotation.y;
+				orangePortal->SetWorldPos(LastHitO);
+				/*orangePortal->Find("PortalOrange")->SetLocalPosZ(
+					orangePortal->Find("PortalOrange")->GetLocalPos().z - 0.1f);*/
+				activateP[OrangeP] = true;
+			}
+
+			orangePortal->Update();
+			//spaceCheck(orangePortal, OrangeP);
+		}
+		
 	}
 }
 

@@ -1,8 +1,8 @@
 <Root Name="PortalO" Visible="true" ObType="1">
     <Transform>
-        <Position X="60.17873" Y="22.139957" Z="46.999817"/>
+        <Position X="45.424732" Y="6.384532" Z="-46.999996"/>
         <Scale X="1" Y="1" Z="1"/>
-        <Rotation X="0" Y="0" Z="0"/>
+        <Rotation X="0" Y="3.1415758" Z="0"/>
     </Transform>
     <Children Size="1"/>
     <Child0 Name="PortalOrange" Visible="true" ObType="1">
@@ -10,7 +10,7 @@
         <Shader File="6.Cube.hlsl"/>
         <Texture File="portal/portal_orange_outline.png"/>
         <Transform>
-            <Position X="0" Y="1" Z="-0.54000002"/>
+            <Position X="0" Y="1" Z="-0.5"/>
             <Scale X="3" Y="6" Z="0.001"/>
             <Rotation X="0" Y="0" Z="0"/>
         </Transform>

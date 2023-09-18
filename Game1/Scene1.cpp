@@ -42,7 +42,7 @@ void Scene1::Init()
     SCENE->AddScene("scene2", sc2);
 
     cube = new Cube();
-    cube->GetActor()->SetWorldPos(Vector3(100, 10, -30));
+    cube->GetActor()->SetWorldPos(Vector3(100, 5, -30));
 
     button = new Button();
     door = new Door(); 

@@ -1,8 +1,8 @@
 <Root Name="PortalB" Visible="true" ObType="1">
     <Transform>
-        <Position X="36.871315" Y="1.0000666" Z="3.9766784"/>
+        <Position X="27.233883" Y="0.99948579" Z="-30.579531"/>
         <Scale X="1" Y="1" Z="1"/>
-        <Rotation X="1.5707879" Y="-0.81221044" Z="0"/>
+        <Rotation X="1.5707879" Y="2.9017231" Z="0"/>
     </Transform>
     <Children Size="1"/>
     <Child0 Name="PortalBlue" Visible="true" ObType="1">
@@ -10,7 +10,7 @@
         <Shader File="6.Cube.hlsl"/>
         <Texture File="portal/portal_blue_outline.png"/>
         <Transform>
-            <Position X="0" Y="1" Z="-1.3400002"/>
+            <Position X="0" Y="1" Z="-0.5"/>
             <Scale X="3" Y="6" Z="0.001"/>
             <Rotation X="0" Y="0" Z="0"/>
         </Transform>
