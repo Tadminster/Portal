@@ -54,18 +54,18 @@ void Portal::Update()
 	if (activateP[BlueP] == true and activateP[OrangeP] == true)
 	{
 		// Close 이미지 보이게
-		bluePortal->Find("Close")->visible = true;
-		orangePortal->Find("Close")->visible = true;
+		bluePortal->Find("CloseB")->visible = true;
+		orangePortal->Find("CloseO")->visible = true;
 
 		// 이미지 움직이기
-		bluePortal->Find("Close")->mesh->AnimationDown();
-		orangePortal->Find("Close")->mesh->AnimationUp();
+		bluePortal->Find("CloseB")->mesh->AnimationDown();
+		orangePortal->Find("CloseO")->mesh->AnimationDown();
 		
 	}
 	else
 	{
-		bluePortal->Find("Close")->visible = false;
-		orangePortal->Find("Close")->visible = false;
+		bluePortal->Find("CloseB")->visible = false;
+		orangePortal->Find("CloseO")->visible = false;
 	}
 
 	//포탈 초기화
@@ -101,7 +101,7 @@ void Portal::Update()
 	//<< orangePortal->Find("PortalOrange")->GetForward().y<< "  "
 	//<< orangePortal->Find("PortalOrange")->GetForward().z << endl;
 	//포탈 Close 이미지 애니매이션
-
+	
 
 	bluePortal->Update();
 	orangePortal->Update();
@@ -120,8 +120,7 @@ void Portal::LateUpdate()
 
 void Portal::Render()
 {
-	bluePortal->Find("Close")->mesh->AnimationDown();
-	orangePortal->Find("Close")->mesh->AnimationUp();
+	
 	bluePortal->Render();
 	orangePortal->Render();
 

@@ -496,7 +496,9 @@ void Mesh::RenderDetail()
             }
 
             VertexPT* vertex = (VertexPT*)vertices;
-            
+            /*vertex[i].uv.y += DELTA * 0.1f;
+            D3D->GetDC()->UpdateSubresource
+            (vertexBuffer, 0, NULL, vertices, 0, 0);*/
                   
             //string str = "pos" + to_string(i);
             /*if (ImGui::SliderFloat3(str.c_str(), (float*)

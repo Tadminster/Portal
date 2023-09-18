@@ -15,7 +15,7 @@
             <Rotation X="0" Y="0" Z="0"/>
         </Transform>
         <Children Size="7"/>
-        <Child0 Name="Close" Visible="false" ObType="0">
+        <Child0 Name="CloseB" Visible="false" ObType="0">
             <Mesh File="6.CloseDown.mesh"/>
             <Shader File="6.Cube.hlsl"/>
             <Texture File="portal/portal_blue_close.png"/>
