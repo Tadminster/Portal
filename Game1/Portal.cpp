@@ -50,18 +50,22 @@ void Portal::Update()
 
 	ui->RenderHierarchy();
 
-	//양쪽 포탈이 활성시 Close 이미지 투명화
+	//양쪽 포탈이 활성화 되었을 때
 	if (activateP[BlueP] == true and activateP[OrangeP] == true)
 	{
-		bluePortal->Find("Close")->visible = false;
-		orangePortal->Find("Close")->visible = false;
+		// Close 이미지 보이게
+		bluePortal->Find("Close")->visible = true;
+		orangePortal->Find("Close")->visible = true;
+
+		// 이미지 움직이기
+		bluePortal->Find("Close")->mesh->AnimationDown();
+		orangePortal->Find("Close")->mesh->AnimationUp();
 		
 	}
 	else
 	{
-		bluePortal->Find("Close")->visible = true;
-		orangePortal->Find("Close")->visible = true;
-
+		bluePortal->Find("Close")->visible = false;
+		orangePortal->Find("Close")->visible = false;
 	}
 
 	//포탈 초기화
@@ -97,7 +101,7 @@ void Portal::Update()
 	//<< orangePortal->Find("PortalOrange")->GetForward().y<< "  "
 	//<< orangePortal->Find("PortalOrange")->GetForward().z << endl;
 	//포탈 Close 이미지 애니매이션
-	//bluePortal->Find("Close")
+
 
 	bluePortal->Update();
 	orangePortal->Update();
