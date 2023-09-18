@@ -36,7 +36,7 @@
             <Children Size="0"/>
         </Child1>
         <Child2 Name="collider" Visible="true" ObType="1">
-            <Collider ColliderType="2" Visible="true">
+            <Collider ColliderType="2" Visible="false">
                 <Position X="0" Y="0" Z="-99.999985"/>
                 <Scale X="1" Y="1" Z="100"/>
                 <Rotation X="0" Y="0" Z="0"/>
@@ -49,9 +49,9 @@
             <Children Size="0"/>
         </Child2>
         <Child3 Name="collider_LB" Visible="true" ObType="0">
-            <Collider ColliderType="2" Visible="true">
+            <Collider ColliderType="2" Visible="false">
                 <Position X="-0.89999992" Y="-0.94984281" Z="0"/>
-                <Scale X="0.1" Y="0.050000001" Z="200"/>
+                <Scale X="0.1" Y="0.050000001" Z="300"/>
                 <Rotation X="0" Y="0" Z="0"/>
             </Collider>
             <Transform>
@@ -62,9 +62,9 @@
             <Children Size="0"/>
         </Child3>
         <Child4 Name="collider_LT" Visible="true" ObType="0">
-            <Collider ColliderType="2" Visible="true">
+            <Collider ColliderType="2" Visible="false">
                 <Position X="-0.89999992" Y="0.94984281" Z="0"/>
-                <Scale X="0.1" Y="0.050000001" Z="200"/>
+                <Scale X="0.1" Y="0.050000001" Z="300"/>
                 <Rotation X="0" Y="0" Z="0"/>
             </Collider>
             <Transform>
@@ -74,10 +74,10 @@
             </Transform>
             <Children Size="0"/>
         </Child4>
-        <Child5 Name="collider_RB" Visible="true" ObType="0">
-            <Collider ColliderType="2" Visible="true">
+        <Child5 Name="collider_RB" Visible="false" ObType="0">
+            <Collider ColliderType="2" Visible="false">
                 <Position X="0.89999986" Y="-0.94999987" Z="0"/>
-                <Scale X="0.1" Y="0.050000001" Z="200"/>
+                <Scale X="0.1" Y="0.050000001" Z="300"/>
                 <Rotation X="0" Y="0" Z="0"/>
             </Collider>
             <Transform>
@@ -87,10 +87,10 @@
             </Transform>
             <Children Size="0"/>
         </Child5>
-        <Child6 Name="collider_RT" Visible="true" ObType="0">
-            <Collider ColliderType="2" Visible="true">
+        <Child6 Name="collider_RT" Visible="false" ObType="0">
+            <Collider ColliderType="2" Visible="false">
                 <Position X="0.89999986" Y="0.94999987" Z="0"/>
-                <Scale X="0.1" Y="0.050000001" Z="200"/>
+                <Scale X="0.1" Y="0.050000001" Z="300"/>
                 <Rotation X="0" Y="0" Z="0"/>
             </Collider>
             <Transform>

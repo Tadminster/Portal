@@ -21,6 +21,8 @@ private:
 	void PlayOrangePortalSoundEffect();
 	void PlayPortalEnterSoundEffect();
 
+	void spaceCheck(Actor* portal, int portalNumber);
+
 public:
 	Portal();
 	~Portal();

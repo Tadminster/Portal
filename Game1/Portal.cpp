@@ -146,8 +146,7 @@ void Portal::Portaling() //포탈 이동
 			{
 				PLAYER->GetActor()->SetWorldPos(orangePortal->Find("PortalOrange")->GetWorldPos()
 					+ orangePortal->Find("PortalOrange")->GetForward() * -7);
-				PLAYER->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;
-								
+				PLAYER->GetActor()->rotation.y += orangePortal->rotation.y - bluePortal->rotation.y + 180 * ToRadian;	
 			}
 			else
 			{
@@ -292,7 +291,10 @@ void Portal::PortalInstall() //포탈 설치
 					bluePortal->Find("PortalBlue")->SetLocalPosZ(
 						bluePortal->Find("PortalBlue")->GetLocalPos().z - 0.01f);
 					activateP[BlueP] = true;
-				}			
+				}
+
+				bluePortal->Update();
+				//spaceCheck(bluePortal, BlueP);
 			}
 		}
 	}
@@ -327,6 +329,9 @@ void Portal::PortalInstall() //포탈 설치
 						orangePortal->Find("PortalOrange")->GetLocalPos().z - 0.01f);
 					activateP[OrangeP] = true;
 				}
+
+				orangePortal->Update();
+				//spaceCheck(orangePortal, OrangeP);
 			}
 		}
 	}
@@ -345,6 +350,45 @@ void Portal::PlayOrangePortalSoundEffect()
 void Portal::PlayPortalEnterSoundEffect()
 {
 	SOUND->Play(portalEnterSoundKey);
+}
+
+void Portal::spaceCheck(Actor* portal, int portalNumber)
+{
+	bool edgeLT = false;
+	bool edgeRT = false;
+	bool edgeLB = false;
+	bool edgeRB = false;
+
+	// 네 모서리 콜라이더가 벽과 겹치는지 확인
+	for (auto& it : OBJECT->GetStructures())
+	{
+		if (!edgeLT && portal->Find("collider_LT")->Intersect(it->GetActor()->Find("Mesh")))
+		{
+			edgeLT = true;
+		}
+		if (!edgeRT && portal->Find("collider_RT")->Intersect(it->GetActor()->Find("Mesh")))
+		{
+			edgeRT = true;
+		}
+		if (!edgeLB && portal->Find("collider_LB")->Intersect(it->GetActor()->Find("Mesh")))
+		{
+			edgeLB = true;
+		}
+		if (!edgeRB && portal->Find("collider_RB")->Intersect(it->GetActor()->Find("Mesh")))
+		{
+			edgeRB = true;
+		}
+	}
+	cout << "LT: " << edgeLT << endl;
+	cout << "RT: " << edgeRT << endl;
+	cout << "LB: " << edgeLB << endl;
+	cout << "RB: " << edgeRB << endl << endl;
+	// 네 모서리가 벽과 겹치지 않았으면
+	if (!edgeLT || !edgeRT || !edgeLB || !edgeRB)
+	{
+		portal->visible = false;
+		activateP[portalNumber] = false;
+	}
 }
 
 
