@@ -27,6 +27,7 @@ Scene1::Scene1()
     SOUND->Play("Bgm1");
 
     SOUND->SetVolume("Bgm1", 0.15f);
+    PLAYER->SetState(PlayerState::SPAWN);
 
 }
 

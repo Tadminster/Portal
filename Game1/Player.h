@@ -1,5 +1,6 @@
 enum class PlayerState
 {
+	SPAWN,
 	IDLE,
 	RUN,
 	JUMP,
