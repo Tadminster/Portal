@@ -1,5 +1,6 @@
 enum class PlayerState
 {
+	SPAWN,
 	IDLE,
 	RUN,
 	JUMP,
@@ -39,6 +40,7 @@ public:
 	virtual Vector3 GetlastPos() { return lastPos; };
 
 	virtual void SetState(PlayerState state) { this->state = state; };
+	virtual PlayerState GetState() { return state; };
 	virtual void SetBounceDir(Vector3 dir) { bounceDir = dir; };
 	bool    isCatch{ false };
 };

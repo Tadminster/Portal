@@ -27,6 +27,7 @@ Scene1::Scene1()
     SOUND->Play("Bgm1");
 
     SOUND->SetVolume("Bgm1", 0.15f);
+    PLAYER->SetState(PlayerState::SPAWN);
 
 }
 
@@ -41,7 +42,7 @@ void Scene1::Init()
     SCENE->AddScene("scene2", sc2);
 
     cube = new Cube();
-    cube->GetActor()->SetWorldPos(Vector3(100, 10, -30));
+    cube->GetActor()->SetWorldPos(Vector3(100, 5, -30));
 
     button = new Button();
     door = new Door(); 

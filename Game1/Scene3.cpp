@@ -123,6 +123,7 @@ void Scene3::Init()
     PLAYER->GetActor()->rotation = Vector3(0, 90 * ToRadian, 0);
     PLAYER->GetActor()->Find("Player2")->rotation = Vector3(0, 0, 0);
     PLAYER->GetActor()->SetWorldPos(startPoint);
+    PLAYER->SetState(PlayerState::SPAWN);
 }
 
 void Scene3::Release()

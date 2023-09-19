@@ -1,8 +1,8 @@
 <Root Name="PortalB" Visible="true" ObType="1">
     <Transform>
-        <Position X="48.572815" Y="11.465333" Z="-46.999897"/>
+        <Position X="27.233883" Y="0.99948579" Z="-30.579531"/>
         <Scale X="1" Y="1" Z="1"/>
-        <Rotation X="0" Y="3.1415758" Z="0"/>
+        <Rotation X="1.5707879" Y="2.9017231" Z="0"/>
     </Transform>
     <Children Size="1"/>
     <Child0 Name="PortalBlue" Visible="true" ObType="1">
@@ -10,17 +10,17 @@
         <Shader File="6.Cube.hlsl"/>
         <Texture File="portal/portal_blue_outline.png"/>
         <Transform>
-            <Position X="0" Y="1" Z="-0.24000004"/>
+            <Position X="0" Y="1" Z="-0.5"/>
             <Scale X="3" Y="6" Z="0.001"/>
             <Rotation X="0" Y="0" Z="0"/>
         </Transform>
-        <Children Size="3"/>
-        <Child0 Name="Close" Visible="false" ObType="0">
+        <Children Size="7"/>
+        <Child0 Name="CloseB" Visible="true" ObType="0">
             <Mesh File="6.CloseDown.mesh"/>
             <Shader File="6.Cube.hlsl"/>
             <Texture File="portal/portal_blue_close.png"/>
             <Transform>
-                <Position X="0" Y="0" Z="-9.999999"/>
+                <Position X="0" Y="0" Z="-49.999992"/>
                 <Scale X="0.89999998" Y="0.89999998" Z="1"/>
                 <Rotation X="0" Y="0" Z="0"/>
             </Transform>
@@ -36,9 +36,9 @@
             <Children Size="0"/>
         </Child1>
         <Child2 Name="collider" Visible="true" ObType="1">
-            <Collider ColliderType="2" Visible="true">
-                <Position X="0" Y="0" Z="-199.99997"/>
-                <Scale X="1" Y="1" Z="1"/>
+            <Collider ColliderType="2" Visible="false">
+                <Position X="0" Y="0" Z="-99.999985"/>
+                <Scale X="1" Y="1" Z="100"/>
                 <Rotation X="0" Y="0" Z="0"/>
             </Collider>
             <Transform>
@@ -48,5 +48,57 @@
             </Transform>
             <Children Size="0"/>
         </Child2>
+        <Child3 Name="collider_LB" Visible="true" ObType="0">
+            <Collider ColliderType="2" Visible="false">
+                <Position X="-0.89999992" Y="-0.94984281" Z="0"/>
+                <Scale X="0.1" Y="0.050000001" Z="300"/>
+                <Rotation X="0" Y="0" Z="0"/>
+            </Collider>
+            <Transform>
+                <Position X="0" Y="0" Z="0"/>
+                <Scale X="1" Y="1" Z="1"/>
+                <Rotation X="0" Y="0" Z="0"/>
+            </Transform>
+            <Children Size="0"/>
+        </Child3>
+        <Child4 Name="collider_LT" Visible="true" ObType="0">
+            <Collider ColliderType="2" Visible="false">
+                <Position X="-0.89999992" Y="0.94984281" Z="0"/>
+                <Scale X="0.1" Y="0.050000001" Z="300"/>
+                <Rotation X="0" Y="0" Z="0"/>
+            </Collider>
+            <Transform>
+                <Position X="0" Y="0" Z="0"/>
+                <Scale X="1" Y="1" Z="1"/>
+                <Rotation X="0" Y="0" Z="0"/>
+            </Transform>
+            <Children Size="0"/>
+        </Child4>
+        <Child5 Name="collider_RB" Visible="false" ObType="0">
+            <Collider ColliderType="2" Visible="false">
+                <Position X="0.89999986" Y="-0.94999987" Z="0"/>
+                <Scale X="0.1" Y="0.050000001" Z="300"/>
+                <Rotation X="0" Y="0" Z="0"/>
+            </Collider>
+            <Transform>
+                <Position X="0" Y="0" Z="0"/>
+                <Scale X="1" Y="1" Z="1"/>
+                <Rotation X="0" Y="0" Z="0"/>
+            </Transform>
+            <Children Size="0"/>
+        </Child5>
+        <Child6 Name="collider_RT" Visible="false" ObType="0">
+            <Collider ColliderType="2" Visible="false">
+                <Position X="0.89999986" Y="0.94999987" Z="0"/>
+                <Scale X="0.1" Y="0.050000001" Z="300"/>
+                <Rotation X="0" Y="0" Z="0"/>
+            </Collider>
+            <Transform>
+                <Position X="0" Y="0" Z="0"/>
+                <Scale X="1" Y="1" Z="1"/>
+                <Rotation X="0" Y="0" Z="0"/>
+            </Transform>
+            <Children Size="0"/>
+        </Child6>
     </Child0>
 </Root>

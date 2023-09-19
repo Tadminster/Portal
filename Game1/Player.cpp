@@ -68,8 +68,12 @@ void Player::Update()
 		// 땅에 닿아있지 않으면 중력 증가 (최대 200)
 		gravity = clamp( gravity - 50.0f * DELTA,-200.0f,200.0f);
 		
-		// 중력에 따라 플레이어 상하이동
-		actor->MoveWorldPos(actor->GetUp() * gravity * DELTA);
+		if (!(state == PlayerState::SPAWN))
+		{
+			// 중력에 따라 플레이어 상하이동
+			actor->MoveWorldPos(actor->GetUp() * gravity * DELTA);
+
+		}
 	}
 
 	if (bounceSpeed > 0)
@@ -155,6 +159,26 @@ void Player::Control()
 	dir = Vector3();
 	
 	
+	if (state == PlayerState::SPAWN)
+	{
+		if (INPUT->KeyDown('W'))
+		{
+			state = PlayerState::IDLE;
+		}
+		if (INPUT->KeyDown('S'))
+		{
+			state = PlayerState::IDLE;
+		}
+
+		if (INPUT->KeyDown('A'))
+		{
+			state = PlayerState::IDLE;
+		}
+		if (INPUT->KeyDown('D'))
+		{
+			state = PlayerState::IDLE;
+		}
+	}
 
 	if (state == PlayerState::IDLE)
 	{
