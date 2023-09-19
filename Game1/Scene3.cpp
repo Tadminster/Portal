@@ -48,7 +48,7 @@ void Scene3::Init()
     button = new Button();
     door = new Door();
 
-    cube->GetActor()->SetWorldPos(Vector3(124, 35, 36));
+    cube->GetActor()->SetWorldPos(Vector3(124, 48, 36));
     door->GetActor()->SetWorldPos(Vector3(195, 24, 0));
     button->GetActor()->SetWorldPos(Vector3(144, 2.4, 22.6));
     finish->SetWorldPos(Vector3(208, 31,0));
@@ -141,21 +141,21 @@ void Scene3::Update()
     // 카메라 조작 (디버그 모드일때만)
     if (GM->debugMode) Camera::ControlMainCam();
 
-   // ImGui::Begin("Hierarchy");
-   // {
-   //     GM->grid->RenderHierarchy();
-   //     GM->cam1->RenderHierarchy();
-   //     PLAYER->GetActor()->RenderHierarchy();
-   //     OBJECT->RenderHierarchy();
-   //     GM->portal->GetBluePortal()->RenderHierarchy();
-   //     GM->portal->GetOrangePortal()->RenderHierarchy();
-   //     cube->GetActor()->RenderHierarchy();
-   //     button->GetActor()->RenderHierarchy();
-   //     door->GetActor()->RenderHierarchy();
-   //     finish->RenderHierarchy();
-   // }
-   // ImGui::End();
-   //
+    ImGui::Begin("Hierarchy");
+    {
+        GM->grid->RenderHierarchy();
+        GM->cam1->RenderHierarchy();
+        PLAYER->GetActor()->RenderHierarchy();
+        OBJECT->RenderHierarchy();
+        GM->portal->GetBluePortal()->RenderHierarchy();
+        GM->portal->GetOrangePortal()->RenderHierarchy();
+        cube->GetActor()->RenderHierarchy();
+        button->GetActor()->RenderHierarchy();
+        door->GetActor()->RenderHierarchy();
+        finish->RenderHierarchy();
+    }
+    ImGui::End();
+   
     GM->grid->Update();
     Camera::main->Update();
 
