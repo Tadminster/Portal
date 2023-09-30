@@ -5,8 +5,6 @@ private:
 	Vector3 startPoint{ 10, 6, 0 };
 	string  bgm;
 
-
-
 	class Cube* cube;
 	class Button* button;
 	class Door* door;

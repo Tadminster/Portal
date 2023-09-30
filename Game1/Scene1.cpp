@@ -66,8 +66,8 @@ void Scene1::Init()
 
     OBJECT->AddStructure(new Structure(Concrete, _4x4, Wall), Vector3(72, -24, 48));                // 떨어지는 곳 왼쪽
     OBJECT->AddStructure(new Structure(Concrete, _4x4, Wall), Vector3(72, -24, -48), 180);          // 떨어지는 곳 오른쪽 벽
-    OBJECT->AddStructure(new Structure(Concrete, _16x4, Wall), Vector3(59.001f, -59.01f, 0), 270); // 떨어지는 곳 시작위치 쪽 벽
-    OBJECT->AddStructure(new Structure(Concrete, _16x4, Wall), Vector3(84.999f, -59.01f, 0), 90);  // 떨어지는 곳 도착위치 쪽 벽
+    OBJECT->AddStructure(new Structure(Concrete, _16x4, Wall), Vector3(59.001f, -59.01f, 0), 270);  // 떨어지는 곳 시작위치 쪽 벽
+    OBJECT->AddStructure(new Structure(Concrete, _16x4, Wall), Vector3(84.999f, -59.01f, 0), 90);   // 떨어지는 곳 도착위치 쪽 벽
 
 
     OBJECT->AddStructure(new Structure(Concrete, _4x4, Wall), Vector3(120, 24, 0), 90);     // 도작위치 들어가기 전 바로 위쪽 벽
@@ -80,9 +80,9 @@ void Scene1::Init()
     OBJECT->AddStructure(new Structure(Metal, _4x4, Wall), Vector3(131, 0, -11), 180);      // 도착위치 오른쪽 벽
     
 
-    OBJECT->AddStructure(new Structure(Concrete, _16x4, Floor), Vector3(72, -24, 0), 90);      // 떨어지는 곳 바닥
+    OBJECT->AddStructure(new Structure(Concrete, _16x4, Floor), Vector3(72, -24, 0), 90);   // 떨어지는 곳 바닥
     OBJECT->AddStructure(new Structure(Concrete, _16x16, Floor), Vector3(12, 0, 0));        // 바닥1
-    OBJECT->AddStructure(new Structure(Metal, _16x16, Floor), Vector3(132.01f, 0, 0));       // 바닥2
+    OBJECT->AddStructure(new Structure(Metal, _16x16, Floor), Vector3(132.01f, 0, 0));      // 바닥2
 
     PLAYER->GetActor()->rotation = Vector3(0, 90 * ToRadian, 0);
     PLAYER->GetActor()->Find("Player2")->rotation = Vector3(0, 0, 0);
